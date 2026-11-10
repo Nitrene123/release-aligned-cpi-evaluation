@@ -1,0 +1,45 @@
+{
+  "test_type": "seeded property-based and metamorphic contract tests",
+  "generator": "Python standard-library random.Random; deterministic seed; no Hypothesis dependency",
+  "seed": 8349917,
+  "per_property_trials": 125,
+  "total_trials": 500,
+  "checker_executions": 625,
+  "passed": 500,
+  "failed": 0,
+  "properties": {
+    "timezone_equivalence": {
+      "trials": 125,
+      "passed": 125,
+      "failed": 0
+    },
+    "release_cutoff_boundary": {
+      "trials": 125,
+      "passed": 125,
+      "failed": 0,
+      "expected_pass": 57,
+      "expected_reject": 68,
+      "observed_pass_for_expected_pass": 57,
+      "observed_reject_for_expected_reject": 68
+    },
+    "csv_format_and_row_permutation": {
+      "trials": 125,
+      "passed": 125,
+      "failed": 0
+    },
+    "target_mapping_metamorphic": {
+      "trials": 125,
+      "passed": 125,
+      "failed": 0,
+      "valid_bundle_passed": 125,
+      "mutated_bundle_rejected": 125
+    }
+  },
+  "failure_examples": [],
+  "frozen_rae_sha256": "a18a33b917ef1b98c1c236c6d896db283615cf74d5a30e8f4c1d316b36f5bdb9",
+  "limits": [
+    "Seeded finite generation is not exhaustive.",
+    "No automatic counterexample shrinking is provided.",
+    "Results describe the stated schema and generated domain only."
+  ]
+}

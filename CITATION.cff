@@ -1,10 +1,10 @@
 cff-version: 1.2.0
 message: "If you use this software or derived results, please cite the associated article."
-title: "Release-Aligned Auditing for High-Confidence Evaluation of Time-Series Forecasts: Evidence from CPI and Industrial Production"
+title: "Release-Aligned Evaluation for High-Confidence Auditing of Time-Series Forecasts: Evidence from CPI and Industrial Production"
 version: 1.0.0
 date-released: 2026-11-10
 license: MIT
-abstract: "Chao Liu and Yanbin Zhang contributed equally. The repository provides release-aligned audit code, experiment scripts, configurations, tests, and derived results for CPI forecasting evaluation."
+abstract: "The repository provides release-aligned audit code, forecasting experiments, configurations, synthetic fault benchmarks, a held-out generalization suite, validation tests, and derived results for CPI and industrial-production evaluation. Chao Liu and Yanbin Zhang contributed equally."
 authors:
   - family-names: Liu
     given-names: Chao

@@ -1,4 +1,4 @@
-# Release-Aligned Auditing for High-Confidence Evaluation of Time-Series Forecasts: Evidence from CPI and Industrial Production
+# Release-Aligned Evaluation for High-Confidence Auditing of Time-Series Forecasts: Evidence from CPI and Industrial Production
 
 This repository contains the study's point-in-time audit implementation, synthetic information-violation benchmark, rolling forecast and scoring code, experiment configurations, validation tests, and target-free derived outputs. Chao Liu and Yanbin Zhang contributed equally.
 
@@ -6,6 +6,7 @@ This repository contains the study's point-in-time audit implementation, synthet
 
 - A reusable release-aligned input-contract auditor, its [input/output schema](src/rae/PIT_AUDIT_README.md), synthetic example, and 19 contract tests.
 - An independently generated 800-case information-violation benchmark, a Feast feature-retrieval comparison, and a complete 2^5 computational ablation (32 configurations and 25,600 audit calls).
+- A case-held-out fault-generalization suite with 200 synthetic bundles, plus 500 seeded property and metamorphic trials. The frozen checker flagged 138/150 faulted cases (92.0% recall), with 100% precision and no false alarms among 50 clean controls.
 - China and U.S. CPI experiment code, frozen protocols, target-free per-origin losses, forecast archives, coverage summaries, and paired uncertainty outputs.
 - IPT vintage-stress, P0–P3 diagnostic, ETS/Theta, and Timestral experiment code with derived results.
 - Figure-generation scripts and the derived metric tables used by them.
@@ -20,6 +21,8 @@ python src/rae/audit_point_in_time.py src/rae/example_pit_bundle.json --out-dir 
 ```
 
 The 800-case benchmark and 32-configuration ablation are documented in `experiments/rae_injection_800/README.md`. CPI scoring and model rerun instructions are in `REPRODUCIBILITY.md`.
+
+The held-out generalization experiment, its frozen checker, independent case generator, case bundles, truth manifest, and archived results are in `experiments/rae_heldout_fault_generalization/`. Reproduction commands and interpretation are provided in that directory's `README.md` and `RESULTS.md`.
 
 ## Data and model access
 

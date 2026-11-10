@@ -1,0 +1,6 @@
+fault_family,fault_components,localized_components,localization_recall,false_positive_cases
+dependency,36,18,0.5,0
+eligibility,36,36,1.0,0
+mapping,36,36,1.0,0
+release_time,36,36,1.0,0
+vintage,36,36,1.0,0

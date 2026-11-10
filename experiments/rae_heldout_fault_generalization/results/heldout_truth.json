@@ -1,0 +1,2470 @@
+{
+  "suite": "RAE held-out fault generalization",
+  "seed": 20261111,
+  "cases_total": 200,
+  "clean_controls": 50,
+  "fault_cases": 150,
+  "cases": [
+    {
+      "case_id": "H0001",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "canonical",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0002",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "canonical",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0003",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "canonical",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0004",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "canonical",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0005",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "canonical",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0006",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "canonical",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0007",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "canonical",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0008",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "canonical",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0009",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "canonical",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0010",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "canonical",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0011",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "bom_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0012",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "bom_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0013",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "bom_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0014",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "bom_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0015",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "bom_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0016",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "bom_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0017",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "bom_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0018",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "bom_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0019",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "bom_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0020",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "bom_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0021",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "quoted_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0022",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "quoted_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0023",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "quoted_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0024",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "quoted_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0025",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "quoted_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0026",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "quoted_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0027",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "quoted_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0028",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "quoted_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0029",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "quoted_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0030",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "quoted_crlf",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0031",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "reordered_columns",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0032",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "reordered_columns",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0033",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "reordered_columns",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0034",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "reordered_columns",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0035",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "reordered_columns",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0036",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "reordered_columns",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0037",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "reordered_columns",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0038",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "reordered_columns",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0039",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "reordered_columns",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0040",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "reordered_columns",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0041",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "row_permutation",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0042",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "row_permutation",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0043",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "row_permutation",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0044",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "row_permutation",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0045",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "row_permutation",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0046",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "row_permutation",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0047",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "row_permutation",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0048",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "row_permutation",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0049",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "row_permutation",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0050",
+      "expected_clean": true,
+      "case_type": "clean_control",
+      "faults": [],
+      "fault_families": [],
+      "format_variant": "row_permutation",
+      "independent_truth_source": "generator control definition"
+    },
+    {
+      "case_id": "H0051",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0052",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_after_cutoff_microsecond"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0053",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "timezone_missing_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0054",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0055",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_after_cutoff_microsecond"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0056",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "timezone_missing_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0057",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0058",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_after_cutoff_microsecond"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0059",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "timezone_missing_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0060",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0061",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_after_cutoff_microsecond"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0062",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "timezone_missing_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0063",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0064",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_after_cutoff_microsecond"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0065",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "timezone_missing_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0066",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0067",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_after_cutoff_microsecond"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0068",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "timezone_missing_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0069",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0070",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_after_cutoff_microsecond"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0071",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "timezone_missing_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0072",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0073",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "release_after_cutoff_microsecond"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0074",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "timezone_missing_offset"
+      ],
+      "fault_families": [
+        "release_time"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0075",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_vintage_identity"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0076",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "stale_vintage_selection"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0077",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_vintage_identity"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0078",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "stale_vintage_selection"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0079",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_vintage_identity"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0080",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "stale_vintage_selection"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0081",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_vintage_identity"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0082",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "stale_vintage_selection"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0083",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_vintage_identity"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0084",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "stale_vintage_selection"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0085",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_vintage_identity"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0086",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "stale_vintage_selection"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0087",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_vintage_identity"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0088",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "stale_vintage_selection"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0089",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_vintage_identity"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0090",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "stale_vintage_selection"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0091",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_vintage_identity"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0092",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "stale_vintage_selection"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0093",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_vintage_identity"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0094",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "stale_vintage_selection"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0095",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_vintage_identity"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0096",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "stale_vintage_selection"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0097",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_vintage_identity"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0098",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "stale_vintage_selection"
+      ],
+      "fault_families": [
+        "vintage"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0099",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "direct_dependency_future_source"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0100",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "transitive_dependency_future_parent"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0101",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "direct_dependency_future_source"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0102",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "transitive_dependency_future_parent"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0103",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "direct_dependency_future_source"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0104",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "transitive_dependency_future_parent"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0105",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "direct_dependency_future_source"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0106",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "transitive_dependency_future_parent"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0107",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "direct_dependency_future_source"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0108",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "transitive_dependency_future_parent"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0109",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "direct_dependency_future_source"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0110",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "transitive_dependency_future_parent"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0111",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "direct_dependency_future_source"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0112",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "transitive_dependency_future_parent"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0113",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "direct_dependency_future_source"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0114",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "transitive_dependency_future_parent"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0115",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "direct_dependency_future_source"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0116",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "transitive_dependency_future_parent"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0117",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "direct_dependency_future_source"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0118",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "transitive_dependency_future_parent"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0119",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "direct_dependency_future_source"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0120",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "transitive_dependency_future_parent"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0121",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "direct_dependency_future_source"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0122",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "transitive_dependency_future_parent"
+      ],
+      "fault_families": [
+        "dependency"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0123",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0124",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0125",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0126",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0127",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0128",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0129",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0130",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0131",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0132",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0133",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0134",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0135",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0136",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0137",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0138",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0139",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0140",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0141",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0142",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0143",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0144",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0145",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0146",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0147",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0148",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0149",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0150",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0151",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0152",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0153",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0154",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0155",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0156",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0157",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0158",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0159",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0160",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0161",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0162",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0163",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0164",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0165",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0166",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0167",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0168",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0169",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0170",
+      "expected_clean": false,
+      "case_type": "single_fault",
+      "faults": [
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "mapping"
+      ],
+      "format_variant": "canonical",
+      "independent_truth_source": "held-out mutation recipe"
+    },
+    {
+      "case_id": "H0171",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "release_after_cutoff_microsecond",
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping",
+        "release_time"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0172",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "release_after_cutoff_microsecond",
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping",
+        "release_time"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0173",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "release_after_cutoff_microsecond",
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping",
+        "release_time"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0174",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "release_after_cutoff_microsecond",
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping",
+        "release_time"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0175",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "release_after_cutoff_microsecond",
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping",
+        "release_time"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0176",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "release_after_cutoff_microsecond",
+        "target_horizon_mapping_error"
+      ],
+      "fault_families": [
+        "mapping",
+        "release_time"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0177",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "duplicate_vintage_identity",
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility",
+        "vintage"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0178",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "duplicate_vintage_identity",
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility",
+        "vintage"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0179",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "duplicate_vintage_identity",
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility",
+        "vintage"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0180",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "duplicate_vintage_identity",
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility",
+        "vintage"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0181",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "duplicate_vintage_identity",
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility",
+        "vintage"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0182",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "duplicate_vintage_identity",
+        "required_feature_missing"
+      ],
+      "fault_families": [
+        "eligibility",
+        "vintage"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0183",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "direct_dependency_future_source",
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "dependency",
+        "mapping"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0184",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "direct_dependency_future_source",
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "dependency",
+        "mapping"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0185",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "direct_dependency_future_source",
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "dependency",
+        "mapping"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0186",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "direct_dependency_future_source",
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "dependency",
+        "mapping"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0187",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "direct_dependency_future_source",
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "dependency",
+        "mapping"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0188",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "direct_dependency_future_source",
+        "duplicate_forecast_key"
+      ],
+      "fault_families": [
+        "dependency",
+        "mapping"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0189",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "stale_vintage_selection",
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility",
+        "vintage"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0190",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "stale_vintage_selection",
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility",
+        "vintage"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0191",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "stale_vintage_selection",
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility",
+        "vintage"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0192",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "stale_vintage_selection",
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility",
+        "vintage"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0193",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "stale_vintage_selection",
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility",
+        "vintage"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0194",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "stale_vintage_selection",
+        "model_origin_eligibility_mismatch"
+      ],
+      "fault_families": [
+        "eligibility",
+        "vintage"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0195",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "transitive_dependency_future_parent",
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "dependency",
+        "release_time"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0196",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "transitive_dependency_future_parent",
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "dependency",
+        "release_time"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0197",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "transitive_dependency_future_parent",
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "dependency",
+        "release_time"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0198",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "transitive_dependency_future_parent",
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "dependency",
+        "release_time"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0199",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "transitive_dependency_future_parent",
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "dependency",
+        "release_time"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    },
+    {
+      "case_id": "H0200",
+      "expected_clean": false,
+      "case_type": "compound_fault",
+      "faults": [
+        "transitive_dependency_future_parent",
+        "release_equal_instant_timezone_offset"
+      ],
+      "fault_families": [
+        "dependency",
+        "release_time"
+      ],
+      "format_variant": "mixed_format_with_composite_fault",
+      "independent_truth_source": "held-out compound recipe"
+    }
+  ],
+  "truth_generation_note": "Truth labels derive from the independent generator recipe and are saved before any RAE run."
+}

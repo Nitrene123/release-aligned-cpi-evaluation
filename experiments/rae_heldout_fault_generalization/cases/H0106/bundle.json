@@ -1,0 +1,30 @@
+{
+  "origins_file": "origins.csv",
+  "inputs_file": "inputs.csv",
+  "vintages_file": "vintages.csv",
+  "targets_file": "targets.csv",
+  "forecasts_file": "forecasts.csv",
+  "expected_models": [
+    "BASE",
+    "MULTI"
+  ],
+  "expected_horizons": [
+    1,
+    3,
+    6,
+    12
+  ],
+  "require_identical_model_origin_sets": true,
+  "required_features_by_model": {
+    "BASE": [
+      "cpi_yoy",
+      "fx_return"
+    ],
+    "MULTI": [
+      "cpi_yoy",
+      "fx_return"
+    ]
+  },
+  "scope_note": "synthetic held-out schema generalization test; no target values",
+  "vintage_registry_scope": "complete synthetic registry for this bundle"
+}

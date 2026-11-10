@@ -1,0 +1,12 @@
+{
+  "experiment": "heldout_unknown_fault_generalization",
+  "freeze_time_utc": "2026-11-10T19:16:50.847149+00:00",
+  "source_path_relative_to_project": "experiments/rae_heldout_fault_generalization/frozen_rae/pit_audit.py",
+  "frozen_snapshot": "frozen_rae/pit_audit.py",
+  "source_sha256": "a18a33b917ef1b98c1c236c6d896db283615cf74d5a30e8f4c1d316b36f5bdb9",
+  "frozen_sha256": "a18a33b917ef1b98c1c236c6d896db283615cf74d5a30e8f4c1d316b36f5bdb9",
+  "byte_identical": true,
+  "python_version": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+  "test_cases_generated_before_audit_execution": true,
+  "raE_modified_after_freeze": false
+}

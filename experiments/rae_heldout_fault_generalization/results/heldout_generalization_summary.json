@@ -1,0 +1,133 @@
+{
+  "experiment": "heldout_unknown_fault_generalization",
+  "created_at_utc": "2026-11-10T19:35:16.757855+00:00",
+  "frozen_rae_sha256": "a18a33b917ef1b98c1c236c6d896db283615cf74d5a30e8f4c1d316b36f5bdb9",
+  "truth_manifest_sha256": "e0f2e8eb2fab46749b4885e5c96f9c474e7d60211806039002e27a0b179d96ac",
+  "heldout_cases": 200,
+  "clean_controls": 50,
+  "fault_cases": 150,
+  "fault_case_detection": {
+    "tp": 138,
+    "fp": 0,
+    "fn": 12,
+    "precision": 1.0,
+    "recall": 0.92,
+    "f1": 0.9583333333333334,
+    "clean_control_false_positive_rate": 0.0
+  },
+  "family_localization": [
+    {
+      "fault_family": "dependency",
+      "fault_components": 36,
+      "localized_components": 18,
+      "localization_recall": 0.5,
+      "false_positive_cases": 0
+    },
+    {
+      "fault_family": "eligibility",
+      "fault_components": 36,
+      "localized_components": 36,
+      "localization_recall": 1.0,
+      "false_positive_cases": 0
+    },
+    {
+      "fault_family": "mapping",
+      "fault_components": 36,
+      "localized_components": 36,
+      "localization_recall": 1.0,
+      "false_positive_cases": 0
+    },
+    {
+      "fault_family": "release_time",
+      "fault_components": 36,
+      "localized_components": 36,
+      "localization_recall": 1.0,
+      "false_positive_cases": 0
+    },
+    {
+      "fault_family": "vintage",
+      "fault_components": 36,
+      "localized_components": 36,
+      "localization_recall": 1.0,
+      "false_positive_cases": 0
+    }
+  ],
+  "cases_by_type": {
+    "clean_control": {
+      "cases": 50,
+      "detected": 0,
+      "all_expected_families_localized": 0,
+      "detection_rate": 0.0,
+      "all_family_localization_rate": 0.0
+    },
+    "compound_fault": {
+      "cases": 30,
+      "detected": 30,
+      "all_expected_families_localized": 24,
+      "detection_rate": 1.0,
+      "all_family_localization_rate": 0.8
+    },
+    "single_fault": {
+      "cases": 120,
+      "detected": 108,
+      "all_expected_families_localized": 108,
+      "detection_rate": 0.9,
+      "all_family_localization_rate": 0.9
+    }
+  },
+  "fault_cases_all_expected_families_localized": 132,
+  "composite_and_single_fault_components_localized": 162,
+  "fault_components_total": 180,
+  "property_based_tests": {
+    "test_type": "seeded property-based and metamorphic contract tests",
+    "generator": "Python standard-library random.Random; deterministic seed; no Hypothesis dependency",
+    "seed": 8349917,
+    "per_property_trials": 125,
+    "total_trials": 500,
+    "checker_executions": 625,
+    "passed": 500,
+    "failed": 0,
+    "properties": {
+      "timezone_equivalence": {
+        "trials": 125,
+        "passed": 125,
+        "failed": 0
+      },
+      "release_cutoff_boundary": {
+        "trials": 125,
+        "passed": 125,
+        "failed": 0,
+        "expected_pass": 57,
+        "expected_reject": 68,
+        "observed_pass_for_expected_pass": 57,
+        "observed_reject_for_expected_reject": 68
+      },
+      "csv_format_and_row_permutation": {
+        "trials": 125,
+        "passed": 125,
+        "failed": 0
+      },
+      "target_mapping_metamorphic": {
+        "trials": 125,
+        "passed": 125,
+        "failed": 0,
+        "valid_bundle_passed": 125,
+        "mutated_bundle_rejected": 125
+      }
+    },
+    "failure_examples": [],
+    "frozen_rae_sha256": "a18a33b917ef1b98c1c236c6d896db283615cf74d5a30e8f4c1d316b36f5bdb9",
+    "limits": [
+      "Seeded finite generation is not exhaustive.",
+      "No automatic counterexample shrinking is provided.",
+      "Results describe the stated schema and generated domain only."
+    ]
+  },
+  "exceptions": [],
+  "timing": {
+    "total_seconds": 2.59079039999051,
+    "mean_case_ms": 12.919805500714574,
+    "p95_case_ms": 22.87129999604076
+  },
+  "interpretation": "The held-out synthetic suite tests generalization beyond the earlier targeted fingerprint-mismatch injections. It does not validate real-world detection rates. The transitive dependency-edge family is outside the frozen RAE input contract and is reported as a limitation if not detected."
+}
