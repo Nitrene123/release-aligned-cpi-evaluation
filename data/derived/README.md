@@ -1,0 +1,1 @@
+Target-free forecasts, per-origin losses, score summaries, uncertainty intervals, and figure inputs are stored with their experiment under `experiments/*/reference_results/`. Raw economic observations and target ledgers are not mirrored.

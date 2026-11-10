@@ -1,0 +1,182 @@
+{
+  "benchmark_id": "RAE_COMPUTATIONAL_ABLATION_800_v1",
+  "n_cases": 800,
+  "positive_cases": 700,
+  "clean_controls": 100,
+  "design": "complete 2^5 factorial; each named module gates its actual validation computations; structural/integrity checks remain active in every arm",
+  "modules": [
+    "release",
+    "vintage",
+    "dependency",
+    "eligibility",
+    "mapping"
+  ],
+  "configurations": 32,
+  "audit_runs": 25600,
+  "injected_fault_groups": [
+    "release",
+    "vintage",
+    "dependency",
+    "eligibility",
+    "mapping"
+  ],
+  "truth_sha256": "ed024c12393b60c5cfb62bed06cbe9e5c4b0db55cf4a70d74fc54641a640ca1f",
+  "fixture_manifest_sha256": "6a76c39ea87494fac11937138ae56163dc68241f4f0e29579c050d1df762fc49",
+  "auditor_sha256": "a18a33b917ef1b98c1c236c6d896db283615cf74d5a30e8f4c1d316b36f5bdb9",
+  "runner_sha256": "f53958ddc0acd648f8f6720987adb4d1ea89e65b175cc4f5c6bd1271ac04cdd9",
+  "case_fixture_files_verified": 4800,
+  "case_fixture_files_reverified_after_run": 4800,
+  "original_full_result_comparison": {
+    "available": true,
+    "rows": 800,
+    "rows_recomputed": 800,
+    "status_mismatches": 0,
+    "detection_mismatches": 0,
+    "diagnostic_count_mismatches": 0
+  },
+  "target_values_read": false,
+  "p1_accessed": false,
+  "full_metrics": {
+    "variant_id": "M11111",
+    "configuration": "RAE-Full",
+    "modules_enabled": "release|vintage|dependency|eligibility|mapping",
+    "n_cases": 800,
+    "tp": 700,
+    "fn": 0,
+    "fp_clean": 0,
+    "tn_clean": 100,
+    "precision_case": 1.0,
+    "recall_case": 1.0,
+    "f1_case": 1.0,
+    "clean_false_positive_rate": 0.0,
+    "correct_fault_class_cases": 700,
+    "all_fault_classes_detected_cases": 700,
+    "runtime_seconds_total": 4.128070300183026,
+    "runtime_seconds_mean": 0.0051600878752287825,
+    "runtime_seconds_median": 0.004845550000027288,
+    "cases_per_second": 193.79514926490725
+  },
+  "leave_one_out_metrics": [
+    {
+      "module_removed": "release",
+      "full_case_recall": 1.0,
+      "ablated_case_recall": 0.5414285714285715,
+      "full_minus_ablated_recall_pp": 45.857142857142854,
+      "full_correct_class_cases": 700,
+      "ablated_correct_class_cases": 379,
+      "full_runtime_seconds": 4.128070300183026,
+      "ablated_runtime_seconds": 3.815083300039987,
+      "marginal_runtime_seconds_full_minus_ablated": 0.31298700014303904,
+      "marginal_runtime_percent_full": 7.581920301336974
+    },
+    {
+      "module_removed": "vintage",
+      "full_case_recall": 1.0,
+      "ablated_case_recall": 0.8571428571428571,
+      "full_minus_ablated_recall_pp": 14.28571428571429,
+      "full_correct_class_cases": 700,
+      "ablated_correct_class_cases": 600,
+      "full_runtime_seconds": 4.128070300183026,
+      "ablated_runtime_seconds": 3.876589800034708,
+      "marginal_runtime_seconds_full_minus_ablated": 0.25148050014831824,
+      "marginal_runtime_percent_full": 6.091962632932108
+    },
+    {
+      "module_removed": "dependency",
+      "full_case_recall": 1.0,
+      "ablated_case_recall": 0.8571428571428571,
+      "full_minus_ablated_recall_pp": 14.28571428571429,
+      "full_correct_class_cases": 700,
+      "ablated_correct_class_cases": 600,
+      "full_runtime_seconds": 4.128070300183026,
+      "ablated_runtime_seconds": 4.206432999992103,
+      "marginal_runtime_seconds_full_minus_ablated": -0.07836269980907673,
+      "marginal_runtime_percent_full": -1.898288888287643
+    },
+    {
+      "module_removed": "eligibility",
+      "full_case_recall": 1.0,
+      "ablated_case_recall": 0.8571428571428571,
+      "full_minus_ablated_recall_pp": 14.28571428571429,
+      "full_correct_class_cases": 700,
+      "ablated_correct_class_cases": 600,
+      "full_runtime_seconds": 4.128070300183026,
+      "ablated_runtime_seconds": 3.590354399973876,
+      "marginal_runtime_seconds_full_minus_ablated": 0.5377159002091503,
+      "marginal_runtime_percent_full": 13.025841642893282
+    },
+    {
+      "module_removed": "mapping",
+      "full_case_recall": 1.0,
+      "ablated_case_recall": 0.8571428571428571,
+      "full_minus_ablated_recall_pp": 14.28571428571429,
+      "full_correct_class_cases": 700,
+      "ablated_correct_class_cases": 600,
+      "full_runtime_seconds": 4.128070300183026,
+      "ablated_runtime_seconds": 4.080478600008064,
+      "marginal_runtime_seconds_full_minus_ablated": 0.04759170017496217,
+      "marginal_runtime_percent_full": 1.1528800798971883
+    }
+  ],
+  "leave_one_out_runtime_bootstrap": [
+    {
+      "module_removed": "release",
+      "mean_full_minus_ablated_seconds_per_case": 0.0003912337501787988,
+      "median_seconds_per_case": 0.00040404999526799656,
+      "descriptive_paired_bootstrap_95_low": 0.00025854977515382417,
+      "descriptive_paired_bootstrap_95_high": 0.0005257877094481955,
+      "n_cases": 800,
+      "bootstrap_replicates": 5000
+    },
+    {
+      "module_removed": "vintage",
+      "mean_full_minus_ablated_seconds_per_case": 0.0003143506251853978,
+      "median_seconds_per_case": 0.00038684999890392646,
+      "descriptive_paired_bootstrap_95_low": 0.00016254681279315265,
+      "descriptive_paired_bootstrap_95_high": 0.00045595871265390997,
+      "n_cases": 800,
+      "bootstrap_replicates": 5000
+    },
+    {
+      "module_removed": "dependency",
+      "mean_full_minus_ablated_seconds_per_case": -9.795337476134591e-05,
+      "median_seconds_per_case": 4.0199996874434873e-05,
+      "descriptive_paired_bootstrap_95_low": -0.00024376926552190526,
+      "descriptive_paired_bootstrap_95_high": 5.2371137874160755e-05,
+      "n_cases": 800,
+      "bootstrap_replicates": 5000
+    },
+    {
+      "module_removed": "eligibility",
+      "mean_full_minus_ablated_seconds_per_case": 0.0006721448752614378,
+      "median_seconds_per_case": 0.0006514000015158672,
+      "descriptive_paired_bootstrap_95_low": 0.0005388373378045799,
+      "descriptive_paired_bootstrap_95_high": 0.0008075375129581057,
+      "n_cases": 800,
+      "bootstrap_replicates": 5000
+    },
+    {
+      "module_removed": "mapping",
+      "mean_full_minus_ablated_seconds_per_case": 5.948962521870271e-05,
+      "median_seconds_per_case": 3.920000381185673e-05,
+      "descriptive_paired_bootstrap_95_low": -7.820977149799546e-05,
+      "descriptive_paired_bootstrap_95_high": 0.0001941650126209424,
+      "n_cases": 800,
+      "bootstrap_replicates": 5000
+    }
+  ],
+  "wall_clock_seconds": 127.74164310000197,
+  "timing_note": "Runtime measured per in-memory audit call with report files disabled; includes bundle file reads and parsing. Paired bootstrap intervals are descriptive timing variability summaries, not inferential claims.",
+  "interaction_note": "Factorial interaction is the balanced difference-in-differences, averaged over the other three binary module settings; outcomes and denominators are recorded in the CSVs.",
+  "fault_classification": "Mapped error-text categories are post-run scoring rules; error computation is module-gated in the auditor itself.",
+  "outputs": [
+    "case_configuration_results.csv",
+    "configuration_summary.csv",
+    "module_fault_performance.csv",
+    "leave_one_out_module_contribution.csv",
+    "leave_one_out_runtime.csv",
+    "factorial_main_effects.csv",
+    "factorial_pairwise_interactions.csv",
+    "module_execution_counts.csv"
+  ]
+}

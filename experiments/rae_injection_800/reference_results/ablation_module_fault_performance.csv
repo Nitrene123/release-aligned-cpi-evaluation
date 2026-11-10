@@ -1,0 +1,161 @@
+variant_id,configuration,fault_group,n_positive_cases,tp,fn,recall,fp_other_cases,n_negative_cases,fpr_other_cases
+M00000,Integrity-only (all five RAE modules off),release,260,0,260,0.0,0,540,0.0
+M00000,Integrity-only (all five RAE modules off),vintage,135,0,135,0.0,0,665,0.0
+M00000,Integrity-only (all five RAE modules off),dependency,133,0,133,0.0,0,667,0.0
+M00000,Integrity-only (all five RAE modules off),eligibility,132,0,132,0.0,0,668,0.0
+M00000,Integrity-only (all five RAE modules off),mapping,133,0,133,0.0,0,667,0.0
+M00001,Enabled: mapping,release,260,0,260,0.0,0,540,0.0
+M00001,Enabled: mapping,vintage,135,0,135,0.0,0,665,0.0
+M00001,Enabled: mapping,dependency,133,0,133,0.0,0,667,0.0
+M00001,Enabled: mapping,eligibility,132,0,132,0.0,0,668,0.0
+M00001,Enabled: mapping,mapping,133,133,0,1.0,0,667,0.0
+M00010,Enabled: eligibility,release,260,0,260,0.0,0,540,0.0
+M00010,Enabled: eligibility,vintage,135,0,135,0.0,0,665,0.0
+M00010,Enabled: eligibility,dependency,133,0,133,0.0,0,667,0.0
+M00010,Enabled: eligibility,eligibility,132,132,0,1.0,0,668,0.0
+M00010,Enabled: eligibility,mapping,133,0,133,0.0,0,667,0.0
+M00011,"Enabled: eligibility, mapping",release,260,0,260,0.0,0,540,0.0
+M00011,"Enabled: eligibility, mapping",vintage,135,0,135,0.0,0,665,0.0
+M00011,"Enabled: eligibility, mapping",dependency,133,0,133,0.0,0,667,0.0
+M00011,"Enabled: eligibility, mapping",eligibility,132,132,0,1.0,0,668,0.0
+M00011,"Enabled: eligibility, mapping",mapping,133,133,0,1.0,0,667,0.0
+M00100,Enabled: dependency,release,260,0,260,0.0,0,540,0.0
+M00100,Enabled: dependency,vintage,135,0,135,0.0,0,665,0.0
+M00100,Enabled: dependency,dependency,133,133,0,1.0,0,667,0.0
+M00100,Enabled: dependency,eligibility,132,0,132,0.0,0,668,0.0
+M00100,Enabled: dependency,mapping,133,0,133,0.0,0,667,0.0
+M00101,"Enabled: dependency, mapping",release,260,0,260,0.0,0,540,0.0
+M00101,"Enabled: dependency, mapping",vintage,135,0,135,0.0,0,665,0.0
+M00101,"Enabled: dependency, mapping",dependency,133,133,0,1.0,0,667,0.0
+M00101,"Enabled: dependency, mapping",eligibility,132,0,132,0.0,0,668,0.0
+M00101,"Enabled: dependency, mapping",mapping,133,133,0,1.0,0,667,0.0
+M00110,"Enabled: dependency, eligibility",release,260,0,260,0.0,0,540,0.0
+M00110,"Enabled: dependency, eligibility",vintage,135,0,135,0.0,0,665,0.0
+M00110,"Enabled: dependency, eligibility",dependency,133,133,0,1.0,0,667,0.0
+M00110,"Enabled: dependency, eligibility",eligibility,132,132,0,1.0,0,668,0.0
+M00110,"Enabled: dependency, eligibility",mapping,133,0,133,0.0,0,667,0.0
+M00111,"Enabled: dependency, eligibility, mapping",release,260,0,260,0.0,0,540,0.0
+M00111,"Enabled: dependency, eligibility, mapping",vintage,135,0,135,0.0,0,665,0.0
+M00111,"Enabled: dependency, eligibility, mapping",dependency,133,133,0,1.0,0,667,0.0
+M00111,"Enabled: dependency, eligibility, mapping",eligibility,132,132,0,1.0,0,668,0.0
+M00111,"Enabled: dependency, eligibility, mapping",mapping,133,133,0,1.0,0,667,0.0
+M01000,Enabled: vintage,release,260,0,260,0.0,0,540,0.0
+M01000,Enabled: vintage,vintage,135,0,135,0.0,0,665,0.0
+M01000,Enabled: vintage,dependency,133,0,133,0.0,0,667,0.0
+M01000,Enabled: vintage,eligibility,132,0,132,0.0,0,668,0.0
+M01000,Enabled: vintage,mapping,133,0,133,0.0,0,667,0.0
+M01001,"Enabled: vintage, mapping",release,260,0,260,0.0,0,540,0.0
+M01001,"Enabled: vintage, mapping",vintage,135,0,135,0.0,0,665,0.0
+M01001,"Enabled: vintage, mapping",dependency,133,0,133,0.0,0,667,0.0
+M01001,"Enabled: vintage, mapping",eligibility,132,0,132,0.0,0,668,0.0
+M01001,"Enabled: vintage, mapping",mapping,133,133,0,1.0,0,667,0.0
+M01010,"Enabled: vintage, eligibility",release,260,0,260,0.0,0,540,0.0
+M01010,"Enabled: vintage, eligibility",vintage,135,0,135,0.0,0,665,0.0
+M01010,"Enabled: vintage, eligibility",dependency,133,0,133,0.0,0,667,0.0
+M01010,"Enabled: vintage, eligibility",eligibility,132,132,0,1.0,0,668,0.0
+M01010,"Enabled: vintage, eligibility",mapping,133,0,133,0.0,0,667,0.0
+M01011,"Enabled: vintage, eligibility, mapping",release,260,0,260,0.0,0,540,0.0
+M01011,"Enabled: vintage, eligibility, mapping",vintage,135,0,135,0.0,0,665,0.0
+M01011,"Enabled: vintage, eligibility, mapping",dependency,133,0,133,0.0,0,667,0.0
+M01011,"Enabled: vintage, eligibility, mapping",eligibility,132,132,0,1.0,0,668,0.0
+M01011,"Enabled: vintage, eligibility, mapping",mapping,133,133,0,1.0,0,667,0.0
+M01100,"Enabled: vintage, dependency",release,260,0,260,0.0,0,540,0.0
+M01100,"Enabled: vintage, dependency",vintage,135,0,135,0.0,0,665,0.0
+M01100,"Enabled: vintage, dependency",dependency,133,133,0,1.0,0,667,0.0
+M01100,"Enabled: vintage, dependency",eligibility,132,0,132,0.0,0,668,0.0
+M01100,"Enabled: vintage, dependency",mapping,133,0,133,0.0,0,667,0.0
+M01101,"Enabled: vintage, dependency, mapping",release,260,0,260,0.0,0,540,0.0
+M01101,"Enabled: vintage, dependency, mapping",vintage,135,0,135,0.0,0,665,0.0
+M01101,"Enabled: vintage, dependency, mapping",dependency,133,133,0,1.0,0,667,0.0
+M01101,"Enabled: vintage, dependency, mapping",eligibility,132,0,132,0.0,0,668,0.0
+M01101,"Enabled: vintage, dependency, mapping",mapping,133,133,0,1.0,0,667,0.0
+M01110,"Enabled: vintage, dependency, eligibility",release,260,0,260,0.0,0,540,0.0
+M01110,"Enabled: vintage, dependency, eligibility",vintage,135,0,135,0.0,0,665,0.0
+M01110,"Enabled: vintage, dependency, eligibility",dependency,133,133,0,1.0,0,667,0.0
+M01110,"Enabled: vintage, dependency, eligibility",eligibility,132,132,0,1.0,0,668,0.0
+M01110,"Enabled: vintage, dependency, eligibility",mapping,133,0,133,0.0,0,667,0.0
+M01111,RAE w/o Release,release,260,0,260,0.0,0,540,0.0
+M01111,RAE w/o Release,vintage,135,0,135,0.0,0,665,0.0
+M01111,RAE w/o Release,dependency,133,133,0,1.0,0,667,0.0
+M01111,RAE w/o Release,eligibility,132,132,0,1.0,0,668,0.0
+M01111,RAE w/o Release,mapping,133,133,0,1.0,0,667,0.0
+M10000,Enabled: release,release,260,260,0,1.0,0,540,0.0
+M10000,Enabled: release,vintage,135,0,135,0.0,0,665,0.0
+M10000,Enabled: release,dependency,133,0,133,0.0,0,667,0.0
+M10000,Enabled: release,eligibility,132,0,132,0.0,0,668,0.0
+M10000,Enabled: release,mapping,133,0,133,0.0,0,667,0.0
+M10001,"Enabled: release, mapping",release,260,260,0,1.0,0,540,0.0
+M10001,"Enabled: release, mapping",vintage,135,0,135,0.0,0,665,0.0
+M10001,"Enabled: release, mapping",dependency,133,0,133,0.0,0,667,0.0
+M10001,"Enabled: release, mapping",eligibility,132,0,132,0.0,0,668,0.0
+M10001,"Enabled: release, mapping",mapping,133,133,0,1.0,0,667,0.0
+M10010,"Enabled: release, eligibility",release,260,260,0,1.0,0,540,0.0
+M10010,"Enabled: release, eligibility",vintage,135,0,135,0.0,0,665,0.0
+M10010,"Enabled: release, eligibility",dependency,133,0,133,0.0,0,667,0.0
+M10010,"Enabled: release, eligibility",eligibility,132,132,0,1.0,0,668,0.0
+M10010,"Enabled: release, eligibility",mapping,133,0,133,0.0,0,667,0.0
+M10011,"Enabled: release, eligibility, mapping",release,260,260,0,1.0,0,540,0.0
+M10011,"Enabled: release, eligibility, mapping",vintage,135,0,135,0.0,0,665,0.0
+M10011,"Enabled: release, eligibility, mapping",dependency,133,0,133,0.0,0,667,0.0
+M10011,"Enabled: release, eligibility, mapping",eligibility,132,132,0,1.0,0,668,0.0
+M10011,"Enabled: release, eligibility, mapping",mapping,133,133,0,1.0,0,667,0.0
+M10100,"Enabled: release, dependency",release,260,260,0,1.0,0,540,0.0
+M10100,"Enabled: release, dependency",vintage,135,0,135,0.0,0,665,0.0
+M10100,"Enabled: release, dependency",dependency,133,133,0,1.0,0,667,0.0
+M10100,"Enabled: release, dependency",eligibility,132,0,132,0.0,0,668,0.0
+M10100,"Enabled: release, dependency",mapping,133,0,133,0.0,0,667,0.0
+M10101,"Enabled: release, dependency, mapping",release,260,260,0,1.0,0,540,0.0
+M10101,"Enabled: release, dependency, mapping",vintage,135,0,135,0.0,0,665,0.0
+M10101,"Enabled: release, dependency, mapping",dependency,133,133,0,1.0,0,667,0.0
+M10101,"Enabled: release, dependency, mapping",eligibility,132,0,132,0.0,0,668,0.0
+M10101,"Enabled: release, dependency, mapping",mapping,133,133,0,1.0,0,667,0.0
+M10110,"Enabled: release, dependency, eligibility",release,260,260,0,1.0,0,540,0.0
+M10110,"Enabled: release, dependency, eligibility",vintage,135,0,135,0.0,0,665,0.0
+M10110,"Enabled: release, dependency, eligibility",dependency,133,133,0,1.0,0,667,0.0
+M10110,"Enabled: release, dependency, eligibility",eligibility,132,132,0,1.0,0,668,0.0
+M10110,"Enabled: release, dependency, eligibility",mapping,133,0,133,0.0,0,667,0.0
+M10111,RAE w/o Vintage,release,260,260,0,1.0,0,540,0.0
+M10111,RAE w/o Vintage,vintage,135,0,135,0.0,0,665,0.0
+M10111,RAE w/o Vintage,dependency,133,133,0,1.0,0,667,0.0
+M10111,RAE w/o Vintage,eligibility,132,132,0,1.0,0,668,0.0
+M10111,RAE w/o Vintage,mapping,133,133,0,1.0,0,667,0.0
+M11000,"Enabled: release, vintage",release,260,260,0,1.0,0,540,0.0
+M11000,"Enabled: release, vintage",vintage,135,135,0,1.0,0,665,0.0
+M11000,"Enabled: release, vintage",dependency,133,0,133,0.0,0,667,0.0
+M11000,"Enabled: release, vintage",eligibility,132,0,132,0.0,0,668,0.0
+M11000,"Enabled: release, vintage",mapping,133,0,133,0.0,0,667,0.0
+M11001,"Enabled: release, vintage, mapping",release,260,260,0,1.0,0,540,0.0
+M11001,"Enabled: release, vintage, mapping",vintage,135,135,0,1.0,0,665,0.0
+M11001,"Enabled: release, vintage, mapping",dependency,133,0,133,0.0,0,667,0.0
+M11001,"Enabled: release, vintage, mapping",eligibility,132,0,132,0.0,0,668,0.0
+M11001,"Enabled: release, vintage, mapping",mapping,133,133,0,1.0,0,667,0.0
+M11010,"Enabled: release, vintage, eligibility",release,260,260,0,1.0,0,540,0.0
+M11010,"Enabled: release, vintage, eligibility",vintage,135,135,0,1.0,0,665,0.0
+M11010,"Enabled: release, vintage, eligibility",dependency,133,0,133,0.0,0,667,0.0
+M11010,"Enabled: release, vintage, eligibility",eligibility,132,132,0,1.0,0,668,0.0
+M11010,"Enabled: release, vintage, eligibility",mapping,133,0,133,0.0,0,667,0.0
+M11011,RAE w/o Dependency,release,260,260,0,1.0,0,540,0.0
+M11011,RAE w/o Dependency,vintage,135,135,0,1.0,0,665,0.0
+M11011,RAE w/o Dependency,dependency,133,0,133,0.0,0,667,0.0
+M11011,RAE w/o Dependency,eligibility,132,132,0,1.0,0,668,0.0
+M11011,RAE w/o Dependency,mapping,133,133,0,1.0,0,667,0.0
+M11100,"Enabled: release, vintage, dependency",release,260,260,0,1.0,0,540,0.0
+M11100,"Enabled: release, vintage, dependency",vintage,135,135,0,1.0,0,665,0.0
+M11100,"Enabled: release, vintage, dependency",dependency,133,133,0,1.0,0,667,0.0
+M11100,"Enabled: release, vintage, dependency",eligibility,132,0,132,0.0,0,668,0.0
+M11100,"Enabled: release, vintage, dependency",mapping,133,0,133,0.0,0,667,0.0
+M11101,RAE w/o Eligibility,release,260,260,0,1.0,0,540,0.0
+M11101,RAE w/o Eligibility,vintage,135,135,0,1.0,0,665,0.0
+M11101,RAE w/o Eligibility,dependency,133,133,0,1.0,0,667,0.0
+M11101,RAE w/o Eligibility,eligibility,132,0,132,0.0,0,668,0.0
+M11101,RAE w/o Eligibility,mapping,133,133,0,1.0,0,667,0.0
+M11110,RAE w/o Mapping,release,260,260,0,1.0,0,540,0.0
+M11110,RAE w/o Mapping,vintage,135,135,0,1.0,0,665,0.0
+M11110,RAE w/o Mapping,dependency,133,133,0,1.0,0,667,0.0
+M11110,RAE w/o Mapping,eligibility,132,132,0,1.0,0,668,0.0
+M11110,RAE w/o Mapping,mapping,133,0,133,0.0,0,667,0.0
+M11111,RAE-Full,release,260,260,0,1.0,0,540,0.0
+M11111,RAE-Full,vintage,135,135,0,1.0,0,665,0.0
+M11111,RAE-Full,dependency,133,133,0,1.0,0,667,0.0
+M11111,RAE-Full,eligibility,132,132,0,1.0,0,668,0.0
+M11111,RAE-Full,mapping,133,133,0,1.0,0,667,0.0

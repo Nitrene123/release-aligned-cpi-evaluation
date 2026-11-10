@@ -1,0 +1,68 @@
+{
+  "audit_schema": "pit_forecast_bundle_audit_v1",
+  "status": "PASS",
+  "created_at_utc": "2026-11-09T16:51:55.977433+00:00",
+  "config_sha256": "dcc272a1569edcebd930d6d1ea1982c56f4128eae475328b03b51cb266e8906d",
+  "bundle_root_name": "rae_p3_bundle",
+  "target_values_read": false,
+  "scope_note": "Vintage timestamps are conservative month-end bounds; target timestamps are end-of-release-day bounds from G.17. Transformed values and workbook hashes are supplied; this audit does not independently reconstruct level-to-growth transformations.",
+  "vintage_registry_scope": "Monthly IPT vintages 2010-01 through 2024-12, for input months used in the 180 forecast contexts.",
+  "eligibility_table_file": "rae_p3_audit_eligibility.csv",
+  "eligibility_table_sha256": "6d9ff31f348f3f45e1a03bb1ccdd9eac74ad709744326a222a75676f08b733d4",
+  "checks": {
+    "source_hash_checks": [],
+    "origin_rows": 180,
+    "vintage_rows": 152010,
+    "target_calendar_rows": 191,
+    "input_rows": 152010,
+    "model_origin_feature_cells": 152010,
+    "masked_input_rows": 0,
+    "model_origin_panels_missing_required_rows": 0,
+    "missing_required_feature_rows_by_model": {
+      "TimesFM3_P3": 0
+    },
+    "forecast_rows": 720,
+    "unique_forecast_keys": 720,
+    "forecast_input_hash_mismatches": 0,
+    "execution_input_hash_format_failures": 0,
+    "execution_input_hash_rows_present": 0,
+    "coverage_by_horizon": {
+      "1": {
+        "origin_count_by_model": {
+          "TimesFM3_P3": 180
+        },
+        "union_count": 180,
+        "all_model_intersection_count": 180,
+        "identical_origin_sets": true
+      },
+      "3": {
+        "origin_count_by_model": {
+          "TimesFM3_P3": 180
+        },
+        "union_count": 180,
+        "all_model_intersection_count": 180,
+        "identical_origin_sets": true
+      },
+      "6": {
+        "origin_count_by_model": {
+          "TimesFM3_P3": 180
+        },
+        "union_count": 180,
+        "all_model_intersection_count": 180,
+        "identical_origin_sets": true
+      },
+      "12": {
+        "origin_count_by_model": {
+          "TimesFM3_P3": 180
+        },
+        "union_count": 180,
+        "all_model_intersection_count": 180,
+        "identical_origin_sets": true
+      }
+    },
+    "all_models_have_identical_origin_sets": true,
+    "eligibility_table_rows": 764,
+    "eligibility_table_missing_forecast_rows": 44
+  },
+  "errors": []
+}

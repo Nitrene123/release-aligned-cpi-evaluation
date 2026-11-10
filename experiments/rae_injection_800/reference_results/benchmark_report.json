@@ -1,0 +1,318 @@
+{
+  "benchmark_id": "RAE_FEAST_HELDOUT_800_20261110",
+  "seed": 2026111017,
+  "n_cases": 800,
+  "n_clean": 100,
+  "n_single_fault": 600,
+  "n_multi_fault": 100,
+  "fault_types": [
+    "late_release",
+    "stale_vintage",
+    "future_transform_dependency",
+    "target_mapping",
+    "model_sample_mismatch",
+    "boundary_equal"
+  ],
+  "multi_pair_types": [
+    [
+      "late_release",
+      "stale_vintage"
+    ],
+    [
+      "late_release",
+      "future_transform_dependency"
+    ],
+    [
+      "late_release",
+      "target_mapping"
+    ],
+    [
+      "late_release",
+      "model_sample_mismatch"
+    ],
+    [
+      "late_release",
+      "boundary_equal"
+    ],
+    [
+      "stale_vintage",
+      "future_transform_dependency"
+    ],
+    [
+      "stale_vintage",
+      "target_mapping"
+    ],
+    [
+      "stale_vintage",
+      "model_sample_mismatch"
+    ],
+    [
+      "stale_vintage",
+      "boundary_equal"
+    ],
+    [
+      "future_transform_dependency",
+      "target_mapping"
+    ],
+    [
+      "future_transform_dependency",
+      "model_sample_mismatch"
+    ],
+    [
+      "future_transform_dependency",
+      "boundary_equal"
+    ],
+    [
+      "target_mapping",
+      "model_sample_mismatch"
+    ],
+    [
+      "target_mapping",
+      "boundary_equal"
+    ],
+    [
+      "model_sample_mismatch",
+      "boundary_equal"
+    ]
+  ],
+  "rae_version": "module-gated computational auditor; ablated modules skip their validation computations",
+  "runner_sha256": "c8779f7b6cbddbe66c93b2ae9666031c79fe680a3baf904acd9e3a6c4b412c28",
+  "auditor_source_sha256": "a18a33b917ef1b98c1c236c6d896db283615cf74d5a30e8f4c1d316b36f5bdb9",
+  "feast_version": "0.67.0",
+  "feast_modes": [
+    "default event-time join",
+    "event-time plus created-timestamp filter"
+  ],
+  "created_cutoff_alignment": "entity timestamp shifted 1 microsecond before origin to align Feast <= with RAE strict <; Feast event time uses the source observation month",
+  "same_fixture_metadata": true,
+  "scores_read": false,
+  "p1_accessed": false,
+  "rae_runtime_total_seconds": 12.779648200012161,
+  "feast_query_runtime_seconds": {
+    "default": 0.353099400002975,
+    "created_time_filter": 0.4138530999989598
+  },
+  "detectors": [
+    {
+      "detector": "RAE full",
+      "cases": 800,
+      "tp": 700,
+      "fn": 0,
+      "fp_clean": 0,
+      "tn_clean": 100,
+      "precision_case": 1.0,
+      "recall_case": 1.0,
+      "f1_case": 1.0,
+      "clean_false_positive_rate": 0.0,
+      "runtime_seconds": 12.779648200012161
+    },
+    {
+      "detector": "Structural audit",
+      "cases": 800,
+      "tp": 259,
+      "fn": 441,
+      "fp_clean": 0,
+      "tn_clean": 100,
+      "precision_case": 1.0,
+      "recall_case": 0.37,
+      "f1_case": 0.5401459854014599,
+      "clean_false_positive_rate": 0.0,
+      "runtime_seconds": 0.3343768999548047
+    },
+    {
+      "detector": "Feast default PIT",
+      "cases": 800,
+      "tp": 42,
+      "fn": 658,
+      "fp_clean": 0,
+      "tn_clean": 100,
+      "precision_case": 1.0,
+      "recall_case": 0.06,
+      "f1_case": 0.11320754716981131,
+      "clean_false_positive_rate": 0.0,
+      "runtime_seconds": 0.353099400002975
+    },
+    {
+      "detector": "Feast event+created cutoff",
+      "cases": 800,
+      "tp": 299,
+      "fn": 401,
+      "fp_clean": 0,
+      "tn_clean": 100,
+      "precision_case": 1.0,
+      "recall_case": 0.42714285714285716,
+      "f1_case": 0.5985985985985987,
+      "clean_false_positive_rate": 0.0,
+      "runtime_seconds": 0.4138530999989598
+    }
+  ],
+  "fault_group_results_csv": "fault_specific_summary.csv",
+  "record_traceability_csv": "rae_fault_traceability.csv",
+  "notes": [
+    "Feast is a point-in-time feature retrieval baseline; it is not a complete target/key/score auditor.",
+    "The 2^5 ablation gates five validation modules at computation time; structural integrity checks remain active in every arm.",
+    "Synthetic-case metrics characterize the specified generator-defined fixtures and fault templates."
+  ],
+  "computational_ablation": {
+    "design": "complete 2^5 factorial; each named module gates its actual validation computations; structural/integrity checks remain active in every arm",
+    "modules": [
+      "release",
+      "vintage",
+      "dependency",
+      "eligibility",
+      "mapping"
+    ],
+    "configurations": 32,
+    "audit_runs": 25600,
+    "full_metrics": {
+      "variant_id": "M11111",
+      "configuration": "RAE-Full",
+      "modules_enabled": "release|vintage|dependency|eligibility|mapping",
+      "n_cases": 800,
+      "tp": 700,
+      "fn": 0,
+      "fp_clean": 0,
+      "tn_clean": 100,
+      "precision_case": 1.0,
+      "recall_case": 1.0,
+      "f1_case": 1.0,
+      "clean_false_positive_rate": 0.0,
+      "correct_fault_class_cases": 700,
+      "all_fault_classes_detected_cases": 700,
+      "runtime_seconds_total": 4.128070300183026,
+      "runtime_seconds_mean": 0.0051600878752287825,
+      "runtime_seconds_median": 0.004845550000027288,
+      "cases_per_second": 193.79514926490725
+    },
+    "leave_one_out_metrics": [
+      {
+        "module_removed": "release",
+        "full_case_recall": 1.0,
+        "ablated_case_recall": 0.5414285714285715,
+        "full_minus_ablated_recall_pp": 45.857142857142854,
+        "full_correct_class_cases": 700,
+        "ablated_correct_class_cases": 379,
+        "full_runtime_seconds": 4.128070300183026,
+        "ablated_runtime_seconds": 3.815083300039987,
+        "marginal_runtime_seconds_full_minus_ablated": 0.31298700014303904,
+        "marginal_runtime_percent_full": 7.581920301336974
+      },
+      {
+        "module_removed": "vintage",
+        "full_case_recall": 1.0,
+        "ablated_case_recall": 0.8571428571428571,
+        "full_minus_ablated_recall_pp": 14.28571428571429,
+        "full_correct_class_cases": 700,
+        "ablated_correct_class_cases": 600,
+        "full_runtime_seconds": 4.128070300183026,
+        "ablated_runtime_seconds": 3.876589800034708,
+        "marginal_runtime_seconds_full_minus_ablated": 0.25148050014831824,
+        "marginal_runtime_percent_full": 6.091962632932108
+      },
+      {
+        "module_removed": "dependency",
+        "full_case_recall": 1.0,
+        "ablated_case_recall": 0.8571428571428571,
+        "full_minus_ablated_recall_pp": 14.28571428571429,
+        "full_correct_class_cases": 700,
+        "ablated_correct_class_cases": 600,
+        "full_runtime_seconds": 4.128070300183026,
+        "ablated_runtime_seconds": 4.206432999992103,
+        "marginal_runtime_seconds_full_minus_ablated": -0.07836269980907673,
+        "marginal_runtime_percent_full": -1.898288888287643
+      },
+      {
+        "module_removed": "eligibility",
+        "full_case_recall": 1.0,
+        "ablated_case_recall": 0.8571428571428571,
+        "full_minus_ablated_recall_pp": 14.28571428571429,
+        "full_correct_class_cases": 700,
+        "ablated_correct_class_cases": 600,
+        "full_runtime_seconds": 4.128070300183026,
+        "ablated_runtime_seconds": 3.590354399973876,
+        "marginal_runtime_seconds_full_minus_ablated": 0.5377159002091503,
+        "marginal_runtime_percent_full": 13.025841642893282
+      },
+      {
+        "module_removed": "mapping",
+        "full_case_recall": 1.0,
+        "ablated_case_recall": 0.8571428571428571,
+        "full_minus_ablated_recall_pp": 14.28571428571429,
+        "full_correct_class_cases": 700,
+        "ablated_correct_class_cases": 600,
+        "full_runtime_seconds": 4.128070300183026,
+        "ablated_runtime_seconds": 4.080478600008064,
+        "marginal_runtime_seconds_full_minus_ablated": 0.04759170017496217,
+        "marginal_runtime_percent_full": 1.1528800798971883
+      }
+    ],
+    "leave_one_out_runtime_bootstrap": [
+      {
+        "module_removed": "release",
+        "mean_full_minus_ablated_seconds_per_case": 0.0003912337501787988,
+        "median_seconds_per_case": 0.00040404999526799656,
+        "descriptive_paired_bootstrap_95_low": 0.00025854977515382417,
+        "descriptive_paired_bootstrap_95_high": 0.0005257877094481955,
+        "n_cases": 800,
+        "bootstrap_replicates": 5000
+      },
+      {
+        "module_removed": "vintage",
+        "mean_full_minus_ablated_seconds_per_case": 0.0003143506251853978,
+        "median_seconds_per_case": 0.00038684999890392646,
+        "descriptive_paired_bootstrap_95_low": 0.00016254681279315265,
+        "descriptive_paired_bootstrap_95_high": 0.00045595871265390997,
+        "n_cases": 800,
+        "bootstrap_replicates": 5000
+      },
+      {
+        "module_removed": "dependency",
+        "mean_full_minus_ablated_seconds_per_case": -9.795337476134591e-05,
+        "median_seconds_per_case": 4.0199996874434873e-05,
+        "descriptive_paired_bootstrap_95_low": -0.00024376926552190526,
+        "descriptive_paired_bootstrap_95_high": 5.2371137874160755e-05,
+        "n_cases": 800,
+        "bootstrap_replicates": 5000
+      },
+      {
+        "module_removed": "eligibility",
+        "mean_full_minus_ablated_seconds_per_case": 0.0006721448752614378,
+        "median_seconds_per_case": 0.0006514000015158672,
+        "descriptive_paired_bootstrap_95_low": 0.0005388373378045799,
+        "descriptive_paired_bootstrap_95_high": 0.0008075375129581057,
+        "n_cases": 800,
+        "bootstrap_replicates": 5000
+      },
+      {
+        "module_removed": "mapping",
+        "mean_full_minus_ablated_seconds_per_case": 5.948962521870271e-05,
+        "median_seconds_per_case": 3.920000381185673e-05,
+        "descriptive_paired_bootstrap_95_low": -7.820977149799546e-05,
+        "descriptive_paired_bootstrap_95_high": 0.0001941650126209424,
+        "n_cases": 800,
+        "bootstrap_replicates": 5000
+      }
+    ],
+    "original_full_result_comparison": {
+      "available": true,
+      "rows": 800,
+      "rows_recomputed": 800,
+      "status_mismatches": 0,
+      "detection_mismatches": 0,
+      "diagnostic_count_mismatches": 0
+    },
+    "runtime_environment": {
+      "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.26200-SP0",
+      "processor": "",
+      "logical_cpu_count": 32
+    },
+    "result_directory": "results/computational_ablation/",
+    "truth_sha256": "ed024c12393b60c5cfb62bed06cbe9e5c4b0db55cf4a70d74fc54641a640ca1f",
+    "fixture_manifest_sha256": "6a76c39ea87494fac11937138ae56163dc68241f4f0e29579c050d1df762fc49",
+    "auditor_sha256": "a18a33b917ef1b98c1c236c6d896db283615cf74d5a30e8f4c1d316b36f5bdb9",
+    "runner_sha256": "f53958ddc0acd648f8f6720987adb4d1ea89e65b175cc4f5c6bd1271ac04cdd9",
+    "target_values_read": false,
+    "p1_accessed": false
+  }
+}

@@ -1,0 +1,21 @@
+detector,fault_group,n_positive_cases,tp,fn,fp_other_fault_cases,tn,precision,recall,f1
+RAE full,release_cutoff,260,260,0,0,540,1.0,1.0,1.0
+RAE full,stale_vintage,135,135,0,0,665,1.0,1.0,1.0
+RAE full,transform_dependency,133,133,0,0,667,1.0,1.0,1.0
+RAE full,target_mapping,133,133,0,0,667,1.0,1.0,1.0
+RAE full,model_sample_coverage,132,132,0,0,668,1.0,1.0,1.0
+Structural audit,release_cutoff,260,0,260,0,540,0,0.0,0
+Structural audit,stale_vintage,135,0,135,0,665,0,0.0,0
+Structural audit,transform_dependency,133,0,133,0,667,0,0.0,0
+Structural audit,target_mapping,133,133,0,0,667,1.0,1.0,1.0
+Structural audit,model_sample_coverage,132,132,0,0,668,1.0,1.0,1.0
+Feast default PIT,release_cutoff,260,0,260,0,540,0,0.0,0
+Feast default PIT,stale_vintage,135,42,93,0,665,1.0,0.3111111111111111,0.4745762711864407
+Feast default PIT,transform_dependency,133,0,133,0,667,0,0.0,0
+Feast default PIT,target_mapping,133,0,133,0,667,0,0.0,0
+Feast default PIT,model_sample_coverage,132,0,132,0,668,0,0.0,0
+Feast event+created cutoff,release_cutoff,260,260,0,0,540,1.0,1.0,1.0
+Feast event+created cutoff,stale_vintage,135,44,91,0,665,1.0,0.32592592592592595,0.4916201117318436
+Feast event+created cutoff,transform_dependency,133,0,133,0,667,0,0.0,0
+Feast event+created cutoff,target_mapping,133,0,133,0,667,0,0.0,0
+Feast event+created cutoff,model_sample_coverage,132,0,132,0,668,0,0.0,0

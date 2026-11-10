@@ -1,0 +1,93 @@
+{
+  "suite": "point-in-time input-contract synthetic tests",
+  "run_at_utc": "2026-11-10T11:44:14.300456+00:00",
+  "python_version": "3.11.9",
+  "command": "python record_pit_test_results.py",
+  "audit_code_sha256": "ad4c2dd9bb93c9355bca987db761144d514f6c0dfb863e72fe7d48645dbdb683",
+  "test_code_sha256": "293543389b225028d6c2c2bbe62cf9cc603780dd9cf645a6399a4a0739497899",
+  "tests_run": 19,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "status": "PASS",
+  "tests": [
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_01_valid_bundle_passes",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_02_late_availability_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_03_future_context_month_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_04_stale_vintage_identifier_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_05_overwritten_vintage_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_06_target_horizon_mismatch_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_07_model_origin_set_mismatch_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_08_missing_forecast_row_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_09_explicit_fit_failure_is_retained_and_not_scored",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_10_expected_masked_input_is_ineligible_without_error",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_11_output_overwrite_is_refused",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_12_target_value_fields_are_forbidden",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_13_equal_availability_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_14_late_masked_input_is_expected_ineligibility",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_15_masked_input_with_unknown_time_is_expected_ineligibility",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_16_availability_just_before_origin_is_eligible",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_17_nonfinite_input_is_ineligible",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_18_undeclared_model_requirements_are_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_point_in_time.PointInTimeAuditTests.test_19_invalid_forecast_is_ineligible",
+      "status": "PASS"
+    }
+  ],
+  "text_output": "test_01_valid_bundle_passes (test_point_in_time.PointInTimeAuditTests.test_01_valid_bundle_passes) ... ok\ntest_02_late_availability_is_rejected (test_point_in_time.PointInTimeAuditTests.test_02_late_availability_is_rejected) ... ok\ntest_03_future_context_month_is_rejected (test_point_in_time.PointInTimeAuditTests.test_03_future_context_month_is_rejected) ... ok\ntest_04_stale_vintage_identifier_is_rejected (test_point_in_time.PointInTimeAuditTests.test_04_stale_vintage_identifier_is_rejected) ... ok\ntest_05_overwritten_vintage_is_rejected (test_point_in_time.PointInTimeAuditTests.test_05_overwritten_vintage_is_rejected) ... ok\ntest_06_target_horizon_mismatch_is_rejected (test_point_in_time.PointInTimeAuditTests.test_06_target_horizon_mismatch_is_rejected) ... ok\ntest_07_model_origin_set_mismatch_is_rejected (test_point_in_time.PointInTimeAuditTests.test_07_model_origin_set_mismatch_is_rejected) ... ok\ntest_08_missing_forecast_row_is_rejected (test_point_in_time.PointInTimeAuditTests.test_08_missing_forecast_row_is_rejected) ... ok\ntest_09_explicit_fit_failure_is_retained_and_not_scored (test_point_in_time.PointInTimeAuditTests.test_09_explicit_fit_failure_is_retained_and_not_scored) ... ok\ntest_10_expected_masked_input_is_ineligible_without_error (test_point_in_time.PointInTimeAuditTests.test_10_expected_masked_input_is_ineligible_without_error) ... ok\ntest_11_output_overwrite_is_refused (test_point_in_time.PointInTimeAuditTests.test_11_output_overwrite_is_refused) ... ok\ntest_12_target_value_fields_are_forbidden (test_point_in_time.PointInTimeAuditTests.test_12_target_value_fields_are_forbidden) ... ok\ntest_13_equal_availability_is_rejected (test_point_in_time.PointInTimeAuditTests.test_13_equal_availability_is_rejected) ... ok\ntest_14_late_masked_input_is_expected_ineligibility (test_point_in_time.PointInTimeAuditTests.test_14_late_masked_input_is_expected_ineligibility) ... ok\ntest_15_masked_input_with_unknown_time_is_expected_ineligibility (test_point_in_time.PointInTimeAuditTests.test_15_masked_input_with_unknown_time_is_expected_ineligibility) ... ok\ntest_16_availability_just_before_origin_is_eligible (test_point_in_time.PointInTimeAuditTests.test_16_availability_just_before_origin_is_eligible) ... ok\ntest_17_nonfinite_input_is_ineligible (test_point_in_time.PointInTimeAuditTests.test_17_nonfinite_input_is_ineligible) ... ok\ntest_18_undeclared_model_requirements_are_rejected (test_point_in_time.PointInTimeAuditTests.test_18_undeclared_model_requirements_are_rejected) ... ok\ntest_19_invalid_forecast_is_ineligible (test_point_in_time.PointInTimeAuditTests.test_19_invalid_forecast_is_ineligible) ... ok\n\n----------------------------------------------------------------------\nRan 19 tests in 0.006s\n\nOK\n",
+  "scope_note": "Synthetic contract fixtures only; not an audit or score of the historical study inputs."
+}

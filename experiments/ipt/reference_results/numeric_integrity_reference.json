@@ -1,0 +1,54 @@
+{
+  "schema": "ipt_numeric_integrity_v1",
+  "hash_normalization": {
+    "method": "Exact numeric fields use lossless canonical Decimal text; measured values use ROUND_HALF_EVEN fixed-place quantization",
+    "decimal_places": 8,
+    "sort_order": "lexicographic by documented row keys",
+    "raw_sha256_retained": true
+  },
+  "tolerances": {
+    "context_values_pp_abs": 1e-09,
+    "forecast_predictions_pp_abs": 1e-06,
+    "derived_scores_abs_native_units": 1e-06,
+    "relative_tolerance": 0
+  },
+  "scope": "Target-free contexts, forecasts, and derived numeric score outputs; the target workbook is not opened.",
+  "reference_dir": "local reference output directory (not included)",
+  "reference_artifacts": {
+    "contexts_unscored.jsonl": {
+      "rows": 540,
+      "raw_sha256": "426e648a98fe745a636ae55621886c0ff57e690723846d4985a18c0f4f238a2f",
+      "normalized_numeric_sha256": "aca66cc892f843e6def22c1f5eca725b99ddc147a48a46758dd1c705af7a324e"
+    },
+    "statistical_forecasts_unscored.csv": {
+      "rows": 4320,
+      "raw_sha256": "1d69fe375821a88a391f6abc79cdc4b254912150d779777e8ee3d5a24a5ac077",
+      "normalized_numeric_sha256": "5d798433daa25c1e35352c987c6d4c6e2aa74a79fab638d7c7dfa1f0c30c9e87"
+    },
+    "timesfm_forecasts_unscored.csv": {
+      "rows": 2160,
+      "raw_sha256": "6c1c93e4f53f0b94ddd16873a4554fc5aa90bfb62316c2e889775820e7bf24a5",
+      "normalized_numeric_sha256": "87925e8965964df9fea317cd6941c47506cd1be6fb700cab5d85899ea327eb79"
+    },
+    "derived_losses_target_free.csv": {
+      "rows": 6480,
+      "raw_sha256": "e8564e3658016e28fda7dc865409f3850e3cb8702b4c7de8e42faba85458358e",
+      "normalized_numeric_sha256": "1e2da19ff39567418e2f3928cbe58b6fdb61761446c6071d7d3cf6562813f211"
+    },
+    "score_summary.csv": {
+      "rows": 36,
+      "raw_sha256": "4e675d23b11681799e06c68a1c5feba78e32cdda885a69a5252e7070c515530a",
+      "normalized_numeric_sha256": "239f9955c34f4060524442b038115d31ff64692e2ae1381dc09b404e46411adc"
+    },
+    "paired_intervals.csv": {
+      "rows": 24,
+      "raw_sha256": "c51a5fb9ccec4a0833c2ba40a1f180a4e72f8413cc8c182291bd04808e5570cf",
+      "normalized_numeric_sha256": "a5c88c7c43fa8fbf24873ad5bfe7b8ccf36e13a8e7f6a85b1715d482752ae214"
+    }
+  },
+  "comparison": {
+    "status": "REFERENCE_FINGERPRINTS_RECORDED",
+    "cross_platform_replay_performed": false,
+    "note": "Supply --candidate-dir from a separate replay to execute row-key and absolute-tolerance validation."
+  }
+}

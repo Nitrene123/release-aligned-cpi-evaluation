@@ -1,0 +1,11 @@
+model,horizon_months,planned_origins,prediction_rows,native_origin_count,successful_origin_count,successful_origin_seed_pairs,failed_or_missing_planned_origins,seed_count,coverage_note
+AR(1),12,105,105,105,105,105,0,1,seed rows are not independent origins
+B3 multivariate,12,105,99,99,99,99,6,1,seed rows are not independent origins
+BEAH rolling,12,105,495,99,99,495,6,5,seed rows are not independent origins
+Direct rolling,12,105,495,99,99,495,6,5,seed rows are not independent origins
+Fixed candidate,12,105,105,105,105,105,0,1,seed rows are not independent origins
+Fixed candidate + gate,12,105,495,99,99,495,6,5,seed rows are not independent origins
+No-change,12,105,105,105,105,105,0,1,seed rows are not independent origins
+SARIMA,12,105,105,105,105,105,0,1,seed rows are not independent origins
+Seasonal-naive,12,105,105,105,105,105,0,1,seed rows are not independent origins
+TimesFM-3 target-only,12,105,105,105,105,105,0,1,seed rows are not independent origins

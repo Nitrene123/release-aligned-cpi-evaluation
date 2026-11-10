@@ -1,0 +1,23 @@
+{
+  "status": "RETROSPECTIVE_DESCRIPTIVE_SCORE_COMPLETE",
+  "cohort": "China CPI unified 2018-2026 rolling archive; B3 only",
+  "forecast_archive_sha256": "47a7dd1d866c9a265c574c04fa4299faec1d94808b79f8616f559b1a73cc86be",
+  "target_panel_sha256": "6905a54ddc0f9b7f22b26b124bdae8638c1b837b1449424c207ad139b11aec74",
+  "archived_b3_losses_sha256": "1ef9ae117dd01d2967acc9e71d4b27f2873f5403ca4f2afa78227744d710a0c3",
+  "first_release_target_panel_matches": 392,
+  "target_fallback_months_from_previously_scored_signed_residual": [
+    "2026-09"
+  ],
+  "paired_origin_count_by_horizon": {
+    "1": 99,
+    "3": 99,
+    "6": 99,
+    "12": 99
+  },
+  "strict_replay_max_abs_loss_difference_from_original_b3_pp": 5.000042446745567e-08,
+  "archived_loss_rounding_tolerance_pp": 1e-07,
+  "target_values_written_to_outputs": false,
+  "p_values_or_bootstrap_intervals": "not calculated; post-score descriptive analysis only",
+  "all_outcomes_and_prior_results_known_before_this_analysis": true,
+  "not_independent_confirmation": true
+}

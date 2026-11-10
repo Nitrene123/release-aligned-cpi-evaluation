@@ -1,0 +1,94 @@
+{
+  "status": "completed: input preparation, historical forecasts, target scoring, and P3 audit",
+  "execution_status": {
+    "input_preparation": "complete; 540 contexts",
+    "forecast_generation": "complete; 6480 rows across statistical and TimesFM-3 outputs",
+    "target_scoring": "complete for P0-P2; target workbook read only by the subsequent scoring step",
+    "P3_audit": "PASS; audit covers the TimesFM-3 P2 input/forecast bundle and does not create a distinct prediction policy"
+  },
+  "origins": "2010-01 to 2024-12",
+  "n_origins": 180,
+  "target": "Philadelphia Fed IPT first-release monthly annualized simple growth, percentage points",
+  "horizons": [
+    1,
+    3,
+    6,
+    12
+  ],
+  "target_mapping": "origin vintage month plus h months",
+  "origin_clock": "start of month following vintage month, UTC; monthly vintage treated as available at preceding month end",
+  "P0": "latest 2026-10 vintage through origin month, deliberately includes information unavailable at origin",
+  "P1": "latest 2026-10 vintage through origin minus one month",
+  "P2": "origin-month vintage through origin minus one month",
+  "P3": "P2 inputs plus RAE audit; audit status PASS; no separate P3 forecast values",
+  "model_step_mapping": "P0 h steps; P1/P2/P3 h+1 steps from final observed month",
+  "score_policies": [
+    "P0",
+    "P1",
+    "P2"
+  ],
+  "source_sha256": "dbace36b2b44618c7e89cf7e6dec7b568ed58df8b0156d03d64e3f6cb297edee",
+  "contexts_sha256": "426e648a98fe745a636ae55621886c0ff57e690723846d4985a18c0f4f238a2f",
+  "context_rows": 540,
+  "outputs": {
+    "statistical_forecasts_unscored.csv": {
+      "rows": 4320,
+      "sha256": "1d69fe375821a88a391f6abc79cdc4b254912150d779777e8ee3d5a24a5ac077"
+    },
+    "timesfm_forecasts_unscored.csv": {
+      "rows": 2160,
+      "sha256": "6c1c93e4f53f0b94ddd16873a4554fc5aa90bfb62316c2e889775820e7bf24a5"
+    },
+    "score_summary.csv": {
+      "rows": 36,
+      "sha256": "4e675d23b11681799e06c68a1c5feba78e32cdda885a69a5252e7070c515530a"
+    },
+    "paired_intervals.csv": {
+      "rows": 24,
+      "sha256": "c51a5fb9ccec4a0833c2ba40a1f180a4e72f8413cc8c182291bd04808e5570cf"
+    },
+    "derived_losses_target_free.csv": {
+      "rows": 6480,
+      "sha256": "e8564e3658016e28fda7dc865409f3850e3cb8702b4c7de8e42faba85458358e"
+    },
+    "rae_p3_audit.json": {
+      "status": "PASS",
+      "forecast_rows_audited": 720,
+      "sha256": "6718d14bfde3921768887f9d5593f5c9e42a716957ba167ca99b5d0b427c5da0"
+    },
+    "rae_p3_audit_eligibility.csv": {
+      "rows": 764,
+      "sha256": "6d9ff31f348f3f45e1a03bb1ccdd9eac74ad709744326a222a75676f08b733d4"
+    }
+  },
+  "numeric_integrity": {
+    "tool": "numeric_integrity.py",
+    "reference_file": "numeric_integrity_reference.json",
+    "status": "normalized fingerprints recorded; a separate cross-platform replay has not yet been compared",
+    "normalization": "Exact numeric fields use lossless canonical Decimal text; measured values use ROUND_HALF_EVEN quantization to 8 decimal places and deterministic row-key sorting.",
+    "relative_tolerance": 0,
+    "raw_sha256_role": "exact file-byte integrity only; use normalized numeric hashes and row-key tolerance checks for numerical replay",
+    "tool_sha256": "544e741012bbd62986e0399faf32ee42023bdbbee8e1e119322226b3b21bbf6e",
+    "reference_file_sha256": "1c25f701c5657a4e55ba8e08547844e7de54c2f652a8d5fa7e9ba9c6050dc72f",
+    "absolute_tolerance": {
+      "context_values_pp": 1e-09,
+      "forecast_predictions_pp": 1e-06,
+      "derived_score_fields_native_units": 1e-06
+    }
+  },
+  "note": "Historical reconstruction. Targets were not loaded during input preparation; the official first-release target workbook was read in the subsequent scoring step.",
+  "source_workbooks": {
+    "ipt_vintage_workbook": {
+      "file": "source/iptMvMd.xlsx",
+      "official_url": "https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/real-time-data/data-files/xlsx/iptMvMd.xlsx?hash=71A0CD9AD2C8828F0B041196CBFB7E5E&sc_lang=en",
+      "retrieved_on": "2026-11-10",
+      "sha256": "dbace36b2b44618c7e89cf7e6dec7b568ed58df8b0156d03d64e3f6cb297edee"
+    },
+    "ipt_first_second_third_workbook": {
+      "file": "source/ipt_first_second_third.xlsx",
+      "official_url": "https://www.philadelphiafed.org/-/media/FRBP/Assets/Surveys-And-Data/real-time-data/data-files/xlsx/ipt_first_second_third.xlsx?hash=B18AA2443F00DFB2C7795116BBDF8853&sc_lang=en",
+      "retrieved_on": "2026-11-10",
+      "sha256": "eafd0cd964f363e67c122d9d6b9a82fbb3aff77172defaf041ab9e178cd083a3"
+    }
+  }
+}

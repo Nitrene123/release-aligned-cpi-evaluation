@@ -1,0 +1,111 @@
+{
+  "protocol_id": "CN_UNIFIED_EXPANDING_WINDOW_2018_2026_V1_SARIMA_INDEPENDENT_REPLAY",
+  "created_at_utc": "2026-11-09T04:55:47.376908+00:00",
+  "status": "COMPLETED",
+  "archive_path_recorded_as": "sealed unified CN rolling forecast archive",
+  "archive_crc_check": "PASS",
+  "sealed_manifest_files_verified": 39,
+  "statsmodels": "0.14.4",
+  "python": "3.12.14",
+  "numpy": "2.2.6",
+  "scipy": "1.15.3",
+  "host_system": "Windows",
+  "host_platform": "Windows-11-10.0.26200-SP0",
+  "sarimax_spec": {
+    "order": [
+      1,
+      0,
+      0
+    ],
+    "seasonal_order": [
+      1,
+      0,
+      0,
+      12
+    ],
+    "trend": "c",
+    "enforce_stationarity": true,
+    "enforce_invertibility": true,
+    "simple_differencing": false,
+    "measurement_error": false,
+    "time_varying_regression": false,
+    "mle_regression": true,
+    "concentrate_scale": false,
+    "missing": "none",
+    "initialization": "stationary",
+    "optimizer": {
+      "method": "lbfgs",
+      "maxiter": 500,
+      "disp": false,
+      "pgtol": 1e-08,
+      "factr": 10000000.0
+    }
+  },
+  "unique_origins_refit": 116,
+  "planned_sarima_predictions": 420,
+  "fit_status_mismatches": [],
+  "fit_parameter_max_abs_difference": 9.571594624918633e-05,
+  "forecast_max_abs_difference_pp": 0.00018590651428995741,
+  "absolute_error_max_abs_difference_pp": 0.00018590651412320192,
+  "mae_max_abs_difference_pp": 5.917420000001172e-06,
+  "parameter_origins_over_1e_8_difference": 45,
+  "forecast_rows_over_1e_8_difference": 176,
+  "optimizer_nonconverged_but_finite_origins": [
+    "CN_2019-03",
+    "CN_2025-11"
+  ],
+  "optimizer_convergence_flag_mismatches": [
+    "CN_2019-03",
+    "CN_2019-12",
+    "CN_2020-01",
+    "CN_2020-04",
+    "CN_2025-11"
+  ],
+  "max_snapshot_value_difference_pp": 0.0,
+  "common_origin_counts_by_horizon": {
+    "1": 99,
+    "3": 99,
+    "6": 99,
+    "12": 99
+  },
+  "common_origin_counts_match_expected_99": true,
+  "target_records_used_for_scoring": 177,
+  "input_and_archive_hashes": {
+    "archive_sha256": "d636f3ab88e884f06fc3aec5d17c123faf56107cf2245423d81f65af7a18dbdd",
+    "snapshots_sha256": "82f3eff86f9f0826ffd75609472134a524032dff5f5133a117ee46c56419d13b",
+    "fit_sha256": "c910aea9d2f4511b51788fbce02a5c7127b8da957d2776565fd765798b21d463",
+    "statpred_sha256": "f1802b7bca408a7d452e3848c58d01b236a70d1ac0497367a3b1a781cede23d4",
+    "allpred_sha256": "5754003fa6fc3748060da6df10067013c2f37aabf625a2475153d98719ca95eb",
+    "panel_sha256": "6905a54ddc0f9b7f22b26b124bdae8638c1b837b1449424c207ad139b11aec74",
+    "score_sha256": "ce1793bd57f5c30ff1d4f1edcc14b2665c2839bfa8823a4951126c78d7a703b6",
+    "summary_sha256": "882c0a3b6cba632aff8ec968160f4675ef8d57277bfd613ed1d72e3bcdcf222a",
+    "target_ext_sha256": "f841e912a132b695c8ff401a31678cd82212c05c7d122d9aa6020903cfa889aa"
+  },
+  "target_source_crosscheck_max_abs_difference_pp": 5.000000014021566e-08,
+  "elapsed_seconds": 16.996873300000516,
+  "validation_rules": {
+    "parameter_match_abs_tol": 1e-08,
+    "forecast_match_abs_tol_pp": 1e-08,
+    "score_match_abs_tol_pp": 1e-09
+  },
+  "fit_statuses_match": true,
+  "strict_parameter_tolerance_met": false,
+  "strict_forecast_tolerance_met": false,
+  "strict_score_tolerance_met": false,
+  "score_key_coverage_complete": true,
+  "outputs": {
+    "sarima_parameters_by_origin.csv": {
+      "sha256": "0082e0f95fee3ab33c326a1d3b0bf720a93b7c7a1a6bce74e02cdb88d69b5b21",
+      "rows": 116
+    },
+    "sarima_forecasts_by_origin_horizon.csv": {
+      "sha256": "32077988b5b2c4a97defd424490cd974418f48163fa40ef3a83da61c26f99086",
+      "rows": 420
+    },
+    "sarima_mae_summary.csv": {
+      "sha256": "f2164af7e4d604bf0006861b6da55c31406682f1cac5a8ae48ad26b5352b2086",
+      "rows": 16
+    }
+  },
+  "overall_status": "REPLAY_COMPLETE_WITH_NUMERICAL_DIFFERENCES"
+}

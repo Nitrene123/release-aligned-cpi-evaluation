@@ -1,0 +1,25 @@
+country,contrast,horizon_months,planned_months,paired_origins,mean_difference_pp,block_months,lower_pp,upper_pp
+CN,Timestral-123M target-only minus B3 multivariate,1,105,99,-0.009221215561,3,-0.041237800371,0.021682047349
+CN,Timestral-123M target-only minus B3 multivariate,1,105,99,-0.009221215561,6,-0.043526768602,0.024913926062
+CN,Timestral-123M target-only minus B3 multivariate,1,105,99,-0.009221215561,12,-0.046579844743,0.028741588899
+CN,Timestral-123M target-only minus B3 multivariate,3,105,99,-0.013493138853,3,-0.070773887267,0.046685848706
+CN,Timestral-123M target-only minus B3 multivariate,3,105,99,-0.013493138853,6,-0.077275002508,0.051394662165
+CN,Timestral-123M target-only minus B3 multivariate,3,105,99,-0.013493138853,12,-0.085767576366,0.057287118187
+CN,Timestral-123M target-only minus B3 multivariate,6,105,99,0.021918878050,3,-0.056736697012,0.108479311600
+CN,Timestral-123M target-only minus B3 multivariate,6,105,99,0.021918878050,6,-0.068861098986,0.121156910842
+CN,Timestral-123M target-only minus B3 multivariate,6,105,99,0.021918878050,12,-0.080131965039,0.135223049091
+CN,Timestral-123M target-only minus B3 multivariate,12,105,99,0.058712942913,3,-0.065815361376,0.185286642635
+CN,Timestral-123M target-only minus B3 multivariate,12,105,99,0.058712942913,6,-0.105247362554,0.218743887306
+CN,Timestral-123M target-only minus B3 multivariate,12,105,99,0.058712942913,12,-0.149108807214,0.245547661733
+US,Timestral-123M target-only minus B3 multivariate,1,84,84,0.030171449411,3,0.000405892368,0.062065561627
+US,Timestral-123M target-only minus B3 multivariate,1,84,84,0.030171449411,6,-0.001644874967,0.063049013686
+US,Timestral-123M target-only minus B3 multivariate,1,84,84,0.030171449411,12,-0.000642288632,0.060097376463
+US,Timestral-123M target-only minus B3 multivariate,3,84,84,0.019712219919,3,-0.089313721298,0.133528341310
+US,Timestral-123M target-only minus B3 multivariate,3,84,84,0.019712219919,6,-0.112678016204,0.150824891272
+US,Timestral-123M target-only minus B3 multivariate,3,84,84,0.019712219919,12,-0.119867770818,0.156182361607
+US,Timestral-123M target-only minus B3 multivariate,6,84,84,0.058229137744,3,-0.185857142405,0.309163000559
+US,Timestral-123M target-only minus B3 multivariate,6,84,84,0.058229137744,6,-0.252708482096,0.381641130877
+US,Timestral-123M target-only minus B3 multivariate,6,84,84,0.058229137744,12,-0.267837280322,0.402493132364
+US,Timestral-123M target-only minus B3 multivariate,12,84,84,0.279186423478,3,-0.077819747325,0.664705246921
+US,Timestral-123M target-only minus B3 multivariate,12,84,84,0.279186423478,6,-0.146128351546,0.785544204223
+US,Timestral-123M target-only minus B3 multivariate,12,84,84,0.279186423478,12,-0.134408466748,0.832424813491

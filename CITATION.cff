@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software or derived results, please cite the associated article."
+title: "Release-Aligned Evaluation of TimesFM-3 Configurations and Statistical Baselines for CPI Forecasting"
+version: 1.0.0
+date-released: 2026-11-10
+license: MIT
+abstract: "Chao Liu and Yanbin Zhang contributed equally. The repository provides release-aligned audit code, experiment scripts, configurations, tests, and derived results for CPI forecasting evaluation."
+authors:
+  - family-names: Liu
+    given-names: Chao
+  - family-names: Zhang
+    given-names: Yanbin
+    orcid: "https://orcid.org/0009-0009-0340-0425"
+  - family-names: Zhang
+    given-names: Jian
+type: software

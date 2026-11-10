@@ -1,0 +1,41 @@
+model,horizon_months,n_origins,mae_pp,B3_mae_pp,relative_improvement_vs_B3_percent,improved_origins,deteriorated_origins,ties,aggregation_rule,endpoint
+AR1,1,9,0.348733941441591,0.35165316396289403,0.8301425439786709,7,2,0,single deterministic forecast per origin,SECONDARY
+AR1,3,9,0.3616035691278666,0.41384837627410886,12.624142111322035,6,3,0,single deterministic forecast per origin,PRIMARY
+AR1,6,9,0.4013257070759968,0.5515194720692104,27.232722070484883,6,3,0,single deterministic forecast per origin,SECONDARY
+AR1,12,9,0.3270637340920104,0.5660140527619256,42.21632263438192,7,2,0,single deterministic forecast per origin,SECONDARY
+B3,1,9,0.35165316396289403,0.35165316396289403,0.0,0,0,9,single deterministic forecast per origin,SECONDARY
+B3,3,9,0.41384837627410886,0.41384837627410886,0.0,0,0,9,single deterministic forecast per origin,PRIMARY
+B3,6,9,0.5515194720692104,0.5515194720692104,0.0,0,0,9,single deterministic forecast per origin,SECONDARY
+B3,12,9,0.5660140527619256,0.5660140527619256,0.0,0,0,9,single deterministic forecast per origin,SECONDARY
+BEAH,1,9,0.3564482675658332,0.35165316396289403,-1.3635889263448058,3,6,0,"mean of seed absolute errors within origin, then mean over origins",SECONDARY
+BEAH,3,9,0.3903535834948222,0.41384837627410886,5.67714992404008,4,5,0,"mean of seed absolute errors within origin, then mean over origins",PRIMARY
+BEAH,6,9,0.5113513628972901,0.5515194720692104,7.2831715299581585,6,3,0,"mean of seed absolute errors within origin, then mean over origins",SECONDARY
+BEAH,12,9,0.7085991643534766,0.5660140527619256,-25.191090379433476,3,6,0,"mean of seed absolute errors within origin, then mean over origins",SECONDARY
+Direct,1,9,0.35868051687876384,0.35165316396289403,-1.9983761376341058,5,4,0,"mean of seed absolute errors within origin, then mean over origins",SECONDARY
+Direct,3,9,0.40834498637252387,0.41384837627410886,1.3298082624202145,3,6,0,"mean of seed absolute errors within origin, then mean over origins",PRIMARY
+Direct,6,9,0.5812986976570552,0.5515194720692104,-5.399487614846687,2,7,0,"mean of seed absolute errors within origin, then mean over origins",SECONDARY
+Direct,12,9,0.669107590450181,0.5660140527619256,-18.21395373227917,3,6,0,"mean of seed absolute errors within origin, then mean over origins",SECONDARY
+Fixed_candidate,1,9,0.375855177309778,0.35165316396289403,-6.882353360380329,4,5,0,single deterministic forecast per origin,SECONDARY
+Fixed_candidate,3,9,0.6841207298967573,0.41384837627410886,-65.3070953318507,3,6,0,single deterministic forecast per origin,PRIMARY
+Fixed_candidate,6,9,0.7891787819564342,0.5515194720692104,-43.091735092428415,4,5,0,single deterministic forecast per origin,SECONDARY
+Fixed_candidate,12,9,1.2683580001195274,0.5660140527619256,-124.0859558045317,2,7,0,single deterministic forecast per origin,SECONDARY
+Fixed_candidate_gate,1,9,0.35451977981461424,0.35165316396289403,-0.8151827270414358,4,5,0,"mean of seed absolute errors within origin, then mean over origins",SECONDARY
+Fixed_candidate_gate,3,9,0.42113701105117796,0.41384837627410886,-1.761184819109095,4,5,0,"mean of seed absolute errors within origin, then mean over origins",PRIMARY
+Fixed_candidate_gate,6,9,0.5559162484274969,0.5515194720692104,-0.7972114460057994,5,4,0,"mean of seed absolute errors within origin, then mean over origins",SECONDARY
+Fixed_candidate_gate,12,9,0.5668920722272661,0.5660140527619256,-0.15512326258616846,5,4,0,"mean of seed absolute errors within origin, then mean over origins",SECONDARY
+No_change,1,9,0.36666667163372035,0.35165316396289403,-4.269407816962092,4,5,0,single deterministic forecast per origin,SECONDARY
+No_change,3,9,0.3444444497426351,0.41384837627410886,16.770375458838256,6,3,0,single deterministic forecast per origin,PRIMARY
+No_change,6,9,0.6444444404708014,0.5515194720692104,-16.84890073834598,2,7,0,single deterministic forecast per origin,SECONDARY
+No_change,12,9,1.0888888898822997,0.5660140527619256,-92.37841968215291,1,8,0,single deterministic forecast per origin,SECONDARY
+SARIMA_101x101_12,1,9,0.19950680026847656,0.35165316396289403,43.26603007913552,6,3,0,single deterministic forecast per origin,SECONDARY
+SARIMA_101x101_12,3,9,0.3147213078814983,0.41384837627410886,23.95250871467829,6,3,0,single deterministic forecast per origin,PRIMARY
+SARIMA_101x101_12,6,9,0.3609750087337263,0.5515194720692104,34.549000168678106,6,3,0,single deterministic forecast per origin,SECONDARY
+SARIMA_101x101_12,12,9,0.2418119661209676,0.5660140527619256,57.278098495784626,8,1,0,single deterministic forecast per origin,SECONDARY
+Seasonal_naive,1,9,1.0888888898822997,0.35165316396289403,-209.64854051397012,2,7,0,single deterministic forecast per origin,SECONDARY
+Seasonal_naive,3,9,1.0888888898822997,0.41384837627410886,-163.1130028068743,1,8,0,single deterministic forecast per origin,PRIMARY
+Seasonal_naive,6,9,1.0888888898822997,0.5515194720692104,-97.43435092091448,0,9,0,single deterministic forecast per origin,SECONDARY
+Seasonal_naive,12,9,1.0888888898822997,0.5660140527619256,-92.37841968215291,1,8,0,single deterministic forecast per origin,SECONDARY
+TimesFM3_target_only,1,9,0.3323187841309441,0.35165316396289403,5.498139022571129,5,4,0,single deterministic forecast per origin,SECONDARY
+TimesFM3_target_only,3,9,0.35850792990790475,0.41384837627410886,13.372155006245537,5,4,0,single deterministic forecast per origin,PRIMARY
+TimesFM3_target_only,6,9,0.4836880630917019,0.5515194720692104,12.299005277731384,5,4,0,single deterministic forecast per origin,SECONDARY
+TimesFM3_target_only,12,9,0.65203484694163,0.5660140527619256,-15.19764284295714,1,8,0,single deterministic forecast per origin,SECONDARY

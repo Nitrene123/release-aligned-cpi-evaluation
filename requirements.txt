@@ -1,0 +1,2 @@
+# Core point-in-time audit tests use only the Python standard library.
+# Experiment-specific packages are listed in requirements/.

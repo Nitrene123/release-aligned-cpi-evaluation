@@ -1,0 +1,4 @@
+numpy>=1.26,<3
+pandas>=2.2,<3
+statsmodels>=0.14,<1
+# Install the official TimesFM-3 package separately.

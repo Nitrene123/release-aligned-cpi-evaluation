@@ -1,0 +1,28 @@
+{
+  "status": "ARCHIVED_PARTIAL_INFORMATION_DIAGNOSTIC_COMPLETE",
+  "n_methods": 13,
+  "common_origins_per_horizon": 99,
+  "max_strict_b3_loss_difference_pp": 5.000042446745567e-08,
+  "recovered_cells_by_feature": {
+    "BRENT_LOG_YOY_PCT": 34,
+    "M2_YOY_PCT": 69,
+    "PPI_YOY_PCT": 1
+  },
+  "full_P0_P3_experiment": false,
+  "source_sha256": {
+    "paired": "b303acaa793635b9ffab451e984df34e1da607e54974ade343b69c4975573b50",
+    "base": "592d2e2ba81c670905a7a10ff6db02406f5a6dd70ae17dd833af443d4883fd63",
+    "ets_theta": "3c5d8fd604bd647898d346e96dbf93c82a9eb8bed5bf733358a2e880582aaf1f",
+    "timestral": "158aa5f2fd071a8b05d69d162842940e32f617086431480f5514126207141775",
+    "recovery": "131a30f6db88e761ffb632064b6caf87e7725193435df5e3a9ff032501e890b9"
+  },
+  "protocol_sha256": "4bb885ea839f39174340ff1a60fb82363370d9a9f7b7e303b1c1a34be624704b",
+  "script_sha256": "3d5eb39a8b2e13ada7aea864df33a63143851630e8492596ea057e37107e01eb",
+  "outputs_sha256": {
+    "model_scenario_metrics.csv": "fce3dc133292699cfdcec194c4d4028d7b39b0537c9a8fe11dd1f5b6e197dc12",
+    "b3_rank_changes.csv": "fe6957b1727e4e876946c32199065fcc66462744b1d99672794425e47a8cf9b2",
+    "paired_origin_changes.csv": "c0e2a1bee2c302b6891887fc6ae427cd1d7852c362d5103792b36bbbde6dcf8f",
+    "paired_block_intervals.csv": "083c851ad2ca10835768d3f9faed4d019401019dd7be55138c685c4ad9e54e65",
+    "coverage.csv": "e533b07a83a9e0660241f928bfd715bcec87cb84c2f90a081be0465529ae411c"
+  }
+}

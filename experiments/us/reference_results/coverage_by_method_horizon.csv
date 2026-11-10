@@ -1,0 +1,41 @@
+model,horizon_months,planned_origins,eligible_forecasts,native_coverage,ten_method_common_origins
+No-change,1,84,84,1,84
+Seasonal-naive,1,84,84,1,84
+AR(1),1,84,84,1,84
+SARIMA,1,84,84,1,84
+TimesFM-3 target-only,1,84,84,1,84
+B3 multivariate,1,84,84,1,84
+BEAH rolling,1,84,84,1,84
+Direct rolling,1,84,84,1,84
+Fixed candidate,1,84,84,1,84
+Fixed candidate + gate,1,84,84,1,84
+No-change,3,84,84,1,84
+Seasonal-naive,3,84,84,1,84
+AR(1),3,84,84,1,84
+SARIMA,3,84,84,1,84
+TimesFM-3 target-only,3,84,84,1,84
+B3 multivariate,3,84,84,1,84
+BEAH rolling,3,84,84,1,84
+Direct rolling,3,84,84,1,84
+Fixed candidate,3,84,84,1,84
+Fixed candidate + gate,3,84,84,1,84
+No-change,6,84,84,1,84
+Seasonal-naive,6,84,84,1,84
+AR(1),6,84,84,1,84
+SARIMA,6,84,84,1,84
+TimesFM-3 target-only,6,84,84,1,84
+B3 multivariate,6,84,84,1,84
+BEAH rolling,6,84,84,1,84
+Direct rolling,6,84,84,1,84
+Fixed candidate,6,84,84,1,84
+Fixed candidate + gate,6,84,84,1,84
+No-change,12,84,84,1,84
+Seasonal-naive,12,84,84,1,84
+AR(1),12,84,84,1,84
+SARIMA,12,84,84,1,84
+TimesFM-3 target-only,12,84,84,1,84
+B3 multivariate,12,84,84,1,84
+BEAH rolling,12,84,84,1,84
+Direct rolling,12,84,84,1,84
+Fixed candidate,12,84,84,1,84
+Fixed candidate + gate,12,84,84,1,84

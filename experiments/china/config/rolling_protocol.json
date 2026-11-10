@@ -1,0 +1,105 @@
+{
+  "protocol_id": "CN_UNIFIED_EXPANDING_WINDOW_2018_2026_V1",
+  "status": "FROZEN_BEFORE_UNIFIED_RUN_NOT_EXTERNAL_PREREGISTRATION",
+  "evidence_class": "RETROSPECTIVE_EXPANDING_WINDOW_ROLLING_ORIGIN_RECONSTRUCTION_EXPLORATORY",
+  "purpose": "Re-run the ten prespecified method families under one expanding-window origin protocol from the original evaluation start through the latest released China CPI target month.",
+  "targets": {
+    "country": "China",
+    "series": "official national CPI year-on-year first release",
+    "units": "percentage points",
+    "target_month_start": "2018-01",
+    "target_month_end": "2026-09",
+    "planned_target_months_per_horizon": 105,
+    "horizons_months": [1, 3, 6, 12],
+    "planned_origin_horizon_pairs": 420,
+    "origin_rule": "origin reference month = target reference month minus horizon"
+  },
+  "origin_clock": {
+    "rule": "official first-release timestamp of the origin-month CPI plus one minute",
+    "timestamps_require_explicit_timezone": true,
+    "input_availability_rule": "source availability timestamp must be strictly earlier than the origin timestamp",
+    "target_release_rule": "target first-release timestamp must be strictly later than the origin timestamp",
+    "model_specific_eligibility": "Each method uses its frozen input requirements; native coverage and the all-method common-origin intersection are reported separately."
+  },
+  "methods": [
+    "No-change",
+    "Seasonal-naive",
+    "AR(1)-expanding-origin-refit",
+    "SARIMA(1,0,0)x(1,0,0,12)-expanding-origin-refit",
+    "TimesFM-3-target-only-q50",
+    "TimesFM-3-B3-multivariate-q50",
+    "BEAH-coordinate-expanding-origin-refit",
+    "Direct-coordinate-expanding-origin-refit",
+    "Fixed-candidate",
+    "Fixed-candidate-plus-gate-expanding-origin-refit"
+  ],
+  "estimation": {
+    "statistical_models": {
+      "refit_rule": "At every outer origin, estimate from the expanding sequence of first-release CPI observations strictly available before that origin.",
+      "ar1": "OLS with intercept on consecutive monthly first-release YoY pairs; recursively forecast to each requested horizon.",
+      "sarima": {
+        "order": [1, 0, 0],
+        "seasonal_order": [1, 0, 0, 12],
+        "trend": "c",
+        "enforce_stationarity": true,
+        "enforce_invertibility": true,
+        "simple_differencing": false,
+        "measurement_error": false,
+        "time_varying_regression": false,
+        "mle_regression": true,
+        "concentrate_scale": false,
+        "missing": "none",
+        "initialization": "stationary",
+        "optimizer": "lbfgs",
+        "maxiter": 500,
+        "pgtol": 1e-8,
+        "factr": 1e7,
+        "software": "statsmodels 0.14.4"
+      },
+      "failed_fit_policy": "Retain failed or missing predictions and report their origin; do not substitute another model or retry with altered settings."
+    },
+    "foundation_model": {
+      "checkpoint_sha256": "a7592b0a8432baee54483254e5647856911ce69e09d09a9bb65904b2d98f17da",
+      "official_repository_commit": "e51928e27119cb17bebc005be2696b75e0a9e688",
+      "weights_updated": false,
+      "target_only_and_B3_use_same_checkpoint": true,
+      "point_forecast": "q0.5 after monotone quantile rearrangement"
+    },
+    "learned_heads": {
+      "fit_rule": "Refit at every eligible outer origin using only historical as-of inputs from their own origin and labels whose official first-release time is strictly earlier than the outer-origin time.",
+      "inner_validation": "12 most recent eligible historical origins with an h=3 label released before the outer origin",
+      "epoch_selection_metric": "h=3 validation MAE",
+      "final_fit": "Fresh same-seed initialization on all eligible pre-origin rows, all four registered horizons, for the selected epoch count",
+      "seeds": [417, 42, 123, 2027, 3407],
+      "architecture_optimizer_and_stopping": "Use the pinned G1/G4 implementation without hyperparameter search.",
+      "failed_fit_policy": "Retain failure and missing coverage; no fallback, retry, or post-result substitution."
+    }
+  },
+  "point_in_time_inputs": {
+    "historical_context": "Use the first-release CPI context available at each origin; use the archived, origin-specific G3 inputs for origins 2025-01 through 2026-08.",
+    "covariates": ["PPI_YOY_PCT", "M2_YOY_PCT", "BRENT_LOG_YOY_PCT", "USDCNY_LOG_YOY_PCT"],
+    "mask_semantics": "True means unavailable or unresolved and is supplied as an explicit mask; no interpolation or carry-forward substitution.",
+    "2026_09_target": "The target release timestamp may be used for key validation, but its numeric first-release value is excluded from forecast construction and can be opened only by the separate scoring stage.",
+    "training_labels": "Earlier evaluation-period labels may enter a later origin's expanding training set only after their first release and only under the strict origin cutoff."
+  },
+  "scoring": {
+    "primary_metric": "MAE",
+    "report": ["per-method and per-horizon MAE", "native coverage", "pairwise common-origin coverage", "all-method common-origin coverage", "origin-level paired loss differences", "wins/losses/ties"],
+    "seed_aggregation": "Average seed-specific absolute errors within each origin, then average across origins.",
+    "p_values": false,
+    "descriptive_intervals_only": true,
+    "missing_prediction_rule": "Do not treat missing forecasts as zero error; retain planned calendar coverage and report the actual MAE and paired-comparison denominators separately."
+  },
+  "interpretation": {
+    "retrospective": true,
+    "blind_or_confirmatory": false,
+    "pretraining_series_level_exposure_known": false,
+    "scope": "One Chinese CPI case; no general model ranking or independent prospective validation is established by this run."
+  },
+  "separation": {
+    "existing_G6_modified": false,
+    "P1_accessed": false,
+    "prospective_queue_accessed": false,
+    "existing_2018_2024_runs_overwritten": false
+  }
+}

@@ -1,0 +1,41 @@
+model,horizon_months,n_origins,mae_pp
+No-change,1,84,0.321428571429
+Seasonal-naive,1,84,2.04166666667
+AR(1),1,84,0.327529163487
+SARIMA,1,84,0.317831120534
+TimesFM-3 target-only,1,84,0.30190341203
+B3 multivariate,1,84,0.286346484934
+BEAH rolling,1,84,0.27934988063
+Direct rolling,1,84,0.276278849698
+Fixed candidate,1,84,0.305270443679
+Fixed candidate + gate,1,84,0.273876402456
+No-change,3,84,0.746428571429
+Seasonal-naive,3,84,2.04166666667
+AR(1),3,84,0.772186339095
+SARIMA,3,84,0.791306867577
+TimesFM-3 target-only,3,84,0.723443684691
+B3 multivariate,3,84,0.707183749619
+BEAH rolling,3,84,0.645264526606
+Direct rolling,3,84,0.653574083831
+Fixed candidate,3,84,0.815106573234
+Fixed candidate + gate,3,84,0.717003595332
+No-change,6,84,1.24404761905
+Seasonal-naive,6,84,2.04166666667
+AR(1),6,84,1.35870360402
+SARIMA,6,84,1.37939521502
+TimesFM-3 target-only,6,84,1.23166506007
+B3 multivariate,6,84,1.15354669208
+BEAH rolling,6,84,1.11403175338
+Direct rolling,6,84,1.07255142506
+Fixed candidate,6,84,1.59159662347
+Fixed candidate + gate,6,84,1.12676305508
+No-change,12,84,2.04166666667
+Seasonal-naive,12,84,2.04166666667
+AR(1),12,84,2.45506563294
+SARIMA,12,84,2.28908829545
+TimesFM-3 target-only,12,84,2.03826089672
+B3 multivariate,12,84,1.69408474735
+BEAH rolling,12,84,1.78979402193
+Direct rolling,12,84,1.74226748296
+Fixed candidate,12,84,2.40246378207
+Fixed candidate + gate,12,84,1.70003712035

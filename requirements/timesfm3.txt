@@ -1,0 +1,2 @@
+# Install the official TimesFM-3 inference package separately.
+# Check the provider instructions and exact checkpoint license.

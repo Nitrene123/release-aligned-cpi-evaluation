@@ -1,0 +1,53 @@
+horizon_months,model,native_available,common
+1,AR(1),105,99
+1,B3 multivariate,99,99
+1,BEAH rolling,99,99
+1,Direct rolling,99,99
+1,"ETS(A,A,N)",105,99
+1,Fixed candidate,105,99
+1,Fixed candidate + gate,99,99
+1,No-change,105,99
+1,SARIMA,105,99
+1,Seasonal-naive,105,99
+1,Theta,105,99
+1,TimesFM-3 target-only,105,99
+1,Timestral-123M target-only,105,99
+3,AR(1),105,99
+3,B3 multivariate,99,99
+3,BEAH rolling,99,99
+3,Direct rolling,99,99
+3,"ETS(A,A,N)",105,99
+3,Fixed candidate,105,99
+3,Fixed candidate + gate,99,99
+3,No-change,105,99
+3,SARIMA,105,99
+3,Seasonal-naive,105,99
+3,Theta,105,99
+3,TimesFM-3 target-only,105,99
+3,Timestral-123M target-only,105,99
+6,AR(1),105,99
+6,B3 multivariate,99,99
+6,BEAH rolling,99,99
+6,Direct rolling,99,99
+6,"ETS(A,A,N)",105,99
+6,Fixed candidate,105,99
+6,Fixed candidate + gate,99,99
+6,No-change,105,99
+6,SARIMA,105,99
+6,Seasonal-naive,105,99
+6,Theta,105,99
+6,TimesFM-3 target-only,105,99
+6,Timestral-123M target-only,105,99
+12,AR(1),105,99
+12,B3 multivariate,99,99
+12,BEAH rolling,99,99
+12,Direct rolling,99,99
+12,"ETS(A,A,N)",105,99
+12,Fixed candidate,105,99
+12,Fixed candidate + gate,99,99
+12,No-change,105,99
+12,SARIMA,105,99
+12,Seasonal-naive,105,99
+12,Theta,105,99
+12,TimesFM-3 target-only,105,99
+12,Timestral-123M target-only,105,99

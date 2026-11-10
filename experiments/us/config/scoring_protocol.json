@@ -1,0 +1,119 @@
+{
+  "protocol_id": "US_CPI_CROSSCOUNTRY_ROLLING_2018_2024_V1",
+  "version": "1.3",
+  "status": "FROZEN_BEFORE_US_FORECAST_GENERATION_NOT_EXTERNAL_PREREGISTRATION",
+  "evidence_class": "RETROSPECTIVE_CROSS_COUNTRY_EXPANDING_WINDOW_RECONSTRUCTION",
+  "purpose": "Evaluate whether the release-aligned input and rolling-evaluation workflow transfers to U.S. CPI-U; this is not blind, prospective, or independent confirmation.",
+  "target": {
+    "country": "United States",
+    "series": "CPI-U, U.S. city average, all items, not seasonally adjusted",
+    "target_value": "One-decimal 12-month change printed in the corresponding original BLS CPI news release",
+    "unit": "percentage points",
+    "target_months": ["2018-01", "2024-12"],
+    "horizons_months": [1, 3, 6, 12],
+    "planned_targets_per_horizon": 84,
+    "planned_target_origin_horizon_keys": 336,
+    "origin_month_rule": "target_reference_month minus horizon_months",
+    "origin_clock_rule": "actual BLS release timestamp for the origin CPI reference month plus one minute",
+    "target_release_rule": "target first-release timestamp must be strictly after the origin clock"
+  },
+  "inputs": {
+    "timesfm_cpi_context": "first-vintage unrounded CPI-U NSA index-ratio YoY through the origin; construct the preceding 12 monthly log changes from the coherent CPI-index vintage available at that origin",
+    "supervision_and_statistical_history": "official one-decimal BLS first-release YoY labels",
+    "covariates_order": ["PPI_YOY_PCT", "M2_YOY_PCT", "BRENT_LOG_YOY_PCT", "USDCNY_LOG_YOY_PCT"],
+    "availability_rule": "unmasked observation availability must be strictly earlier than origin; unresolved values remain masked; no interpolation or carry-forward",
+    "vintage_rule": "use the latest conservative source vintage satisfying the point-in-time cutoff; ALFRED daily vintages use a strict next-ET-day bound",
+    "target_training_use": "an evaluation-period first-release label may enter a later outer origin's training packet only after its official release timestamp is strictly earlier than that outer origin",
+    "separate_scoring_target_file_read_before_forecast_seal": false
+  },
+  "methods": [
+    "No-change",
+    "Seasonal-naive",
+    "AR(1)",
+    "SARIMA(1,0,0)(1,0,0,12)",
+    "TimesFM-3 target-only q0.5",
+    "TimesFM-3 B3 multivariate q0.5",
+    "BEAH rolling correction",
+    "Direct rolling correction",
+    "Fixed candidate",
+    "Fixed candidate plus gate"
+  ],
+  "estimation": {
+    "expanding_window": true,
+    "statistical_models": {
+      "refit": "once at each eligible outer origin using the contiguous official first-release YoY history strictly available before that origin",
+      "ar1": "OLS intercept plus AR(1) coefficient on adjacent monthly pairs; recursively propagate through the requested horizon",
+      "sarima": {
+        "order": [1, 0, 0],
+        "seasonal_order": [1, 0, 0, 12],
+        "trend": "c",
+        "enforce_stationarity": true,
+        "enforce_invertibility": true,
+        "simple_differencing": false,
+        "measurement_error": false,
+        "time_varying_regression": false,
+        "mle_regression": true,
+        "concentrate_scale": false,
+        "missing": "none",
+        "initialization": "stationary",
+        "optimizer": "lbfgs",
+        "maxiter": 500,
+        "pgtol": 1e-8,
+        "factr": 1e7,
+        "statsmodels": "0.14.4"
+      },
+      "failure_policy": "record failed fit and missing forecasts; no retry or substitution"
+    },
+    "foundation_model": {
+      "weights_sha256": "a7592b0a8432baee54483254e5647856911ce69e09d09a9bb65904b2d98f17da",
+      "official_repository_commit": "e51928e27119cb17bebc005be2696b75e0a9e688",
+      "weights_updated": false,
+      "target_only_and_b3_same_checkpoint": true,
+      "point_forecast": "q0.5 after monotone quantile sorting"
+    },
+    "learned_heads": {
+      "outer_origins": "each planned evaluation origin with the required historical input context; origin-specific refit",
+      "seeds": [417, 42, 123, 2027, 3407],
+      "methods": ["BEAH", "Direct", "GateOnly"],
+      "inner_validation": "the 12 most recent prior origins with h=3 labels released before the outer origin",
+      "validation_start": "origin timestamp of the earliest of those 12 validation origins",
+      "inner_train_label_rule": "sample origin precedes validation start, label release is strictly before validation start, and the target reference month is not any of the 12 validation h=3 target months",
+      "explicit_leakage_assertion": "set(inner_train_target_months) intersect set(validation_h3_target_months) is empty for every outer origin",
+      "epoch_selection": "h=3 validation MAE under the pinned training.py specification",
+      "final_fit": "fresh same-seed initialization; refit on all eligible labels released strictly before the outer origin",
+      "parameter_counts": {"BEAH": 688, "Direct": 688, "GateOnly": 4},
+      "failure_policy": "retain failure and missing coverage; no fallback, retry, or post-result substitution"
+    }
+  },
+  "forecast_archive": {
+    "forecast_rows_if_complete": 7392,
+    "foundation_full_path_rows": 3456,
+    "head_fit_invocations_if_all_outer_origins_complete": 1425,
+    "forecast_generation_computes_scoring_errors": false,
+    "score_only_after_forecast_archive_and_manifest_sealed": true
+  },
+  "scoring": {
+    "primary_metric": "per-horizon MAE in percentage points",
+    "pairing": "same target month and horizon; report model-native coverage, pairwise intersections, and ten-method common intersection",
+    "seed_rule": "average five seed-specific absolute errors within an origin before averaging over origins",
+    "p_values": false,
+    "descriptive_intervals_only": true,
+    "missing_prediction_rule": "do not replace with zero; retain planned coverage denominators and report actual paired denominators"
+  },
+  "interpretation": {
+    "retrospective": true,
+    "blind": false,
+    "prospective": false,
+    "external_preregistration": false,
+    "timesfm_pretraining_sequence_level_exposure_known": false,
+    "claim_scope": "a retrospective U.S. CPI cross-country replication of a release-aligned rolling workflow; no general model ranking or prospective validation"
+  },
+  "separation": {
+    "china_artifacts_modified": false,
+    "china_scores_used_in_us_forecast_generation": false,
+    "p1_accessed": false,
+    "training_label_panel_contains_evaluation_labels": true,
+    "evaluation_labels_enter_later_training_only_after_release_gate": true,
+    "target_score_file_used_before_forecast_seal": false
+  }
+}

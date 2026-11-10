@@ -1,0 +1,801 @@
+case_id,fault,model,origin_id,feature,horizon,record_linked,evidence
+C0001,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0002,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0002,model_sample_mismatch,TFM3,O05,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0004,model_sample_mismatch,AR1,O04,cpi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0005,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0006,model_sample_mismatch,TFM3,O06,fx_return,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0007,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0008,target_mapping,B3,O02,ppi_yoy,12,True,"target-origin-horizon mismatch at row 33: ('B3', 'O02', 12)"
+C0009,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0010,model_sample_mismatch,AR1,O04,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0011,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0012,target_mapping,TFM3,O06,fx_return,12,True,"target-origin-horizon mismatch at row 73: ('TFM3', 'O06', 12)"
+C0014,model_sample_mismatch,B3,O02,ppi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0016,target_mapping,AR1,O04,cpi_yoy,12,True,"target-origin-horizon mismatch at row 17: ('AR1', 'O04', 12)"
+C0016,model_sample_mismatch,B3,O01,fx_return,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0017,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0019,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0021,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0022,target_mapping,AR1,O04,cpi_yoy,3,True,"target-origin-horizon mismatch at row 15: ('AR1', 'O04', 3)"
+C0023,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0023,stale_vintage,TFM3,O02,cpi_yoy,,True,"input selected stale vintage for series/month at row 13: ('SYN', 'cpi_yoy', '2020-01')"
+C0024,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0025,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0025,model_sample_mismatch,B3,O04,fx_return,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0026,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0027,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0028,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0029,model_sample_mismatch,B3,O05,ppi_yoy,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0030,target_mapping,TFM3,O06,fx_return,3,True,"target-origin-horizon mismatch at row 71: ('TFM3', 'O06', 3)"
+C0031,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0032,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0033,target_mapping,TFM3,O03,fx_return,1,True,"target-origin-horizon mismatch at row 58: ('TFM3', 'O03', 1)"
+C0034,model_sample_mismatch,AR1,O04,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0035,model_sample_mismatch,B3,O05,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0036,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0037,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0040,model_sample_mismatch,AR1,O04,cpi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0041,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0042,target_mapping,TFM3,O06,fx_return,3,True,"target-origin-horizon mismatch at row 71: ('TFM3', 'O06', 3)"
+C0043,target_mapping,AR1,O01,cpi_yoy,6,True,"target-origin-horizon mismatch at row 4: ('AR1', 'O01', 6)"
+C0044,model_sample_mismatch,B3,O02,ppi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0045,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0046,target_mapping,AR1,O04,cpi_yoy,3,True,"target-origin-horizon mismatch at row 15: ('AR1', 'O04', 3)"
+C0047,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0048,model_sample_mismatch,TFM3,O06,fx_return,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0048,boundary_equal,AR1,O03,ppi_yoy,,True,input available_at is not strictly before origin at row 23
+C0049,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0050,target_mapping,B3,O02,ppi_yoy,3,True,"target-origin-horizon mismatch at row 31: ('B3', 'O02', 3)"
+C0051,model_sample_mismatch,TFM3,O03,fx_return,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0053,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0054,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0055,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0056,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0057,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0058,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0059,target_mapping,B3,O05,ppi_yoy,6,True,"target-origin-horizon mismatch at row 44: ('B3', 'O05', 6)"
+C0060,model_sample_mismatch,TFM3,O06,fx_return,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0061,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0062,model_sample_mismatch,B3,O02,ppi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0063,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0064,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0065,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0066,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0067,model_sample_mismatch,AR1,O01,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0068,target_mapping,B3,O02,ppi_yoy,12,True,"target-origin-horizon mismatch at row 33: ('B3', 'O02', 12)"
+C0069,target_mapping,TFM3,O03,fx_return,1,True,"target-origin-horizon mismatch at row 58: ('TFM3', 'O03', 1)"
+C0070,target_mapping,AR1,O04,cpi_yoy,3,True,"target-origin-horizon mismatch at row 15: ('AR1', 'O04', 3)"
+C0071,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0071,boundary_equal,TFM3,O02,cpi_yoy,,True,input available_at is not strictly before origin at row 13
+C0072,future_transform_dependency,TFM3,O06,fx_return,,True,source observation month is after input context month at row 55
+C0073,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0074,target_mapping,B3,O02,ppi_yoy,3,True,"target-origin-horizon mismatch at row 31: ('B3', 'O02', 3)"
+C0074,model_sample_mismatch,TFM3,O05,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0075,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0076,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0077,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0078,future_transform_dependency,TFM3,O06,fx_return,,True,source observation month is after input context month at row 55
+C0078,target_mapping,AR1,O03,ppi_yoy,6,True,"target-origin-horizon mismatch at row 12: ('AR1', 'O03', 6)"
+C0079,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0080,target_mapping,B3,O02,ppi_yoy,12,True,"target-origin-horizon mismatch at row 33: ('B3', 'O02', 12)"
+C0081,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0082,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0083,model_sample_mismatch,B3,O05,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0084,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0086,target_mapping,B3,O02,ppi_yoy,3,True,"target-origin-horizon mismatch at row 31: ('B3', 'O02', 3)"
+C0087,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0087,future_transform_dependency,AR1,O06,ppi_yoy,,True,source observation month is after input context month at row 50
+C0089,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0089,model_sample_mismatch,TFM3,O02,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0091,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0092,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0093,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0093,model_sample_mismatch,AR1,O06,ppi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0094,model_sample_mismatch,AR1,O04,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0095,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0095,boundary_equal,TFM3,O02,cpi_yoy,,True,input available_at is not strictly before origin at row 13
+C0096,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0097,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0098,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0098,target_mapping,TFM3,O05,cpi_yoy,6,True,"target-origin-horizon mismatch at row 68: ('TFM3', 'O05', 6)"
+C0099,model_sample_mismatch,TFM3,O03,fx_return,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0100,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0101,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0104,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0105,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0105,boundary_equal,AR1,O06,ppi_yoy,,True,input available_at is not strictly before origin at row 50
+C0106,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0107,target_mapping,B3,O05,ppi_yoy,6,True,"target-origin-horizon mismatch at row 44: ('B3', 'O05', 6)"
+C0109,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0110,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0111,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0112,model_sample_mismatch,AR1,O04,cpi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0113,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0113,boundary_equal,TFM3,O02,cpi_yoy,,True,input available_at is not strictly before origin at row 13
+C0114,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0115,model_sample_mismatch,AR1,O01,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0116,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0117,model_sample_mismatch,TFM3,O03,fx_return,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0118,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0119,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0120,target_mapping,TFM3,O06,fx_return,12,True,"target-origin-horizon mismatch at row 73: ('TFM3', 'O06', 12)"
+C0122,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0124,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0125,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0126,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0126,future_transform_dependency,AR1,O03,ppi_yoy,,True,source observation month is after input context month at row 23
+C0127,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0128,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0129,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0130,model_sample_mismatch,AR1,O04,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0131,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0132,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0133,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0133,stale_vintage,B3,O04,fx_return,,True,"input selected stale vintage for series/month at row 36: ('SYN', 'fx_return', '2020-03')"
+C0134,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0135,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0136,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0137,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0138,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0138,future_transform_dependency,AR1,O03,ppi_yoy,,True,source observation month is after input context month at row 23
+C0139,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0140,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0141,model_sample_mismatch,TFM3,O03,fx_return,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0143,boundary_equal,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0144,target_mapping,TFM3,O06,fx_return,12,True,"target-origin-horizon mismatch at row 73: ('TFM3', 'O06', 12)"
+C0145,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0146,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0147,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0148,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0149,model_sample_mismatch,B3,O05,ppi_yoy,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0150,target_mapping,TFM3,O06,fx_return,3,True,"target-origin-horizon mismatch at row 71: ('TFM3', 'O06', 3)"
+C0151,target_mapping,AR1,O01,cpi_yoy,6,True,"target-origin-horizon mismatch at row 4: ('AR1', 'O01', 6)"
+C0152,model_sample_mismatch,B3,O02,ppi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0152,boundary_equal,TFM3,O05,cpi_yoy,,True,input available_at is not strictly before origin at row 40
+C0153,target_mapping,TFM3,O03,fx_return,1,True,"target-origin-horizon mismatch at row 58: ('TFM3', 'O03', 1)"
+C0154,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0155,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0156,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0157,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0158,target_mapping,B3,O02,ppi_yoy,3,True,"target-origin-horizon mismatch at row 31: ('B3', 'O02', 3)"
+C0159,target_mapping,TFM3,O03,fx_return,6,True,"target-origin-horizon mismatch at row 60: ('TFM3', 'O03', 6)"
+C0160,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0161,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0162,model_sample_mismatch,TFM3,O06,fx_return,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0163,target_mapping,AR1,O01,cpi_yoy,6,True,"target-origin-horizon mismatch at row 4: ('AR1', 'O01', 6)"
+C0164,model_sample_mismatch,B3,O02,ppi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0165,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0166,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0167,model_sample_mismatch,B3,O05,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0170,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0171,model_sample_mismatch,TFM3,O03,fx_return,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0173,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0173,boundary_equal,TFM3,O02,cpi_yoy,,True,input available_at is not strictly before origin at row 13
+C0174,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0174,target_mapping,AR1,O03,ppi_yoy,6,True,"target-origin-horizon mismatch at row 12: ('AR1', 'O03', 6)"
+C0175,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0176,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0176,target_mapping,TFM3,O05,cpi_yoy,1,True,"target-origin-horizon mismatch at row 66: ('TFM3', 'O05', 1)"
+C0177,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0177,boundary_equal,AR1,O06,ppi_yoy,,True,input available_at is not strictly before origin at row 50
+C0178,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0179,target_mapping,B3,O05,ppi_yoy,6,True,"target-origin-horizon mismatch at row 44: ('B3', 'O05', 6)"
+C0180,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0181,target_mapping,AR1,O01,cpi_yoy,1,True,"target-origin-horizon mismatch at row 2: ('AR1', 'O01', 1)"
+C0182,target_mapping,B3,O02,ppi_yoy,3,True,"target-origin-horizon mismatch at row 31: ('B3', 'O02', 3)"
+C0183,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0184,target_mapping,AR1,O04,cpi_yoy,12,True,"target-origin-horizon mismatch at row 17: ('AR1', 'O04', 12)"
+C0185,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0186,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0187,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0188,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0190,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0190,boundary_equal,B3,O01,fx_return,,True,input available_at is not strictly before origin at row 9
+C0193,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0193,target_mapping,B3,O04,fx_return,3,True,"target-origin-horizon mismatch at row 39: ('B3', 'O04', 3)"
+C0194,target_mapping,B3,O02,ppi_yoy,3,True,"target-origin-horizon mismatch at row 31: ('B3', 'O02', 3)"
+C0195,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0197,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0197,target_mapping,TFM3,O02,cpi_yoy,3,True,"target-origin-horizon mismatch at row 55: ('TFM3', 'O02', 3)"
+C0198,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0199,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0200,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0201,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0202,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0203,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0206,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0207,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0207,target_mapping,AR1,O06,ppi_yoy,12,True,"target-origin-horizon mismatch at row 25: ('AR1', 'O06', 12)"
+C0208,model_sample_mismatch,AR1,O04,cpi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0209,model_sample_mismatch,B3,O05,ppi_yoy,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0210,future_transform_dependency,TFM3,O06,fx_return,,True,source observation month is after input context month at row 55
+C0211,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0212,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0213,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0215,boundary_equal,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0217,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0220,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0221,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0221,boundary_equal,TFM3,O02,cpi_yoy,,True,input available_at is not strictly before origin at row 13
+C0222,future_transform_dependency,TFM3,O06,fx_return,,True,source observation month is after input context month at row 55
+C0223,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0224,target_mapping,B3,O02,ppi_yoy,12,True,"target-origin-horizon mismatch at row 33: ('B3', 'O02', 12)"
+C0225,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0226,model_sample_mismatch,AR1,O04,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0227,model_sample_mismatch,B3,O05,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0228,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0229,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0230,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0230,model_sample_mismatch,TFM3,O05,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0231,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0232,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0232,boundary_equal,B3,O01,fx_return,,True,input available_at is not strictly before origin at row 9
+C0233,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0234,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0235,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0237,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0237,future_transform_dependency,AR1,O06,ppi_yoy,,True,source observation month is after input context month at row 50
+C0239,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0241,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0242,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0243,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0244,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0245,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0246,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0247,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0247,future_transform_dependency,B3,O04,fx_return,,True,source observation month is after input context month at row 36
+C0248,target_mapping,B3,O02,ppi_yoy,12,True,"target-origin-horizon mismatch at row 33: ('B3', 'O02', 12)"
+C0248,boundary_equal,TFM3,O05,cpi_yoy,,True,input available_at is not strictly before origin at row 40
+C0249,target_mapping,TFM3,O03,fx_return,1,True,"target-origin-horizon mismatch at row 58: ('TFM3', 'O03', 1)"
+C0250,model_sample_mismatch,AR1,O04,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0251,boundary_equal,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0252,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0253,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0254,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0254,model_sample_mismatch,TFM3,O05,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0255,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0256,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0258,target_mapping,TFM3,O06,fx_return,3,True,"target-origin-horizon mismatch at row 70: ('TFM3', 'O06', 3)"
+C0258,model_sample_mismatch,AR1,O03,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0259,target_mapping,AR1,O01,cpi_yoy,6,True,"target-origin-horizon mismatch at row 4: ('AR1', 'O01', 6)"
+C0259,boundary_equal,B3,O04,fx_return,,True,input available_at is not strictly before origin at row 36
+C0261,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0261,stale_vintage,AR1,O06,ppi_yoy,,True,"input selected stale vintage for series/month at row 50: ('SYN', 'ppi_yoy', '2020-05')"
+C0262,target_mapping,AR1,O04,cpi_yoy,3,True,"target-origin-horizon mismatch at row 15: ('AR1', 'O04', 3)"
+C0263,boundary_equal,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0265,target_mapping,AR1,O01,cpi_yoy,1,True,"target-origin-horizon mismatch at row 2: ('AR1', 'O01', 1)"
+C0266,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0267,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0268,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0268,target_mapping,B3,O01,fx_return,1,True,"target-origin-horizon mismatch at row 26: ('B3', 'O01', 1)"
+C0269,boundary_equal,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0270,model_sample_mismatch,TFM3,O06,fx_return,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0271,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0272,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0272,boundary_equal,TFM3,O05,cpi_yoy,,True,input available_at is not strictly before origin at row 40
+C0273,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0274,model_sample_mismatch,AR1,O04,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0275,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0276,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0277,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0277,future_transform_dependency,B3,O04,fx_return,,True,source observation month is after input context month at row 36
+C0278,model_sample_mismatch,B3,O02,ppi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0279,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0280,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0282,future_transform_dependency,TFM3,O06,fx_return,,True,source observation month is after input context month at row 55
+C0283,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0284,model_sample_mismatch,B3,O02,ppi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0285,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0286,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0288,future_transform_dependency,TFM3,O06,fx_return,,True,source observation month is after input context month at row 55
+C0289,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0290,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0292,model_sample_mismatch,AR1,O04,cpi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0293,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0293,future_transform_dependency,TFM3,O02,cpi_yoy,,True,source observation month is after input context month at row 13
+C0294,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0295,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0296,model_sample_mismatch,B3,O02,ppi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0297,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0298,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0300,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0301,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0302,model_sample_mismatch,B3,O02,ppi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0303,target_mapping,TFM3,O03,fx_return,6,True,"target-origin-horizon mismatch at row 60: ('TFM3', 'O03', 6)"
+C0304,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0305,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0306,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0307,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0308,model_sample_mismatch,B3,O02,ppi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0309,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0311,model_sample_mismatch,B3,O05,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0312,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0313,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0314,model_sample_mismatch,B3,O02,ppi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0315,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0316,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0317,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0318,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0318,target_mapping,AR1,O03,ppi_yoy,6,True,"target-origin-horizon mismatch at row 12: ('AR1', 'O03', 6)"
+C0319,target_mapping,AR1,O01,cpi_yoy,6,True,"target-origin-horizon mismatch at row 4: ('AR1', 'O01', 6)"
+C0320,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0321,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0322,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0323,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0323,boundary_equal,TFM3,O02,cpi_yoy,,True,input available_at is not strictly before origin at row 13
+C0326,target_mapping,B3,O02,ppi_yoy,3,True,"target-origin-horizon mismatch at row 31: ('B3', 'O02', 3)"
+C0327,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0328,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0329,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0330,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0331,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0334,target_mapping,AR1,O04,cpi_yoy,3,True,"target-origin-horizon mismatch at row 15: ('AR1', 'O04', 3)"
+C0337,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0338,target_mapping,B3,O02,ppi_yoy,3,True,"target-origin-horizon mismatch at row 31: ('B3', 'O02', 3)"
+C0339,model_sample_mismatch,TFM3,O03,fx_return,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0341,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0342,target_mapping,TFM3,O06,fx_return,3,True,"target-origin-horizon mismatch at row 71: ('TFM3', 'O06', 3)"
+C0343,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0343,model_sample_mismatch,B3,O04,fx_return,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0344,model_sample_mismatch,B3,O02,ppi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0345,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0346,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0347,boundary_equal,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0348,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0349,target_mapping,AR1,O01,cpi_yoy,1,True,"target-origin-horizon mismatch at row 2: ('AR1', 'O01', 1)"
+C0350,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0351,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0352,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0354,future_transform_dependency,TFM3,O06,fx_return,,True,source observation month is after input context month at row 55
+C0355,model_sample_mismatch,AR1,O01,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0356,target_mapping,B3,O02,ppi_yoy,12,True,"target-origin-horizon mismatch at row 33: ('B3', 'O02', 12)"
+C0357,model_sample_mismatch,TFM3,O03,fx_return,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0358,target_mapping,AR1,O04,cpi_yoy,3,True,"target-origin-horizon mismatch at row 15: ('AR1', 'O04', 3)"
+C0359,target_mapping,B3,O05,ppi_yoy,6,True,"target-origin-horizon mismatch at row 44: ('B3', 'O05', 6)"
+C0360,future_transform_dependency,TFM3,O06,fx_return,,True,source observation month is after input context month at row 55
+C0361,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0363,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0364,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0365,boundary_equal,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0366,model_sample_mismatch,TFM3,O06,fx_return,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0367,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0368,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0370,target_mapping,AR1,O04,cpi_yoy,3,True,"target-origin-horizon mismatch at row 15: ('AR1', 'O04', 3)"
+C0371,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0372,target_mapping,TFM3,O06,fx_return,12,True,"target-origin-horizon mismatch at row 73: ('TFM3', 'O06', 12)"
+C0373,target_mapping,AR1,O01,cpi_yoy,1,True,"target-origin-horizon mismatch at row 2: ('AR1', 'O01', 1)"
+C0374,target_mapping,B3,O02,ppi_yoy,3,True,"target-origin-horizon mismatch at row 31: ('B3', 'O02', 3)"
+C0375,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0375,future_transform_dependency,AR1,O06,ppi_yoy,,True,source observation month is after input context month at row 50
+C0376,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0377,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0378,target_mapping,TFM3,O06,fx_return,3,True,"target-origin-horizon mismatch at row 71: ('TFM3', 'O06', 3)"
+C0379,model_sample_mismatch,AR1,O01,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0380,target_mapping,B3,O02,ppi_yoy,12,True,"target-origin-horizon mismatch at row 33: ('B3', 'O02', 12)"
+C0381,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0382,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0383,boundary_equal,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0384,target_mapping,TFM3,O06,fx_return,12,True,"target-origin-horizon mismatch at row 73: ('TFM3', 'O06', 12)"
+C0385,target_mapping,AR1,O01,cpi_yoy,1,True,"target-origin-horizon mismatch at row 2: ('AR1', 'O01', 1)"
+C0386,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0387,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0387,target_mapping,AR1,O06,ppi_yoy,12,True,"target-origin-horizon mismatch at row 25: ('AR1', 'O06', 12)"
+C0389,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0390,target_mapping,TFM3,O06,fx_return,3,True,"target-origin-horizon mismatch at row 71: ('TFM3', 'O06', 3)"
+C0391,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0391,model_sample_mismatch,B3,O04,fx_return,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0392,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0393,model_sample_mismatch,TFM3,O03,fx_return,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0394,model_sample_mismatch,AR1,O04,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0394,boundary_equal,B3,O01,fx_return,,True,input available_at is not strictly before origin at row 9
+C0395,model_sample_mismatch,B3,O05,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0395,boundary_equal,TFM3,O02,cpi_yoy,,True,input available_at is not strictly before origin at row 13
+C0396,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0397,target_mapping,AR1,O01,cpi_yoy,1,True,"target-origin-horizon mismatch at row 2: ('AR1', 'O01', 1)"
+C0398,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0399,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0399,boundary_equal,AR1,O06,ppi_yoy,,True,input available_at is not strictly before origin at row 50
+C0400,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0400,boundary_equal,B3,O01,fx_return,,True,input available_at is not strictly before origin at row 9
+C0401,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0402,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0403,target_mapping,AR1,O01,cpi_yoy,6,True,"target-origin-horizon mismatch at row 4: ('AR1', 'O01', 6)"
+C0404,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0406,model_sample_mismatch,AR1,O04,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0407,model_sample_mismatch,B3,O05,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0408,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0409,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0410,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0411,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0412,model_sample_mismatch,AR1,O04,cpi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0413,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0413,boundary_equal,TFM3,O02,cpi_yoy,,True,input available_at is not strictly before origin at row 13
+C0415,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0415,target_mapping,B3,O04,fx_return,12,True,"target-origin-horizon mismatch at row 41: ('B3', 'O04', 12)"
+C0416,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0417,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0418,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0419,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0420,target_mapping,TFM3,O06,fx_return,12,True,"target-origin-horizon mismatch at row 73: ('TFM3', 'O06', 12)"
+C0421,model_sample_mismatch,AR1,O01,cpi_yoy,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0422,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0423,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0424,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0425,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0425,boundary_equal,TFM3,O02,cpi_yoy,,True,input available_at is not strictly before origin at row 13
+C0426,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0427,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0428,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0428,model_sample_mismatch,TFM3,O05,cpi_yoy,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0429,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0430,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0431,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0432,future_transform_dependency,TFM3,O06,fx_return,,True,source observation month is after input context month at row 55
+C0433,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0435,model_sample_mismatch,TFM3,O03,fx_return,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0436,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0437,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0437,stale_vintage,TFM3,O02,cpi_yoy,,True,"input selected stale vintage for series/month at row 13: ('SYN', 'cpi_yoy', '2020-01')"
+C0438,future_transform_dependency,TFM3,O06,fx_return,,True,source observation month is after input context month at row 55
+C0439,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0440,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0441,model_sample_mismatch,TFM3,O03,fx_return,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0442,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0442,model_sample_mismatch,B3,O01,fx_return,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0443,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0444,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0445,target_mapping,AR1,O01,cpi_yoy,1,True,"target-origin-horizon mismatch at row 2: ('AR1', 'O01', 1)"
+C0446,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0447,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0449,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0450,model_sample_mismatch,TFM3,O06,fx_return,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0451,target_mapping,AR1,O01,cpi_yoy,6,True,"target-origin-horizon mismatch at row 4: ('AR1', 'O01', 6)"
+C0452,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0453,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0454,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0455,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0456,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0457,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0458,model_sample_mismatch,B3,O02,ppi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0459,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0460,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0463,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0464,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0465,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0466,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0467,model_sample_mismatch,B3,O05,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0468,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0469,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0470,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0470,boundary_equal,TFM3,O05,cpi_yoy,,True,input available_at is not strictly before origin at row 40
+C0471,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0471,stale_vintage,AR1,O06,ppi_yoy,,True,"input selected stale vintage for series/month at row 50: ('SYN', 'ppi_yoy', '2020-05')"
+C0473,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0474,model_sample_mismatch,TFM3,O06,fx_return,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0475,target_mapping,AR1,O01,cpi_yoy,6,True,"target-origin-horizon mismatch at row 4: ('AR1', 'O01', 6)"
+C0475,boundary_equal,B3,O04,fx_return,,True,input available_at is not strictly before origin at row 36
+C0476,target_mapping,B3,O02,ppi_yoy,12,True,"target-origin-horizon mismatch at row 33: ('B3', 'O02', 12)"
+C0479,target_mapping,B3,O05,ppi_yoy,6,True,"target-origin-horizon mismatch at row 44: ('B3', 'O05', 6)"
+C0480,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0481,target_mapping,AR1,O01,cpi_yoy,1,True,"target-origin-horizon mismatch at row 2: ('AR1', 'O01', 1)"
+C0482,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0483,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0484,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0485,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0486,model_sample_mismatch,TFM3,O06,fx_return,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0487,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0488,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0489,target_mapping,TFM3,O03,fx_return,1,True,"target-origin-horizon mismatch at row 58: ('TFM3', 'O03', 1)"
+C0490,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0491,model_sample_mismatch,B3,O05,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0492,target_mapping,TFM3,O06,fx_return,12,True,"target-origin-horizon mismatch at row 72: ('TFM3', 'O06', 12)"
+C0492,model_sample_mismatch,AR1,O03,ppi_yoy,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0493,model_sample_mismatch,AR1,O01,cpi_yoy,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0494,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0495,target_mapping,TFM3,O03,fx_return,6,True,"target-origin-horizon mismatch at row 60: ('TFM3', 'O03', 6)"
+C0496,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0499,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0501,target_mapping,TFM3,O03,fx_return,1,True,"target-origin-horizon mismatch at row 58: ('TFM3', 'O03', 1)"
+C0502,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0502,target_mapping,B3,O01,fx_return,6,True,"target-origin-horizon mismatch at row 28: ('B3', 'O01', 6)"
+C0503,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0504,model_sample_mismatch,TFM3,O06,fx_return,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0505,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0506,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0507,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0508,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0509,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0510,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0511,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0512,model_sample_mismatch,B3,O02,ppi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0514,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0516,model_sample_mismatch,TFM3,O06,fx_return,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0517,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0518,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0519,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0520,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0521,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0521,stale_vintage,TFM3,O02,cpi_yoy,,True,"input selected stale vintage for series/month at row 13: ('SYN', 'cpi_yoy', '2020-01')"
+C0522,future_transform_dependency,TFM3,O06,fx_return,,True,source observation month is after input context month at row 55
+C0523,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0524,target_mapping,B3,O02,ppi_yoy,12,True,"target-origin-horizon mismatch at row 33: ('B3', 'O02', 12)"
+C0525,target_mapping,TFM3,O03,fx_return,1,True,"target-origin-horizon mismatch at row 58: ('TFM3', 'O03', 1)"
+C0525,boundary_equal,AR1,O06,ppi_yoy,,True,input available_at is not strictly before origin at row 50
+C0527,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0528,model_sample_mismatch,TFM3,O06,fx_return,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0529,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0530,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0531,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0532,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0533,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0534,model_sample_mismatch,TFM3,O06,fx_return,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0535,model_sample_mismatch,AR1,O01,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0536,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0536,future_transform_dependency,TFM3,O05,cpi_yoy,,True,source observation month is after input context month at row 40
+C0538,target_mapping,AR1,O04,cpi_yoy,3,True,"target-origin-horizon mismatch at row 15: ('AR1', 'O04', 3)"
+C0538,model_sample_mismatch,B3,O01,fx_return,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0539,boundary_equal,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0540,target_mapping,TFM3,O06,fx_return,12,True,"target-origin-horizon mismatch at row 73: ('TFM3', 'O06', 12)"
+C0542,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0543,target_mapping,TFM3,O03,fx_return,6,True,"target-origin-horizon mismatch at row 60: ('TFM3', 'O03', 6)"
+C0545,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0547,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0548,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0548,boundary_equal,TFM3,O05,cpi_yoy,,True,input available_at is not strictly before origin at row 40
+C0549,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0550,model_sample_mismatch,AR1,O04,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0553,target_mapping,AR1,O01,cpi_yoy,1,True,"target-origin-horizon mismatch at row 2: ('AR1', 'O01', 1)"
+C0554,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0554,model_sample_mismatch,TFM3,O05,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0555,model_sample_mismatch,TFM3,O03,fx_return,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0556,model_sample_mismatch,AR1,O04,cpi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0558,model_sample_mismatch,TFM3,O06,fx_return,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0559,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0559,target_mapping,B3,O04,fx_return,12,True,"target-origin-horizon mismatch at row 41: ('B3', 'O04', 12)"
+C0560,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0562,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0563,boundary_equal,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0564,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0564,future_transform_dependency,AR1,O03,ppi_yoy,,True,source observation month is after input context month at row 23
+C0565,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0566,target_mapping,B3,O02,ppi_yoy,3,True,"target-origin-horizon mismatch at row 31: ('B3', 'O02', 3)"
+C0567,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0568,model_sample_mismatch,AR1,O04,cpi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0569,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0570,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0570,target_mapping,AR1,O03,ppi_yoy,6,True,"target-origin-horizon mismatch at row 12: ('AR1', 'O03', 6)"
+C0571,model_sample_mismatch,AR1,O01,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0572,target_mapping,B3,O02,ppi_yoy,12,True,"target-origin-horizon mismatch at row 33: ('B3', 'O02', 12)"
+C0573,model_sample_mismatch,TFM3,O03,fx_return,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0574,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0575,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0576,target_mapping,TFM3,O06,fx_return,12,True,"target-origin-horizon mismatch at row 73: ('TFM3', 'O06', 12)"
+C0577,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0578,target_mapping,B3,O02,ppi_yoy,3,True,"target-origin-horizon mismatch at row 31: ('B3', 'O02', 3)"
+C0579,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0580,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0581,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0582,target_mapping,TFM3,O06,fx_return,3,True,"target-origin-horizon mismatch at row 71: ('TFM3', 'O06', 3)"
+C0583,model_sample_mismatch,AR1,O01,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0584,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0585,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0586,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0587,target_mapping,B3,O05,ppi_yoy,6,True,"target-origin-horizon mismatch at row 44: ('B3', 'O05', 6)"
+C0589,model_sample_mismatch,AR1,O01,cpi_yoy,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0590,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0592,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0592,target_mapping,B3,O01,fx_return,1,True,"target-origin-horizon mismatch at row 26: ('B3', 'O01', 1)"
+C0593,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0593,target_mapping,TFM3,O02,cpi_yoy,3,True,"target-origin-horizon mismatch at row 55: ('TFM3', 'O02', 3)"
+C0594,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0595,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0596,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0596,future_transform_dependency,TFM3,O05,cpi_yoy,,True,source observation month is after input context month at row 40
+C0597,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0598,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0599,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0600,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0600,target_mapping,AR1,O03,ppi_yoy,1,True,"target-origin-horizon mismatch at row 10: ('AR1', 'O03', 1)"
+C0601,target_mapping,AR1,O01,cpi_yoy,1,True,"target-origin-horizon mismatch at row 2: ('AR1', 'O01', 1)"
+C0602,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0603,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0604,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0605,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0606,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0607,target_mapping,AR1,O01,cpi_yoy,6,True,"target-origin-horizon mismatch at row 4: ('AR1', 'O01', 6)"
+C0608,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0608,model_sample_mismatch,TFM3,O05,cpi_yoy,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0609,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0610,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0611,target_mapping,B3,O05,ppi_yoy,6,True,"target-origin-horizon mismatch at row 44: ('B3', 'O05', 6)"
+C0611,model_sample_mismatch,TFM3,O02,cpi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0612,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0613,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0615,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0615,boundary_equal,AR1,O06,ppi_yoy,,True,input available_at is not strictly before origin at row 50
+C0616,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0616,model_sample_mismatch,B3,O01,fx_return,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0617,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0617,model_sample_mismatch,TFM3,O02,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0618,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0619,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0619,boundary_equal,B3,O04,fx_return,,True,input available_at is not strictly before origin at row 36
+C0621,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0622,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0623,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0624,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0624,model_sample_mismatch,AR1,O03,ppi_yoy,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0625,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0626,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0628,model_sample_mismatch,AR1,O04,cpi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0629,model_sample_mismatch,B3,O05,ppi_yoy,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0630,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0631,model_sample_mismatch,AR1,O01,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0633,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0633,future_transform_dependency,AR1,O06,ppi_yoy,,True,source observation month is after input context month at row 50
+C0634,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0635,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0635,future_transform_dependency,TFM3,O02,cpi_yoy,,True,source observation month is after input context month at row 13
+C0636,model_sample_mismatch,TFM3,O06,fx_return,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0637,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0638,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0639,target_mapping,TFM3,O03,fx_return,6,True,"target-origin-horizon mismatch at row 60: ('TFM3', 'O03', 6)"
+C0640,model_sample_mismatch,AR1,O04,cpi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0641,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0642,model_sample_mismatch,TFM3,O06,fx_return,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0643,target_mapping,AR1,O01,cpi_yoy,6,True,"target-origin-horizon mismatch at row 4: ('AR1', 'O01', 6)"
+C0644,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0645,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0646,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0646,target_mapping,B3,O01,fx_return,6,True,"target-origin-horizon mismatch at row 28: ('B3', 'O01', 6)"
+C0647,boundary_equal,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0648,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0649,model_sample_mismatch,AR1,O01,cpi_yoy,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0650,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0651,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0652,target_mapping,AR1,O04,cpi_yoy,12,True,"target-origin-horizon mismatch at row 17: ('AR1', 'O04', 12)"
+C0653,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0654,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0655,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0655,model_sample_mismatch,B3,O04,fx_return,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0656,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0657,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0658,target_mapping,AR1,O04,cpi_yoy,3,True,"target-origin-horizon mismatch at row 15: ('AR1', 'O04', 3)"
+C0659,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0660,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0661,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0662,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0663,model_sample_mismatch,TFM3,O03,fx_return,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0664,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0665,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0666,model_sample_mismatch,TFM3,O06,fx_return,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0666,boundary_equal,AR1,O03,ppi_yoy,,True,input available_at is not strictly before origin at row 23
+C0667,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0668,model_sample_mismatch,B3,O02,ppi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0669,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0670,model_sample_mismatch,AR1,O04,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0671,model_sample_mismatch,B3,O05,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0673,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0675,model_sample_mismatch,TFM3,O03,fx_return,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0676,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0676,model_sample_mismatch,B3,O01,fx_return,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0677,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0678,future_transform_dependency,TFM3,O06,fx_return,,True,source observation month is after input context month at row 55
+C0679,model_sample_mismatch,AR1,O01,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0680,model_sample_mismatch,B3,O02,ppi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0682,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0683,model_sample_mismatch,B3,O05,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0684,model_sample_mismatch,TFM3,O06,fx_return,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0686,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0687,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0688,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0689,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0690,future_transform_dependency,TFM3,O06,fx_return,,True,source observation month is after input context month at row 55
+C0691,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0692,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0694,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0696,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0697,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0698,target_mapping,B3,O02,ppi_yoy,3,True,"target-origin-horizon mismatch at row 31: ('B3', 'O02', 3)"
+C0699,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0699,stale_vintage,AR1,O06,ppi_yoy,,True,"input selected stale vintage for series/month at row 50: ('SYN', 'ppi_yoy', '2020-05')"
+C0700,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0701,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0702,target_mapping,TFM3,O06,fx_return,3,True,"target-origin-horizon mismatch at row 71: ('TFM3', 'O06', 3)"
+C0703,stale_vintage,AR1,O01,cpi_yoy,,True,"input selected stale vintage for series/month at row 2: ('SYN', 'cpi_yoy', '2019-12')"
+C0704,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0705,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0706,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0707,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0709,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0710,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0710,target_mapping,TFM3,O05,cpi_yoy,6,True,"target-origin-horizon mismatch at row 68: ('TFM3', 'O05', 6)"
+C0711,target_mapping,TFM3,O03,fx_return,6,True,"target-origin-horizon mismatch at row 60: ('TFM3', 'O03', 6)"
+C0712,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0713,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0714,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0715,target_mapping,AR1,O01,cpi_yoy,6,True,"target-origin-horizon mismatch at row 4: ('AR1', 'O01', 6)"
+C0716,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0717,model_sample_mismatch,TFM3,O03,fx_return,1,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0718,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0719,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0720,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0721,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0722,stale_vintage,B3,O02,ppi_yoy,,True,"input selected stale vintage for series/month at row 15: ('SYN', 'ppi_yoy', '2020-01')"
+C0724,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0725,boundary_equal,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0726,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0727,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0729,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0729,model_sample_mismatch,AR1,O06,ppi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0731,target_mapping,B3,O05,ppi_yoy,6,True,"target-origin-horizon mismatch at row 44: ('B3', 'O05', 6)"
+C0732,target_mapping,TFM3,O06,fx_return,12,True,"target-origin-horizon mismatch at row 73: ('TFM3', 'O06', 12)"
+C0734,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0735,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0736,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0737,target_mapping,B3,O05,ppi_yoy,1,True,"target-origin-horizon mismatch at row 42: ('B3', 'O05', 1)"
+C0738,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0739,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0740,model_sample_mismatch,B3,O02,ppi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0741,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0742,boundary_equal,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0743,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0744,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0745,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0746,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0747,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0748,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0749,late_release,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0750,stale_vintage,TFM3,O06,fx_return,,True,"input selected stale vintage for series/month at row 55: ('SYN', 'fx_return', '2020-05')"
+C0751,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0752,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0753,boundary_equal,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0754,late_release,AR1,O04,cpi_yoy,,True,input available_at is not strictly before origin at row 29
+C0754,future_transform_dependency,B3,O01,fx_return,,True,source observation month is after input context month at row 9
+C0755,model_sample_mismatch,B3,O05,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0756,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0757,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0758,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0758,target_mapping,TFM3,O05,cpi_yoy,6,True,"target-origin-horizon mismatch at row 68: ('TFM3', 'O05', 6)"
+C0760,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0761,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0764,model_sample_mismatch,B3,O02,ppi_yoy,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0765,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0766,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0767,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0768,target_mapping,TFM3,O06,fx_return,12,True,"target-origin-horizon mismatch at row 73: ('TFM3', 'O06', 12)"
+C0769,future_transform_dependency,AR1,O01,cpi_yoy,,True,source observation month is after input context month at row 2
+C0769,boundary_equal,B3,O04,fx_return,,True,input available_at is not strictly before origin at row 36
+C0770,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0770,boundary_equal,TFM3,O05,cpi_yoy,,True,input available_at is not strictly before origin at row 40
+C0771,late_release,TFM3,O03,fx_return,,True,input available_at is not strictly before origin at row 28
+C0772,stale_vintage,AR1,O04,cpi_yoy,,True,"input selected stale vintage for series/month at row 29: ('SYN', 'cpi_yoy', '2020-03')"
+C0773,boundary_equal,B3,O05,ppi_yoy,,True,input available_at is not strictly before origin at row 42
+C0774,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0774,target_mapping,AR1,O03,ppi_yoy,6,True,"target-origin-horizon mismatch at row 12: ('AR1', 'O03', 6)"
+C0776,future_transform_dependency,B3,O02,ppi_yoy,,True,source observation month is after input context month at row 15
+C0777,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0778,future_transform_dependency,AR1,O04,cpi_yoy,,True,source observation month is after input context month at row 29
+C0778,model_sample_mismatch,B3,O01,fx_return,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0779,model_sample_mismatch,B3,O05,ppi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0780,boundary_equal,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0781,late_release,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0781,model_sample_mismatch,B3,O04,fx_return,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0782,late_release,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0783,future_transform_dependency,TFM3,O03,fx_return,,True,source observation month is after input context month at row 28
+C0785,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0786,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0787,model_sample_mismatch,AR1,O01,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0787,boundary_equal,B3,O04,fx_return,,True,input available_at is not strictly before origin at row 36
+C0789,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0790,model_sample_mismatch,AR1,O04,cpi_yoy,3,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0791,stale_vintage,B3,O05,ppi_yoy,,True,"input selected stale vintage for series/month at row 42: ('SYN', 'ppi_yoy', '2020-04')"
+C0792,model_sample_mismatch,TFM3,O06,fx_return,12,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
+C0793,boundary_equal,AR1,O01,cpi_yoy,,True,input available_at is not strictly before origin at row 2
+C0794,boundary_equal,B3,O02,ppi_yoy,,True,input available_at is not strictly before origin at row 15
+C0795,stale_vintage,TFM3,O03,fx_return,,True,"input selected stale vintage for series/month at row 28: ('SYN', 'fx_return', '2020-02')"
+C0797,future_transform_dependency,B3,O05,ppi_yoy,,True,source observation month is after input context month at row 42
+C0798,late_release,TFM3,O06,fx_return,,True,input available_at is not strictly before origin at row 55
+C0798,boundary_equal,AR1,O03,ppi_yoy,,True,input available_at is not strictly before origin at row 23
+C0799,model_sample_mismatch,AR1,O01,cpi_yoy,6,True,eligibility row marks the injected model-origin-horizon forecast as NO_OUTPUT_ROW
