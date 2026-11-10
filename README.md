@@ -4,7 +4,7 @@ This repository contains the study's point-in-time audit implementation, synthet
 
 ## Contents
 
-- A reusable release-aligned input-contract auditor, synthetic example, and 19 contract tests.
+- A reusable release-aligned input-contract auditor, its [input/output schema](src/rae/PIT_AUDIT_README.md), synthetic example, and 19 contract tests.
 - An independently generated 800-case information-violation benchmark, a Feast feature-retrieval comparison, and a complete 2^5 computational ablation (32 configurations and 25,600 audit calls).
 - China and U.S. CPI experiment code, frozen protocols, target-free per-origin losses, forecast archives, coverage summaries, and paired uncertainty outputs.
 - IPT vintage-stress, P0–P3 diagnostic, ETS/Theta, and Timestral experiment code with derived results.
