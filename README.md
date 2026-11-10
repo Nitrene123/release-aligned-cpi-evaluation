@@ -1,4 +1,4 @@
-# Release-Aligned Evaluation of TimesFM-3 Configurations and Statistical Baselines for CPI Forecasting
+# Release-Aligned Auditing for High-Confidence Evaluation of Time-Series Forecasts: Evidence from CPI and Industrial Production
 
 This repository contains the study's point-in-time audit implementation, synthetic information-violation benchmark, rolling forecast and scoring code, experiment configurations, validation tests, and target-free derived outputs. Chao Liu and Yanbin Zhang contributed equally.
 
