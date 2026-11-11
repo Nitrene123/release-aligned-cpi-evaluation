@@ -8,6 +8,7 @@ From the repository root:
 
 ```bash
 python -m unittest discover -s tests -p "test_point_in_time.py" -v
+python -m unittest discover -s tests -p "test_dependency_graph.py" -v
 python src/rae/audit_point_in_time.py src/rae/example_pit_bundle.json --out-dir audit_output
 ```
 
@@ -37,8 +38,21 @@ Allowed forecast statuses are `FORECAST_COMPLETE`, `INPUT_INELIGIBLE`, `FIT_FAIL
 - Each target month must equal the origin month plus the forecast horizon. An optional expected-origin contract checks model-specific origin coverage.
 - Per-key `input_eligible`, `forecast_complete`, and `evaluation_eligible` flags and reason codes are written to `eligibility.csv`.
 
+## Derived-input dependency DAG
+
+An unmasked input is treated as derived when `is_derived` is `true`, `dependency_node_id` is supplied, or an input-level `transformation_id` is supplied. Such a row must identify a derived root in the bundle-level `dependency_graph`. The graph uses `nodes`, `edges`, and `transformation_registry`:
+
+- Each edge has `child_node_id` and `parent_node_id`; traversal follows every transitive parent from the selected root.
+- A `source` node records `reference_month`, `available_at_utc`, `source_id`, `series_id`, `vintage_id`, `source_sha256`, and optional `vintage_status`.
+- A `derived` node records its own parents, `reference_month`, `available_at_utc`, `transformation_id`, JSON-object `parameters`, `parameters_sha256`, and `code_sha256`.
+- `transformation_registry` maps each transformation ID to the expected parameter and code hashes. Parameter hashes use UTF-8 JSON with sorted keys, compact separators, `ensure_ascii=false`, and NaN disallowed. The input row's optional `transformation_id` must match the root node.
+
+The checker performs an iterative ancestor walk and a Kahn topological cycle check. It rejects cycles, absent nodes or parents, malformed source identity/hash metadata, invalid or unregistered transformations, parameter/code hash mismatches, future reference months, and any ancestor whose availability is equal to or later than the origin. An invalid derived root makes that input ineligible. The regression suite includes all 12 transitive future-parent cases missed by the earlier frozen S22 checker.
+
+This is a provenance-metadata check. It assumes the supplied graph and registries are complete and trusted, and that hashes were generated from the intended artifacts. It does not independently authenticate the registry, retrieve omitted dependencies, or replay the transformation to establish numerical correctness.
+
 ## Outputs and interpretation
 
 `audit_report.json` contains the overall status, counts, policy, and issue details. `eligibility.csv` records the decision for each planned key. The audit does not read or require target values and does not calculate forecast scores.
 
-The result applies only to the metadata supplied in the bundle. The program does not independently authenticate publisher timestamps, enumerate an external vintage history, validate task-specific transformation/lag dependencies, or score forecasts. Those checks require source-specific evidence or separate modules.
+The result applies only to the metadata supplied in the bundle. The program does not independently authenticate publisher timestamps or transformation registries, establish that the supplied graph is complete, enumerate an external vintage history, replay transformations, or score forecasts. Full historical-vintage maximality and forecast-to-input fingerprint checks require source-specific evidence or separate modules.

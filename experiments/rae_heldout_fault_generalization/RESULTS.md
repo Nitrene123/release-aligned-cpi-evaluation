@@ -52,3 +52,12 @@ The held-out suite generator does not import RAE; the runner loads only frozen_r
 ## Interpretation
 
 The experiment extends the tested perturbations to time-zone boundaries, duplicated and stale vintages, composite errors, dependency chains, and valid serialization changes. It supports the tested implementation's robustness to the sampled representations and its ability to detect the represented fault cases. The transitive-dependency miss identifies a concrete schema and implementation boundary. Results are conditional on the generator's fault definitions and the single checker snapshot; they are not a real-world sensitivity estimate or a comparison against a mature external audit product.
+
+
+## Post-freeze dependency-graph regression update
+
+The results above belong to the checker snapshot frozen before held-out case generation. The current portable checker now validates the supplied dependency DAG: it checks node/edge integrity and missing parents, traverses transitive ancestors iteratively, detects cycles with a Kahn topological pass, checks every reachable node's reference month and availability against the origin, and verifies each derived node's transformation ID, canonical parameter hash, and code hash against the supplied registry. An input-level transformation ID, if present, must match the graph root.
+
+The portable repository suite (run record: `tests/dependency_graph_test_results.json`) contains 12 targeted regression cases for H0100, H0102, H0104, H0106, H0108, H0110, H0112, H0114, H0116, H0118, H0120, and H0122. Each test reconstructs the dependency edges from the archived case and verifies rejection when its injected upstream source is assigned an availability timestamp just after the forecast origin. The tests also check multilevel pass/fail behavior, cycles, missing parents, registry and hash mismatches, origin-time timezone validity, missing graphs, and traversal of a 1,100-node chain. These are regression tests on previously identified misses, not a new held-out detection-rate estimate; the archived 138/150 metric is unchanged.
+
+The implementation validates supplied metadata and hash links only. Completeness and authenticity of dependency edges and transformation registries are assumptions; it does not infer omitted dependencies or numerically replay transformations. See the portable schema in `src/rae/PIT_AUDIT_README.md`.

@@ -158,7 +158,7 @@ def main():
         cfg_summary.append({"variant_id":v["variant_id"],"configuration":v["label"],"modules_enabled":"|".join(v["enabled"]),"n_cases":len(rows),"tp":tp,"fn":fn,"fp_clean":fp,"tn_clean":tn,
             "precision_case":prec,"recall_case":rec,"f1_case":f1,"clean_false_positive_rate":fp/len(clean) if clean else 0.,
             "correct_fault_class_cases":sum(r["detected_any_expected_class"] for r in faulty),"all_fault_classes_detected_cases":sum(r["detected_all_expected_classes"] for r in faulty),
-            "runtime_seconds_total":sum(times),"runtime_seconds_mean":statistics.mean(times),"runtime_seconds_median":statistics.median(times),"cases_per_second":len(times)/sum(times) if sum(times)>0 else 0.})
+            "runtime_seconds_total":sum(times),"runtime_seconds_mean":statistics.mean(times),"cases_per_second":len(times)/sum(times) if sum(times)>0 else 0.})
     summary_by={r["variant_id"]:r for r in cfg_summary}; full=summary_by["M11111"]
     loo=[]
     for module in MODULES:
@@ -234,7 +234,7 @@ def main():
         diffs=[time_by[(cid,"M11111")]-time_by[(cid,abv["variant_id"])] for cid in case_ids]
         boot=[]
         for _ in range(B): boot.append(statistics.mean(diffs[rand.randrange(len(diffs))] for __ in range(len(diffs))))
-        loo_time_ci.append({"module_removed":module,"mean_full_minus_ablated_seconds_per_case":statistics.mean(diffs),"median_seconds_per_case":statistics.median(diffs),
+        loo_time_ci.append({"module_removed":module,"mean_full_minus_ablated_seconds_per_case":statistics.mean(diffs),
             "descriptive_paired_bootstrap_95_low":quantile(boot,.025),"descriptive_paired_bootstrap_95_high":quantile(boot,.975),"n_cases":len(diffs),"bootstrap_replicates":B})
     # Compact per-class full vs leave-one-out effects and detection interactions.
     full_fault={r["fault_group"]:r for r in fault_metrics if r["variant_id"]=="M11111"}

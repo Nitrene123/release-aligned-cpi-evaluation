@@ -11,6 +11,8 @@ import argparse
 import csv
 import json
 import math
+import hashlib
+import re
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -43,6 +45,236 @@ def _finite_value(value: Any) -> bool:
     except (ValueError, TypeError):
         return False
 
+
+
+_SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
+
+
+def _canonical_json_sha256(value: Any) -> str:
+    """Hash JSON parameters with a stable UTF-8 canonical representation."""
+    payload = json.dumps(value, sort_keys=True, separators=(",", ":"),
+                         ensure_ascii=False, allow_nan=False)
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def audit_dependency_graph(
+    graph: dict[str, Any], root_node_id: str,
+    origin_time_utc: str | datetime, origin_month: str,
+    expected_reference_month: str | None = None,
+    expected_transformation_id: str | None = None,
+) -> list[dict[str, str]]:
+    """Recursively validate a derived input's declared provenance DAG.
+
+    Edges point from child to parent. Source nodes record the selected source
+    version and release time. Derived nodes record an invocation-specific
+    transformation ID, parameters, and their hashes. Completeness and trust of
+    the supplied edge and transformation registries remain explicit assumptions.
+    """
+    issues: list[dict[str, str]] = []
+    def add(code: str, message: str, node_id: str = "", path: tuple[str, ...] = ()) -> None:
+        issues.append({"code": code, "message": message, "key": node_id,
+                       "path": " -> ".join(path)})
+    if not isinstance(graph, dict):
+        add("DEPENDENCY_GRAPH_INVALID", "dependency_graph must be an object")
+        return issues
+    try:
+        if isinstance(origin_time_utc, str):
+            origin_time = _aware_datetime(origin_time_utc)
+        elif isinstance(origin_time_utc, datetime):
+            if origin_time_utc.tzinfo is None or origin_time_utc.utcoffset() is None:
+                raise ValueError("origin timestamp must include a UTC offset")
+            origin_time = origin_time_utc
+        else:
+            raise TypeError("origin timestamp must be an ISO-8601 string or aware datetime")
+        _month_index(origin_month)
+    except (TypeError, ValueError) as exc:
+        add("DEPENDENCY_ORIGIN_CLOCK_INVALID", str(exc))
+        return issues
+
+    raw_nodes = graph.get("nodes")
+    if not isinstance(raw_nodes, list):
+        add("DEPENDENCY_NODES_MISSING", "dependency_graph.nodes must be a list")
+        return issues
+    nodes: dict[str, dict[str, Any]] = {}
+    for index, node in enumerate(raw_nodes):
+        if not isinstance(node, dict):
+            add("DEPENDENCY_NODE_INVALID", f"node at index {index} must be an object")
+            continue
+        node_id = str(node.get("node_id", "")).strip()
+        if not node_id:
+            add("DEPENDENCY_NODE_ID_MISSING", f"node at index {index} has no node_id")
+            continue
+        if node_id in nodes:
+            add("DEPENDENCY_NODE_DUPLICATE", "node_id is duplicated", node_id, (node_id,))
+            continue
+        nodes[node_id] = node
+
+    raw_edges = graph.get("edges")
+    if not isinstance(raw_edges, list):
+        add("DEPENDENCY_EDGES_MISSING", "dependency_graph.edges must be a list")
+        raw_edges = []
+    parents: dict[str, list[str]] = {node_id: [] for node_id in nodes}
+    seen_edges: set[tuple[str, str]] = set()
+    for index, edge in enumerate(raw_edges):
+        if not isinstance(edge, dict):
+            add("DEPENDENCY_EDGE_INVALID", f"edge at index {index} must be an object")
+            continue
+        child = str(edge.get("child_node_id", "")).strip()
+        parent = str(edge.get("parent_node_id", "")).strip()
+        if not child or not parent:
+            add("DEPENDENCY_EDGE_INVALID", f"edge at index {index} needs child_node_id and parent_node_id")
+            continue
+        if (child, parent) in seen_edges:
+            add("DEPENDENCY_EDGE_DUPLICATE", "dependency edge is duplicated", child, (child, parent))
+            continue
+        seen_edges.add((child, parent))
+        if child not in nodes:
+            add("DEPENDENCY_CHILD_MISSING", f"edge child {child!r} is absent from nodes", child, (child, parent))
+        if parent not in nodes:
+            add("DEPENDENCY_PARENT_MISSING", f"parent node {parent!r} is absent from nodes", child, (child, parent))
+        if child in parents:
+            parents[child].append(parent)
+
+    # Kahn's topological pass detects cycles without recursion-depth limits.
+    remaining_parents = {node_id: sum(parent in nodes for parent in node_parents)
+                         for node_id, node_parents in parents.items()}
+    children_by_parent: dict[str, list[str]] = {node_id: [] for node_id in nodes}
+    for child, node_parents in parents.items():
+        for parent in node_parents:
+            if parent in nodes:
+                children_by_parent[parent].append(child)
+    ready = [node_id for node_id, count in remaining_parents.items() if count == 0]
+    removed = 0
+    while ready:
+        node_id = ready.pop()
+        removed += 1
+        for child in children_by_parent[node_id]:
+            remaining_parents[child] -= 1
+            if remaining_parents[child] == 0:
+                ready.append(child)
+    if removed != len(nodes):
+        cyclic_or_blocked = sorted(node_id for node_id, count in remaining_parents.items() if count > 0)
+        add("DEPENDENCY_GRAPH_CYCLE",
+            "dependency graph is cyclic or depends on a cyclic component: " + ", ".join(cyclic_or_blocked),
+            root_node_id, tuple(cyclic_or_blocked))
+
+    if root_node_id not in nodes:
+        add("DEPENDENCY_ROOT_MISSING", f"derived input root {root_node_id!r} is absent from nodes",
+            root_node_id, (root_node_id,))
+        return issues
+    if str(nodes[root_node_id].get("node_type", "")).lower() != "derived":
+        add("DEPENDENCY_ROOT_NOT_DERIVED", "derived input must reference a derived root", root_node_id,
+            (root_node_id,))
+    if expected_transformation_id:
+        root_transform_id = str(nodes[root_node_id].get("transformation_id", ""))
+        if root_transform_id != expected_transformation_id:
+            add("DEPENDENCY_ROOT_TRANSFORM_MISMATCH",
+                "dependency root transformation_id differs from the input record",
+                root_node_id, (root_node_id,))
+
+    registry = graph.get("transformation_registry", {})
+    if not isinstance(registry, dict):
+        add("DEPENDENCY_TRANSFORM_REGISTRY_INVALID", "transformation_registry must be an object")
+        registry = {}
+    for node_id, node in nodes.items():
+        node_type = str(node.get("node_type", "")).lower()
+        if node_type not in {"source", "derived"}:
+            add("DEPENDENCY_NODE_TYPE_INVALID", "node_type must be source or derived", node_id, (node_id,))
+            continue
+        if node_type == "source":
+            if parents.get(node_id):
+                add("DEPENDENCY_SOURCE_HAS_PARENTS", "source node cannot have parent edges", node_id,
+                    (node_id, *parents[node_id]))
+            missing = [name for name in ("source_id", "series_id", "vintage_id")
+                       if not str(node.get(name, "")).strip()]
+            if missing:
+                add("DEPENDENCY_SOURCE_IDENTITY_MISSING", "source node missing: " + ", ".join(missing), node_id,
+                    (node_id,))
+            if not _SHA256_RE.fullmatch(str(node.get("source_sha256", "")).lower()):
+                add("DEPENDENCY_SOURCE_HASH_INVALID", "source_sha256 must be 64 hexadecimal characters", node_id,
+                    (node_id,))
+            if str(node.get("vintage_status", "ACTIVE")).upper() in {"OVERWRITTEN", "SUPERSEDED", "REVOKED"}:
+                add("DEPENDENCY_SOURCE_VINTAGE_INVALID", "source version is overwritten or superseded", node_id,
+                    (node_id,))
+            continue
+        if not parents.get(node_id):
+            add("DEPENDENCY_DERIVED_WITHOUT_PARENTS", "derived node must have at least one parent", node_id,
+                (node_id,))
+        transform_id = str(node.get("transformation_id", "")).strip()
+        if not transform_id:
+            add("DEPENDENCY_TRANSFORM_ID_MISSING", "derived node has no transformation_id", node_id, (node_id,))
+            continue
+        expected = registry.get(transform_id)
+        if not isinstance(expected, dict):
+            add("DEPENDENCY_TRANSFORM_REGISTRY_MISSING", f"transformation_id {transform_id!r} is unregistered",
+                node_id, (node_id,))
+            continue
+        parameters = node.get("parameters")
+        if not isinstance(parameters, dict):
+            add("DEPENDENCY_PARAMETERS_INVALID", "derived-node parameters must be an object", node_id, (node_id,))
+            continue
+        try:
+            actual_parameters_hash = _canonical_json_sha256(parameters)
+        except (TypeError, ValueError) as exc:
+            add("DEPENDENCY_PARAMETERS_INVALID", f"parameters are not canonical JSON: {exc}", node_id, (node_id,))
+            continue
+        node_parameters_hash = str(node.get("parameters_sha256", "")).lower()
+        registry_parameters_hash = str(expected.get("parameters_sha256", "")).lower()
+        if not _SHA256_RE.fullmatch(node_parameters_hash) or not _SHA256_RE.fullmatch(registry_parameters_hash):
+            add("DEPENDENCY_PARAMETERS_HASH_INVALID", "parameter hashes must be 64 hexadecimal characters", node_id,
+                (node_id,))
+        elif actual_parameters_hash != node_parameters_hash or actual_parameters_hash != registry_parameters_hash:
+            add("DEPENDENCY_PARAMETERS_HASH_MISMATCH", "parameters do not match the node and trusted registry hashes",
+                node_id, (node_id,))
+        node_code_hash = str(node.get("code_sha256", "")).lower()
+        registry_code_hash = str(expected.get("code_sha256", "")).lower()
+        if not _SHA256_RE.fullmatch(node_code_hash) or not _SHA256_RE.fullmatch(registry_code_hash):
+            add("DEPENDENCY_CODE_HASH_INVALID", "code hashes must be 64 hexadecimal characters", node_id, (node_id,))
+        elif node_code_hash != registry_code_hash:
+            add("DEPENDENCY_CODE_HASH_MISMATCH", "node code hash differs from the trusted registry", node_id,
+                (node_id,))
+
+    reachable: list[str] = []
+    predecessor: dict[str, str | None] = {root_node_id: None}
+    pending = [root_node_id]
+    while pending:
+        node_id = pending.pop()
+        reachable.append(node_id)
+        for parent in parents.get(node_id, []):
+            if parent in nodes and parent not in predecessor:
+                predecessor[parent] = node_id
+                pending.append(parent)
+    def path_to(node_id: str) -> tuple[str, ...]:
+        reverse_path = [node_id]
+        while predecessor[reverse_path[-1]] is not None:
+            reverse_path.append(str(predecessor[reverse_path[-1]]))
+        return tuple(reversed(reverse_path))
+    origin_idx = _month_index(origin_month)
+    for node_id in reachable:
+        node, path = nodes[node_id], path_to(node_id)
+        ref_month = str(node.get("reference_month", ""))
+        try:
+            if not ref_month:
+                raise ValueError("reference_month is missing")
+            if _month_index(ref_month) > origin_idx:
+                add("DEPENDENCY_REFERENCE_AFTER_ORIGIN", "ancestor reference month is later than origin month",
+                    node_id, path)
+        except ValueError as exc:
+            add("DEPENDENCY_REFERENCE_MONTH_INVALID", str(exc), node_id, path)
+        try:
+            available = _aware_datetime(str(node.get("available_at_utc", "")))
+            if available > origin_time:
+                add("DEPENDENCY_NODE_AVAILABLE_AFTER_ORIGIN", "ancestor was released after the forecast origin",
+                    node_id, path)
+            elif available == origin_time:
+                add("DEPENDENCY_NODE_AVAILABLE_AT_ORIGIN", "ancestor must be released strictly before the origin",
+                    node_id, path)
+        except (TypeError, ValueError) as exc:
+            add("DEPENDENCY_NODE_AVAILABILITY_INVALID", str(exc), node_id, path)
+    if expected_reference_month and str(nodes[root_node_id].get("reference_month", "")) != expected_reference_month:
+        add("DEPENDENCY_ROOT_REFERENCE_MISMATCH", "dependency root reference month differs from its input row",
+            root_node_id, (root_node_id,))
+    return issues
 
 def audit_bundle(bundle: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     """Return a target-free report and one eligibility row per planned key."""
@@ -125,6 +357,44 @@ def audit_bundle(bundle: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str,
             except (KeyError, ValueError, TypeError):
                 issue("INVALID_INPUT_VALUE", "error", "unmasked input value is missing or non-numeric", "|".join(key))
 
+    invalid_dependency_inputs: set[tuple[str, str, str]] = set()
+    dependency_inputs_audited: set[tuple[str, str, str]] = set()
+    dependency_graph = bundle.get("dependency_graph")
+    for row in inputs:
+        if bool(row.get("masked", False)):
+            continue
+        oid, feature = str(row.get("origin_id", "")), str(row.get("feature", ""))
+        ref_month = str(row.get("reference_month", ""))
+        input_key = (oid, feature, ref_month)
+        root_id = str(row.get("dependency_node_id", "")).strip()
+        is_derived = (row.get("is_derived") is True or bool(root_id)
+                      or bool(str(row.get("transformation_id", "")).strip()))
+        if not is_derived or input_key in dependency_inputs_audited:
+            continue
+        dependency_inputs_audited.add(input_key)
+        origin = origins.get(oid)
+        if not root_id:
+            invalid_dependency_inputs.add(input_key)
+            issue("DEPENDENCY_ROOT_MISSING", "error", "derived input must declare dependency_node_id",
+                  "|".join(input_key))
+            continue
+        if not isinstance(dependency_graph, dict):
+            invalid_dependency_inputs.add(input_key)
+            issue("DEPENDENCY_GRAPH_MISSING", "error", "derived input requires a complete dependency_graph",
+                  "|".join((*input_key, root_id)))
+            continue
+        if origin is None:
+            invalid_dependency_inputs.add(input_key)
+            continue
+        dep_issues = audit_dependency_graph(
+            dependency_graph, root_id, origin["_origin_time"], str(origin["origin_month"]), ref_month,
+            str(row.get("transformation_id", "")).strip() or None)
+        if dep_issues:
+            invalid_dependency_inputs.add(input_key)
+        for dep_issue in dep_issues:
+            issue(dep_issue["code"], "error", dep_issue["message"],
+                  "|".join((*input_key, dep_issue.get("key", ""), dep_issue.get("path", ""))))
+
     planned_by_key: dict[tuple[str, str, int], dict[str, Any]] = {}
     for row in planned:
         try:
@@ -198,6 +468,7 @@ def audit_bundle(bundle: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str,
             and _finite_value(row.get("value"))
             and str(row.get("vintage_status", "ACTIVE")).upper() not in {"OVERWRITTEN", "SUPERSEDED", "REVOKED"}
             and (row.get("expected_vintage_id") in (None, "") or str(row.get("vintage_id")) == str(row.get("expected_vintage_id")))
+            and (oid, str(row.get("feature")), str(row.get("reference_month", ""))) not in invalid_dependency_inputs
             and oid in origins
             and _input_time_valid(row, origins[oid])
         }
@@ -235,20 +506,23 @@ def audit_bundle(bundle: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str,
             "input_time_rule": "unmasked availability strictly before origin",
             "masked_input_rule": "masked inputs do not satisfy required features; availability may be late or unknown",
             "vintage_rule": "checks supplied selected and expected vintage identifiers; does not enumerate vintage histories",
-            "feature_completeness": "at least one eligible record per required feature; lag-chain completeness is external",
+            "dependency_rule": "unmasked derived inputs require a root in a complete dependency_graph; all ancestors are traversed and checked against the supplied origin and transformation registries",
+            "feature_completeness": "at least one eligible record per required feature; graph closure is conditional on complete supplied edges and registries",
         },
         "counts": {
             "origins": len(origins_list), "input_rows": len(inputs),
             "planned_forecast_keys": len(planned_by_key), "forecast_rows": len(forecasts),
+            "derived_input_roots_audited": len(dependency_inputs_audited),
             "evaluation_eligible_keys": sum(bool(r["evaluation_eligible"]) for r in eligibility_rows),
             "issues_error": errors,
             "issues_info": sum(i["severity"] == "info" for i in issues),
         },
         "issues": issues,
         "limitations": [
+            "Dependency closure is conditional on a complete edge list and complete source/transformation registries; omitted nodes or edges cannot be inferred.",
+            "Publication timestamps, source-version registries, transformation registries, and recorded code hashes are checked as supplied and are not independently authenticated.",
+            "The checker validates provenance metadata and parameter/code identity links; it does not replay transformations to prove numerical output correctness.",
             "Checks only the selected-vintage records supplied in the bundle; it cannot establish a complete historical vintage census.",
-            "Metadata checks do not independently authenticate external publication timestamps.",
-            "Feature-presence checks do not establish task-specific lag-chain completeness.",
             "The audit is target-free and does not compute forecast errors or scores.",
         ],
     }

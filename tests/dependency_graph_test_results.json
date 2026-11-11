@@ -1,0 +1,163 @@
+{
+  "suite": "portable dependency-DAG contract and S22 regression tests",
+  "run_at_utc": "2026-11-11T03:03:21.030726+00:00",
+  "python_version": "3.11.9",
+  "command": "python -m unittest discover -s tests -p \"test_dependency_graph.py\" -v",
+  "audit_code_sha256": "65a65eae55c08d74ba1a03bf4c5002872262e7c35f6cec6859c24a04860617ba",
+  "test_code_sha256": "ce421ea893d057d87b94b6b07264228eeda60b1197147c43d5e74857fa25fe2b",
+  "tests_run": 24,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "status": "PASS",
+  "tests": [
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_clean_multilevel_dependency_graph_passes",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_code_hash_mismatch_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_cycle_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_deep_graph_does_not_hit_python_recursion_limit",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_future_source_at_deep_ancestor_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_input_transformation_id_must_match_graph_root",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_missing_dependency_graph_makes_derived_input_ineligible",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_missing_parent_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_naive_origin_datetime_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_parameter_hash_mismatch_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_s22_H0100_future_parent_regression",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_s22_H0102_future_parent_regression",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_s22_H0104_future_parent_regression",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_s22_H0106_future_parent_regression",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_s22_H0108_future_parent_regression",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_s22_H0110_future_parent_regression",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_s22_H0112_future_parent_regression",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_s22_H0114_future_parent_regression",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_s22_H0116_future_parent_regression",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_s22_H0118_future_parent_regression",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_s22_H0120_future_parent_regression",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_s22_H0122_future_parent_regression",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_source_at_origin_is_rejected",
+      "status": "PASS"
+    },
+    {
+      "test": "test_dependency_graph.DependencyGraphTests.test_unregistered_transformation_is_rejected",
+      "status": "PASS"
+    }
+  ],
+  "s22_regression_cases": [
+    {
+      "case_id": "H0100",
+      "status": "PASS"
+    },
+    {
+      "case_id": "H0102",
+      "status": "PASS"
+    },
+    {
+      "case_id": "H0104",
+      "status": "PASS"
+    },
+    {
+      "case_id": "H0106",
+      "status": "PASS"
+    },
+    {
+      "case_id": "H0108",
+      "status": "PASS"
+    },
+    {
+      "case_id": "H0110",
+      "status": "PASS"
+    },
+    {
+      "case_id": "H0112",
+      "status": "PASS"
+    },
+    {
+      "case_id": "H0114",
+      "status": "PASS"
+    },
+    {
+      "case_id": "H0116",
+      "status": "PASS"
+    },
+    {
+      "case_id": "H0118",
+      "status": "PASS"
+    },
+    {
+      "case_id": "H0120",
+      "status": "PASS"
+    },
+    {
+      "case_id": "H0122",
+      "status": "PASS"
+    }
+  ],
+  "historical_s22_metrics_modified": false,
+  "scope_note": "The 12 S22 cases are targeted regressions for known misses; this report is not a new held-out detection-rate estimate."
+}
