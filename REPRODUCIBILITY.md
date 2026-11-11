@@ -8,6 +8,8 @@ python scripts/verify_public_release.py
 
 After a deliberate file update and review, regenerate the file manifest with `python scripts/verify_public_release.py --write-manifest`, then run the verification command again.
 
+The root manifest normalizes text-file line endings to LF before hashing, so the same text files verify on Windows and POSIX. Binary artifacts are hashed byte-for-byte.
+
 ## Run the point-in-time auditor tests
 
 ```bash

@@ -40,11 +40,12 @@ def files_to_check() -> list[Path]:
 
 
 def sha256(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as stream:
-        for block in iter(lambda: stream.read(1024 * 1024), b""):
-            digest.update(block)
-    return digest.hexdigest()
+    content = path.read_bytes()
+    # Canonicalize text line endings so the public manifest is stable across
+    # Windows and POSIX checkouts. Binary artifacts remain byte-for-byte hashed.
+    if b"\0" not in content:
+        content = content.replace(b"\r\n", b"\n").replace(b"\r", b"\n")
+    return hashlib.sha256(content).hexdigest()
 
 
 def inspect_release(paths: list[Path]) -> list[str]:
