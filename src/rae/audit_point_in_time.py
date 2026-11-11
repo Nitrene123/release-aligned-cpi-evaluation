@@ -312,23 +312,104 @@ def audit_bundle(bundle: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str,
         origins[oid] = {**row, "_origin_time": origin_time}
 
     requirements = bundle.get("required_features_by_model", {})
-    model_names = set(requirements)
-    inputs_by_origin: dict[str, list[dict[str, Any]]] = {}
-    seen_inputs: set[tuple[str, str, str]] = set()
-    for row in inputs:
-        oid, feature = str(row.get("origin_id", "")), str(row.get("feature", ""))
-        ref_month = str(row.get("reference_month", ""))
-        key = (oid, feature, ref_month)
-        if key in seen_inputs:
-            issue("DUPLICATE_INPUT_KEY", "error", "duplicate origin/feature/reference-month key", "|".join(key))
-        seen_inputs.add(key)
+    if not isinstance(requirements, dict):
+        issue("MODEL_REQUIREMENTS_INVALID", "error", "required_features_by_model must be an object")
+        requirements = {}
+    rich_requirements = bundle.get("required_inputs_by_model_origin", {})
+    if not isinstance(rich_requirements, dict):
+        issue("MODEL_INPUT_CONTRACT_INVALID", "error",
+              "required_inputs_by_model_origin must map model names to origin contracts")
+        rich_requirements = {}
+    model_names = set(map(str, requirements)) | set(map(str, rich_requirements))
+    parsed_contracts: dict[tuple[str, str], list[tuple[str, int, str]]] = {}
+    invalid_contracts: set[tuple[str, str]] = set()
+    required_feature_references: set[tuple[str, str, str, str]] = set()
+    for model, by_origin in rich_requirements.items():
+        model = str(model)
+        if not isinstance(by_origin, dict):
+            issue("MODEL_INPUT_CONTRACT_INVALID", "error",
+                  "model input contracts must map origin IDs to requirement lists", model)
+            continue
+        for oid, raw_required in by_origin.items():
+            oid = str(oid)
+            contract_key = (model, oid)
+            if not isinstance(raw_required, list):
+                issue("MODEL_INPUT_CONTRACT_INVALID", "error",
+                      "each model-origin input contract must be a list", f"{model}|{oid}")
+                invalid_contracts.add(contract_key)
+                continue
+            parsed: list[tuple[str, int, str]] = []
+            seen_required: set[tuple[str, int, str]] = set()
+            origin = origins.get(oid)
+            for index, item in enumerate(raw_required):
+                key = f"{model}|{oid}|{index}"
+                if not isinstance(item, dict):
+                    issue("MODEL_INPUT_REQUIREMENT_INVALID", "error",
+                          "each required input must be an object", key)
+                    invalid_contracts.add(contract_key)
+                    continue
+                feature = str(item.get("feature", "")).strip()
+                lag_value = item.get("lag")
+                ref_month = str(item.get("reference_month", "")).strip()
+                if not feature:
+                    issue("MODEL_INPUT_REQUIREMENT_INVALID", "error",
+                          "required input feature must be non-empty", key)
+                    invalid_contracts.add(contract_key)
+                    continue
+                if isinstance(lag_value, bool) or not isinstance(lag_value, int) or lag_value < 0:
+                    issue("MODEL_INPUT_LAG_INVALID", "error",
+                          "required input lag must be a non-negative integer", key)
+                    invalid_contracts.add(contract_key)
+                    continue
+                try:
+                    _month_index(ref_month)
+                    if origin is None:
+                        raise ValueError("required-input contract references an unknown origin")
+                    expected_ref = add_month(str(origin["origin_month"]), -lag_value)
+                    if ref_month != expected_ref:
+                        raise ValueError(
+                            f"reference_month {ref_month!r} does not match lag {lag_value} from origin month "
+                            f"{origin['origin_month']!r} (expected {expected_ref!r})")
+                except (KeyError, ValueError, TypeError) as exc:
+                    issue("MODEL_INPUT_LAG_REFERENCE_MISMATCH", "error", str(exc), key)
+                    invalid_contracts.add(contract_key)
+                    continue
+                requirement = (feature, lag_value, ref_month)
+                if requirement in seen_required:
+                    issue("DUPLICATE_MODEL_INPUT_REQUIREMENT", "error",
+                          "model-origin input contract contains a duplicate feature-lag-reference tuple",
+                          f"{model}|{oid}|{feature}|{lag_value}|{ref_month}")
+                    invalid_contracts.add(contract_key)
+                    continue
+                seen_required.add(requirement)
+                parsed.append(requirement)
+                required_feature_references.add((model, oid, feature, ref_month))
+            parsed_contracts[contract_key] = parsed
+
+    inputs_by_origin: dict[str, list[tuple[int, dict[str, Any]]]] = {}
+    invalid_input_indices: set[int] = set()
+    seen_input_keys: dict[tuple[str, str, str, str], int] = {}
+    seen_feature_lags: dict[tuple[str, str, str, int], int] = {}
+    for index, row in enumerate(inputs):
+        oid, feature = str(row.get("origin_id", "")), str(row.get("feature", "")).strip()
+        ref_month = str(row.get("reference_month", "")).strip()
+        model_scope = str(row.get("model", "")).strip()
+        key = (oid, model_scope, feature, ref_month)
+        if key in seen_input_keys:
+            invalid_input_indices.update((index, seen_input_keys[key]))
+            issue("DUPLICATE_INPUT_KEY", "error",
+                  "duplicate origin/model-scope/feature/reference-month key", "|".join(key))
+        else:
+            seen_input_keys[key] = index
         origin = origins.get(oid)
         if origin is None:
             issue("INPUT_ORIGIN_UNKNOWN", "error", "input references an unknown origin", oid)
+            invalid_input_indices.add(index)
             continue
-        inputs_by_origin.setdefault(oid, []).append(row)
+        inputs_by_origin.setdefault(oid, []).append((index, row))
         try:
             if _month_index(ref_month) > _month_index(str(origin["origin_month"])):
+                invalid_input_indices.add(index)
                 issue("INPUT_REFERENCE_AFTER_ORIGIN", "error",
                       "context reference month is later than the forecast-origin month", "|".join(key))
             masked = bool(row.get("masked", False))
@@ -339,33 +420,73 @@ def audit_bundle(bundle: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str,
             else:
                 available = _aware_datetime(str(available_raw))
                 if not masked and available > origin["_origin_time"]:
+                    invalid_input_indices.add(index)
                     issue("INPUT_AVAILABLE_AFTER_ORIGIN", "error",
                           "unmasked input becomes available after the forecast origin", "|".join(key))
                 elif not masked and available == origin["_origin_time"]:
+                    invalid_input_indices.add(index)
                     issue("INPUT_AVAILABLE_AT_ORIGIN", "error",
                           "unmasked input must become available strictly before the forecast origin", "|".join(key))
         except (KeyError, ValueError, TypeError) as exc:
+            invalid_input_indices.add(index)
             issue("INVALID_INPUT_CLOCK", "error", str(exc), "|".join(key))
+        if "lag" in row:
+            lag_value = row.get("lag")
+            if isinstance(lag_value, bool) or not isinstance(lag_value, int) or lag_value < 0:
+                invalid_input_indices.add(index)
+                issue("INPUT_LAG_INVALID", "error", "input lag must be a non-negative integer", "|".join(key))
+            else:
+                feature_lag_key = (oid, model_scope, feature, lag_value)
+                if feature_lag_key in seen_feature_lags:
+                    invalid_input_indices.update((index, seen_feature_lags[feature_lag_key]))
+                    issue("DUPLICATE_INPUT_FEATURE_LAG", "error",
+                          "duplicate origin/model-scope/feature/lag input", "|".join((*key[:3], str(lag_value))))
+                else:
+                    seen_feature_lags[feature_lag_key] = index
+                try:
+                    expected_ref = add_month(str(origin["origin_month"]), -lag_value)
+                    if ref_month != expected_ref:
+                        invalid_input_indices.add(index)
+                        issue("INPUT_LAG_REFERENCE_MISMATCH", "error",
+                              f"reference_month does not match lag (expected {expected_ref})", "|".join(key))
+                except ValueError as exc:
+                    invalid_input_indices.add(index)
+                    issue("INPUT_LAG_REFERENCE_MISMATCH", "error", str(exc), "|".join(key))
+        elif not bool(row.get("masked", False)):
+            relevant_contracts = [
+                (model, required_oid, feature_req, ref_req)
+                for model, required_oid, feature_req, ref_req in required_feature_references
+                if required_oid == oid and feature_req == feature and ref_req == ref_month
+                and model_scope in {"", model}
+            ]
+            if relevant_contracts:
+                invalid_input_indices.add(index)
+                issue("INPUT_LAG_MISSING", "error",
+                      "an input matching a required feature/reference month lacks its declared lag", "|".join(key))
         if row.get("expected_vintage_id") not in (None, "") and str(row.get("vintage_id")) != str(row.get("expected_vintage_id")):
+            invalid_input_indices.add(index)
             issue("VINTAGE_ID_MISMATCH", "error", "selected vintage differs from the frozen expected vintage", "|".join(key))
         if str(row.get("vintage_status", "ACTIVE")).upper() in {"OVERWRITTEN", "SUPERSEDED", "REVOKED"}:
+            invalid_input_indices.add(index)
             issue("VINTAGE_OVERWRITTEN", "error", "selected vintage is marked overwritten/superseded", "|".join(key))
         if not bool(row.get("masked", False)):
             try:
                 if row.get("value") is None or not math.isfinite(float(row["value"])):
+                    invalid_input_indices.add(index)
                     issue("INVALID_INPUT_VALUE", "error", "unmasked input value is missing or non-finite", "|".join(key))
             except (KeyError, ValueError, TypeError):
+                invalid_input_indices.add(index)
                 issue("INVALID_INPUT_VALUE", "error", "unmasked input value is missing or non-numeric", "|".join(key))
 
-    invalid_dependency_inputs: set[tuple[str, str, str]] = set()
-    dependency_inputs_audited: set[tuple[str, str, str]] = set()
+    invalid_dependency_inputs: set[tuple[str, str, str, str]] = set()
+    dependency_inputs_audited: set[tuple[str, str, str, str]] = set()
     dependency_graph = bundle.get("dependency_graph")
     for row in inputs:
         if bool(row.get("masked", False)):
             continue
-        oid, feature = str(row.get("origin_id", "")), str(row.get("feature", ""))
+        oid, feature = str(row.get("origin_id", "")), str(row.get("feature", "")).strip()
         ref_month = str(row.get("reference_month", ""))
-        input_key = (oid, feature, ref_month)
+        input_key = (oid, str(row.get("model", "")).strip(), feature, ref_month)
         root_id = str(row.get("dependency_node_id", "")).strip()
         is_derived = (row.get("is_derived") is True or bool(root_id)
                       or bool(str(row.get("transformation_id", "")).strip()))
@@ -461,25 +582,87 @@ def audit_bundle(bundle: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str,
     eligibility_rows: list[dict[str, Any]] = []
     for key, plan in sorted(planned_by_key.items()):
         model, oid, h = key
-        required = list(requirements.get(model, []))
-        available_features = {
-            str(row.get("feature")) for row in inputs_by_origin.get(oid, [])
-            if not bool(row.get("masked", False))
-            and _finite_value(row.get("value"))
-            and str(row.get("vintage_status", "ACTIVE")).upper() not in {"OVERWRITTEN", "SUPERSEDED", "REVOKED"}
-            and (row.get("expected_vintage_id") in (None, "") or str(row.get("vintage_id")) == str(row.get("expected_vintage_id")))
-            and (oid, str(row.get("feature")), str(row.get("reference_month", ""))) not in invalid_dependency_inputs
-            and oid in origins
-            and _input_time_valid(row, origins[oid])
-        }
-        missing = [feature for feature in required if feature not in available_features]
         forecast = forecast_by_key.get(key, {})
         status = str(forecast.get("status", "MISSING")).upper()
         reasons = []
+        required_inputs_missing: list[str] = []
         if model not in model_names:
             reasons.append("MODEL_REQUIREMENTS_UNDECLARED")
-        if missing:
-            reasons.append("REQUIRED_INPUT_MISSING_OR_MASKED:" + ",".join(missing))
+            input_eligible = False
+        elif model in rich_requirements:
+            model_contracts = rich_requirements[model]
+            contract_key = (model, oid)
+            if not isinstance(model_contracts, dict) or oid not in model_contracts:
+                reasons.append("MODEL_ORIGIN_REQUIREMENTS_MISSING")
+                issue("MODEL_ORIGIN_REQUIREMENTS_MISSING", "error",
+                      "a rich-contract model must declare its required inputs for every planned origin",
+                      f"{model}|{oid}")
+                input_eligible = False
+            elif contract_key in invalid_contracts:
+                reasons.append("MODEL_ORIGIN_REQUIREMENTS_INVALID")
+                input_eligible = False
+            else:
+                for feature, lag, ref_month in parsed_contracts.get(contract_key, []):
+                    candidates = [
+                        (index, row) for index, row in inputs_by_origin.get(oid, [])
+                        if str(row.get("feature", "")).strip() == feature
+                        and row.get("lag") == lag
+                        and str(row.get("reference_month", "")).strip() == ref_month
+                        and str(row.get("model", "")).strip() in {"", model}
+                    ]
+                    req_label = f"{feature}@lag{lag}[{ref_month}]"
+                    if len(candidates) > 1:
+                        required_inputs_missing.append(req_label)
+                        issue("DUPLICATE_REQUIRED_INPUT_MATCH", "error",
+                              "a model-origin requirement matches multiple global/model-scoped input rows",
+                              f"{model}|{oid}|{req_label}")
+                    elif not candidates:
+                        required_inputs_missing.append(req_label)
+                    else:
+                        input_index, row = candidates[0]
+                        origin = origins.get(oid)
+                        usable = (
+                            origin is not None
+                            and input_index not in invalid_input_indices
+                            and not bool(row.get("masked", False))
+                            and _finite_value(row.get("value"))
+                            and str(row.get("vintage_status", "ACTIVE")).upper()
+                                not in {"OVERWRITTEN", "SUPERSEDED", "REVOKED"}
+                            and (row.get("expected_vintage_id") in (None, "")
+                                 or str(row.get("vintage_id")) == str(row.get("expected_vintage_id")))
+                            and (oid, str(row.get("model", "")).strip(), str(row.get("feature", "")).strip(),
+                                 str(row.get("reference_month", "")).strip()) not in invalid_dependency_inputs
+                            and _input_time_valid(row, origin)
+                        )
+                        if not usable:
+                            required_inputs_missing.append(req_label)
+                input_eligible = not required_inputs_missing
+                if required_inputs_missing:
+                    reasons.append("REQUIRED_INPUT_UNAVAILABLE:" + ",".join(required_inputs_missing))
+        else:
+            raw_required = requirements.get(model, [])
+            required = raw_required if isinstance(raw_required, list) else []
+            if not isinstance(raw_required, list):
+                issue("MODEL_REQUIREMENTS_INVALID", "error",
+                      "legacy required_features_by_model entries must be lists", model)
+                reasons.append("MODEL_REQUIREMENTS_INVALID")
+            available_features = {
+                str(row.get("feature")) for index, row in inputs_by_origin.get(oid, [])
+                if str(row.get("model", "")).strip() in {"", model}
+                and index not in invalid_input_indices
+                and not bool(row.get("masked", False))
+                and _finite_value(row.get("value"))
+                and str(row.get("vintage_status", "ACTIVE")).upper() not in {"OVERWRITTEN", "SUPERSEDED", "REVOKED"}
+                and (row.get("expected_vintage_id") in (None, "") or str(row.get("vintage_id")) == str(row.get("expected_vintage_id")))
+                and (oid, str(row.get("model", "")).strip(), str(row.get("feature", "")).strip(),
+                     str(row.get("reference_month", "")).strip()) not in invalid_dependency_inputs
+                and oid in origins
+                and _input_time_valid(row, origins[oid])
+            }
+            missing = [feature for feature in required if feature not in available_features]
+            input_eligible = not missing and model in requirements
+            if missing:
+                reasons.append("REQUIRED_INPUT_MISSING_OR_MASKED:" + ",".join(map(str, missing)))
         if status in {"FIT_FAILED", "PREDICTION_FAILED"}:
             reasons.append(status)
         if status == "MISSING":
@@ -487,7 +670,11 @@ def audit_bundle(bundle: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str,
         complete = status == "FORECAST_COMPLETE" and _finite_value(forecast.get("prediction"))
         if status == "FORECAST_COMPLETE" and not complete:
             reasons.append("INVALID_FORECAST_VALUE")
-        input_eligible = model in model_names and not missing
+        if status == "FORECAST_COMPLETE" and not input_eligible:
+            reasons.append("FORECAST_FROM_INELIGIBLE_INPUT")
+            issue("FORECAST_FROM_INELIGIBLE_INPUT", "error",
+                  "a completed forecast is present although one or more required inputs are ineligible",
+                  repr(key))
         eligible = input_eligible and complete
         eligibility_rows.append({
             "model": model, "origin_id": oid, "origin_month": origins.get(oid, {}).get("origin_month", ""),
@@ -495,6 +682,29 @@ def audit_bundle(bundle: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str,
             "input_eligible": input_eligible, "forecast_status": status,
             "forecast_complete": complete, "evaluation_eligible": eligible,
             "reason_codes": ";".join(reasons),
+        })
+
+    coverage_groups: dict[tuple[str, int], list[dict[str, Any]]] = {}
+    for row in eligibility_rows:
+        coverage_groups.setdefault((str(row["model"]), int(row["horizon_months"])), []).append(row)
+    coverage_summary = []
+    for (model, horizon), rows in sorted(coverage_groups.items()):
+        planned_count = len(rows)
+        input_eligible_count = sum(bool(row["input_eligible"]) for row in rows)
+        completed_on_eligible = sum(bool(row["input_eligible"]) and bool(row["forecast_complete"]) for row in rows)
+        completed_on_ineligible = sum(not bool(row["input_eligible"]) and bool(row["forecast_complete"]) for row in rows)
+        evaluation_count = sum(bool(row["evaluation_eligible"]) for row in rows)
+        coverage_summary.append({
+            "model": model, "horizon_months": horizon,
+            "planned_origin_count": planned_count,
+            "input_eligible_origin_count": input_eligible_count,
+            "completed_forecasts_on_eligible_inputs": completed_on_eligible,
+            "completed_forecasts_on_ineligible_inputs": completed_on_ineligible,
+            "evaluation_eligible_origin_count": evaluation_count,
+            "eligible_forecast_coverage_rate_over_planned": (
+                completed_on_eligible / planned_count if planned_count else None),
+            "forecast_completion_rate_given_input_eligibility": (
+                completed_on_eligible / input_eligible_count if input_eligible_count else None),
         })
 
     errors = sum(i["severity"] == "error" for i in issues)
@@ -507,7 +717,8 @@ def audit_bundle(bundle: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str,
             "masked_input_rule": "masked inputs do not satisfy required features; availability may be late or unknown",
             "vintage_rule": "checks supplied selected and expected vintage identifiers; does not enumerate vintage histories",
             "dependency_rule": "unmasked derived inputs require a root in a complete dependency_graph; all ancestors are traversed and checked against the supplied origin and transformation registries",
-            "feature_completeness": "at least one eligible record per required feature; graph closure is conditional on complete supplied edges and registries",
+            "feature_completeness": "legacy bundles require at least one eligible row per feature; required_inputs_by_model_origin bundles require exactly one usable row for every feature-lag-reference_month tuple",
+            "coverage_denominator": "all planned model-origin-horizon keys remain in the planned denominator; input-ineligible completed forecasts are separately counted and excluded from eligible forecast coverage",
         },
         "counts": {
             "origins": len(origins_list), "input_rows": len(inputs),
@@ -517,6 +728,7 @@ def audit_bundle(bundle: dict[str, Any]) -> tuple[dict[str, Any], list[dict[str,
             "issues_error": errors,
             "issues_info": sum(i["severity"] == "info" for i in issues),
         },
+        "coverage_by_model_horizon": coverage_summary,
         "issues": issues,
         "limitations": [
             "Dependency closure is conditional on a complete edge list and complete source/transformation registries; omitted nodes or edges cannot be inferred.",

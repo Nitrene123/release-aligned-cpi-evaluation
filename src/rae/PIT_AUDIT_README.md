@@ -27,6 +27,21 @@ The smallest complete example is [`example_pit_bundle.json`](example_pit_bundle.
 | `forecasts` | One row per planned key with the same key and target month, a `status`, and a finite `prediction` when status is `FORECAST_COMPLETE`. |
 | `expected_origin_ids_by_model_horizon` | Optional frozen coverage contract, keyed as `model|horizon`, listing the expected origin IDs. |
 
+For exact I4 eligibility, prefer `required_inputs_by_model_origin` over the legacy feature-only contract:
+
+```json
+"required_inputs_by_model_origin": {
+  "TimesFM": {
+    "O1": [
+      {"feature": "CPI", "lag": 1, "reference_month": "2023-12"},
+      {"feature": "PPI", "lag": 2, "reference_month": "2023-11"}
+    ]
+  }
+}
+```
+
+Each requirement is the exact tuple $(feature, lag, reference\_month)$ for one model and origin. `lag` is a non-negative calendar-month distance from `origin_month`; the auditor checks that the declared reference month equals `origin_month - lag`. Every planned origin for a model using this schema must have an explicit contract, including an empty list when no context inputs are required. An input row may be global (no `model`) or scoped to one model; a model-scoped row cannot satisfy another model's contract. A requirement is eligible only when exactly one matching input row exists and is unmasked, finite, active, vintage-consistent, dependency-valid, and available strictly before the origin. Missing or ambiguous rows make the origin ineligible. Duplicate feature-lag rows are rejected.
+
 Allowed forecast statuses are `FORECAST_COMPLETE`, `INPUT_INELIGIBLE`, `FIT_FAILED`, and `PREDICTION_FAILED`. Failed forecasts remain explicit rows and are not treated as zero error. Rows in `inputs` or `forecasts` must not contain numeric target-value fields named `target_value`, `observed_target`, `actual_target`, or `label_value`.
 
 ## Checks performed
@@ -37,6 +52,18 @@ Allowed forecast statuses are `FORECAST_COMPLETE`, `INPUT_INELIGIBLE`, `FIT_FAIL
 - Origin, input, planned-forecast, and forecast keys must be valid and unique; every planned forecast must have a matching output/status row.
 - Each target month must equal the origin month plus the forecast horizon. An optional expected-origin contract checks model-specific origin coverage.
 - Per-key `input_eligible`, `forecast_complete`, and `evaluation_eligible` flags and reason codes are written to `eligibility.csv`.
+- A completed forecast whose input contract is ineligible is reported as `FORECAST_FROM_INELIGIBLE_INPUT` and is excluded from evaluation eligibility.
+- `coverage_by_model_horizon` reports the complete planned-origin denominator, input-eligible origins, completed forecasts on eligible and ineligible inputs, and eligible coverage. Ineligible origins are never silently removed from the denominator.
+
+The I4 contract suite covers a missing required lag cell, a row without lag metadata, NaN/Inf values, masking, duplicate feature-lag rows, lag/reference inconsistency, release cutoffs, forecasts produced from ineligible inputs, model-specific input scope, explicit per-origin requirements, and denominator retention. Run all three audit suites with:
+
+```bash
+python -m unittest discover -s tests -p "test_point_in_time.py" -v
+python -m unittest discover -s tests -p "test_dependency_graph.py" -v
+python -m unittest discover -s tests -p "test_model_input_eligibility.py" -v
+```
+
+The current machine-readable combined run is `tests/current_audit_validation_results.json` (56 tests across I1/I2/I5, I3, and I4 suites). The test results are software-contract evidence for the supplied bundle schema; they do not establish that an unprovided model manifest lists every input a model actually consumes.
 
 ## Derived-input dependency DAG
 

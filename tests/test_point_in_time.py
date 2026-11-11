@@ -8,7 +8,10 @@ import tempfile
 import unittest
 from pathlib import Path
 
-MODULE_PATH = Path(__file__).resolve().parents[1] / "src" / "rae" / "audit_point_in_time.py"
+HERE = Path(__file__).resolve()
+MODULE_CANDIDATES = [HERE.with_name("audit_point_in_time.py"),
+                     HERE.parents[1] / "src" / "rae" / "audit_point_in_time.py"]
+MODULE_PATH = next(path for path in MODULE_CANDIDATES if path.exists())
 SPEC = importlib.util.spec_from_file_location("audit_point_in_time", MODULE_PATH)
 pit = importlib.util.module_from_spec(SPEC)
 assert SPEC and SPEC.loader

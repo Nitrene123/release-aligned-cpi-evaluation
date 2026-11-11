@@ -4,7 +4,7 @@ This repository contains the study's point-in-time audit implementation, synthet
 
 ## Contents
 
-- A reusable release-aligned input-contract auditor, its [input/output schema](src/rae/PIT_AUDIT_README.md), a synthetic example, 19 input-contract tests, and 24 dependency-DAG tests (including 12 S22 regression cases); machine-readable results are in `tests/dependency_graph_test_results.json`.
+- A reusable release-aligned input-contract auditor, its [input/output schema](src/rae/PIT_AUDIT_README.md), and synthetic examples. The current contract suite includes 19 general input-contract tests, 24 dependency-DAG tests (including 12 S22 regression cases), and 13 exact model-origin eligibility tests; the combined run is recorded in `tests/current_audit_validation_results.json`.
 - An independently generated 800-case information-violation benchmark, a Feast feature-retrieval comparison, and a complete 2^5 computational ablation (32 configurations and 25,600 audit calls).
 - A case-held-out fault-generalization suite with 200 synthetic bundles, plus 500 seeded property and metamorphic trials. The checker snapshot frozen before generation flagged 138/150 faulted cases (92.0% recall), with 100% precision and no false alarms among 50 clean controls. A later portable-checker update adds a DAG audit and regression tests for the 12 previously missed transitive-parent cases; historical suite metrics remain unchanged.
 - China and U.S. CPI experiment code, frozen protocols, target-free per-origin losses, forecast archives, coverage summaries, and paired uncertainty outputs.
@@ -18,6 +18,8 @@ Core audit tests use only the Python standard library:
 ```bash
 python -m unittest discover -s tests -p "test_point_in_time.py" -v
 python -m unittest discover -s tests -p "test_dependency_graph.py" -v
+python -m unittest discover -s tests -p "test_model_input_eligibility.py" -v
+python tests/record_current_audit_validation_results.py --output-dir audit_validation_output
 python src/rae/audit_point_in_time.py src/rae/example_pit_bundle.json --out-dir audit_output
 ```
 

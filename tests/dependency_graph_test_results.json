@@ -1,9 +1,9 @@
 {
   "suite": "portable dependency-DAG contract and S22 regression tests",
-  "run_at_utc": "2026-11-11T03:03:21.030726+00:00",
+  "run_at_utc": "2026-11-11T06:36:36.212581+00:00",
   "python_version": "3.11.9",
   "command": "python -m unittest discover -s tests -p \"test_dependency_graph.py\" -v",
-  "audit_code_sha256": "65a65eae55c08d74ba1a03bf4c5002872262e7c35f6cec6859c24a04860617ba",
+  "audit_code_sha256": "0c80f3ef7ea240521abfc3f29f5505b3f3124788d36c87bc736309e4cc496e54",
   "test_code_sha256": "ce421ea893d057d87b94b6b07264228eeda60b1197147c43d5e74857fa25fe2b",
   "tests_run": 24,
   "failures": 0,
@@ -159,5 +159,5 @@
     }
   ],
   "historical_s22_metrics_modified": false,
-  "scope_note": "The 12 S22 cases are targeted regressions for known misses; this report is not a new held-out detection-rate estimate."
+  "scope_note": "Targeted regressions for known S22 misses; this report is not a new held-out detection-rate estimate."
 }
