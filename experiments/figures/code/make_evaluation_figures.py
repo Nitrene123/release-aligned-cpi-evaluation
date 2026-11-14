@@ -58,8 +58,7 @@ def main():
     parser.add_argument('--data-dir',type=Path)
     parser.add_argument('--output-dir',type=Path,default=ROOT/'figures/evaluation_v3')
     args=parser.parse_args()
-    candidates=[ROOT/'reproducibility/derived_ten_method',ROOT/'submission_jksu_v1/reviewer_supplement/reproducibility/derived_ten_method']
-    data=args.data_dir or next((p for p in candidates if (p/'mae_by_model_horizon.csv').exists()),None)
+    data=args.data_dir
     require(data is not None,'Supply the sealed derived ten-method data directory')
     out=args.output_dir;out.mkdir(parents=True,exist_ok=True)
     score_file=data/'mae_by_model_horizon.csv';loss_file=data/'origin_paired_losses.csv'
