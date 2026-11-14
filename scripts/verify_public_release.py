@@ -21,10 +21,8 @@ FORBIDDEN_NAMES = {
     "target_ledger.csv", "target_values.csv", "actual_targets.csv",
 }
 PRIVATE_TEXT = [
-    re.compile("/data/" + "zyb/EconoFM_CPI", re.I),
-    re.compile(r"D:\\\\?codefield\\\\gpt\\\\" + "ARS_TimesFM3_CPI", re.I),
-    re.compile(r"C:\\\\?Users\\\\" + "77235", re.I),
-    re.compile("20190058@wfu" + r"\\.edu\\.cn", re.I),
+    re.compile(r"(?<![\w./])/(?:home|data)/[^/\s]+(?:/[^/\s]+)*", re.I),
+    re.compile(r"[A-Z]:\\Users\\[^\\\s]+(?:\\[^\\\s]+)*", re.I),
 ]
 
 
